@@ -39,7 +39,7 @@ public class Login {
 		frame.setTitle("4HighSpeed HR - Login");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
-		frame.setSize(300, 200);
+		frame.setSize(350, 200);
 
 		ImageIcon logo = new ImageIcon("logo.png");
 		frame.setIconImage(logo.getImage());
