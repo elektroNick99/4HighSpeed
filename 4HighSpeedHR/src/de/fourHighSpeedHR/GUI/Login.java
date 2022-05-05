@@ -112,13 +112,13 @@ public class Login {
 	}
 
 	/**
-	 * Prüft den Login
+	 * Prueft den Login
 	 * 
 	 * 1. Passwort und Name in Variable speichern.
 	 * 2. Schauen ob es den Name auch gibt.
-	 * 3. Wenn es den Namen gibt stimmt = true sodass die nächste Schleife durchlaufen werden kann. So gelöst
+	 * 3. Wenn es den Namen gibt stimmt = true sodass die nächste Schleife durchlaufen werden kann. So loest
 	 * da sonst mehrmals das JOptionPane kommt, wegen der Schleife.
-	 * 4. wenn PW und Name übereinstimmen wird das nächste Fenster geöffnet, wenn nicht wird von der Anzahl der Versuche einer
+	 * 4. wenn PW und Name Uebereinstimmen wird das nächste Fenster geoeffnet, wenn nicht wird von der Anzahl der Versuche einer
 	 * abgezogen bis man bei 0 ist und wenn man bei 0 ist das Programm auch beendet. Zwischen din werden dabei immer die
 	 * Felder auf null gesetzt.
 	 * 
@@ -136,7 +136,7 @@ public class Login {
 
 		if (passwort.equals("") || username.equals("")) {
 
-			JOptionPane.showMessageDialog(null, "Du musst alle Felder ausfüllen!");
+			JOptionPane.showMessageDialog(null, "Du musst alle Felder ausfuellen!");
 
 		} else {
 			for (String s : passworte.keySet()) {
@@ -152,8 +152,8 @@ public class Login {
 			} else {
 
 				JOptionPane.showMessageDialog(null,
-						"Das Passwort und der Benutzername stimmen nicht überein. Du hast noch " + anzahlVersuche
-								+ " Veruche übrig");
+						"Das Passwort und der Benutzername stimmen nicht Ueberein. Du hast noch " + anzahlVersuche
+								+ " Veruche Uebrig");
 			}
 
 		}
