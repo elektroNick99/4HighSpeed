@@ -11,6 +11,7 @@ public class Passworte {
 		passwortLogin.put("Fritz", "123456789");
 		passwortLogin.put("Nicklas", "160899");
 		passwortLogin.put("Luis", "150801");
+		passwortLogin.put("Cat", "05051997");
 
 	}
 	
