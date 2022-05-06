@@ -152,8 +152,8 @@ public class Login {
 			} else {
 
 				JOptionPane.showMessageDialog(null,
-						"Das Passwort und der Benutzername stimmen nicht Ueberein. Du hast noch " + anzahlVersuche
-								+ " Veruche Uebrig");
+						"Das Passwort und der Benutzername stimmen nicht ueberein. Du hast noch " + anzahlVersuche
+								+ " Versuche uebrig");
 			}
 
 		}
