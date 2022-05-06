@@ -122,9 +122,9 @@ public class Login {
 	 * abgezogen bis man bei 0 ist und wenn man bei 0 ist das Programm auch beendet. Zwischen din werden dabei immer die
 	 * Felder auf null gesetzt.
 	 * 
-	 * @Param passwort
-	 * @Param username
-	 * @Param stimmt
+	 * @param passwort
+	 * @param username
+	 * @param stimmt
 	 */
 
 	public void loginCheck() {
@@ -150,21 +150,24 @@ public class Login {
 				Hauptfenster hauptfenster = new Hauptfenster();
 				
 			} else {
-
-				JOptionPane.showMessageDialog(null,
-						"Das Passwort und der Benutzername stimmen nicht Ueberein. Du hast noch " + anzahlVersuche
-								+ " Veruche Uebrig");
+				if(anzahlVersuche == 0) {
+					JOptionPane.showMessageDialog(null,
+							"Das Passwort und der Benutzername stimmen nicht Ueberein. Das Programm schließt sich jetzt!");
+				}else {
+					JOptionPane.showMessageDialog(null,
+							"Das Passwort und der Benutzername stimmen nicht Ueberein. Du hast noch " + anzahlVersuche
+									+ " Veruche Uebrig");
+				}
 			}
-
 		}
 
 		tfPassword.setText("");
 		tfUsername.setText("");
-		anzahlVersuche--;
 		
 		if(anzahlVersuche == 0) {
 			System.exit(0);
 		}
-
+		
+		anzahlVersuche--;
 	}
 }
