@@ -11,6 +11,7 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import de.fourHighSpeedHR.database.PasswortDB;
 import de.fourHighSpeedHR.objects.Passworte;
 
 import javax.swing.JPasswordField;
@@ -27,13 +28,12 @@ public class Login {
 	private JTextField tfUsername;
 	private JPasswordField tfPassword;
 	private JFrame frame;
-	HashMap<String, String> passworte = new HashMap<>();
-
+	String [] args;
 	public static int anzahlVersuche = 5;
 
-	Login(HashMap<String, String> passworteGegeben) {
-
-		passworte = passworteGegeben;
+	Login(String [] argsEingabe) {
+		
+		args = argsEingabe;
 
 		frame = new JFrame();
 		frame.setTitle("4HighSpeed HR - Login");
@@ -129,10 +129,12 @@ public class Login {
 
 	public void loginCheck() {
 
-		String passwort = String.valueOf(tfPassword.getPassword());
 		String username = tfUsername.getText();
+		String passwort = String.valueOf(tfPassword.getPassword());
 
 		boolean stimmt = false;
+		
+		HashMap<String, String> passworte = PasswortDB.connectToDataBasePW(args);
 
 		if (passwort.equals("") || username.equals("")) {
 
