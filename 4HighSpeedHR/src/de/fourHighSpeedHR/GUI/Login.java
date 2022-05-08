@@ -12,16 +12,12 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 import de.fourHighSpeedHR.database.PasswortDB;
-import de.fourHighSpeedHR.objects.Passworte;
 
 import javax.swing.JPasswordField;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.util.HashMap;
-import java.util.Map;
-import java.awt.event.ActionEvent;
 
 public class Login {
 
