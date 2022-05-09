@@ -11,29 +11,25 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
-import de.fourHighSpeedHR.objects.Passworte;
+import de.fourHighSpeedHR.database.PasswortDB;
 
 import javax.swing.JPasswordField;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.util.HashMap;
-import java.util.Map;
-import java.awt.event.ActionEvent;
 
 public class Login {
 
 	private JTextField tfUsername;
 	private JPasswordField tfPassword;
 	private JFrame frame;
-	HashMap<String, String> passworte = new HashMap<>();
-
+	String [] args;
 	public static int anzahlVersuche = 5;
 
-	Login(HashMap<String, String> passworteGegeben) {
-
-		passworte = passworteGegeben;
+	Login(String [] argsEingabe) {
+		
+		args = argsEingabe;
 
 		frame = new JFrame();
 		frame.setTitle("4HighSpeed HR - Login");
@@ -122,17 +118,19 @@ public class Login {
 	 * abgezogen bis man bei 0 ist und wenn man bei 0 ist das Programm auch beendet. Zwischen din werden dabei immer die
 	 * Felder auf null gesetzt.
 	 * 
-	 * @Param passwort
-	 * @Param username
-	 * @Param stimmt
+	 * @param passwort
+	 * @param username
+	 * @param stimmt
 	 */
 
 	public void loginCheck() {
 
-		String passwort = String.valueOf(tfPassword.getPassword());
 		String username = tfUsername.getText();
+		String passwort = String.valueOf(tfPassword.getPassword());
 
 		boolean stimmt = false;
+		
+		HashMap<String, String> passworte = PasswortDB.connectToDataBasePW(args);
 
 		if (passwort.equals("") || username.equals("")) {
 
@@ -150,21 +148,31 @@ public class Login {
 				Hauptfenster hauptfenster = new Hauptfenster();
 				
 			} else {
+<<<<<<< HEAD
 
 				JOptionPane.showMessageDialog(null,
 						"Das Passwort und der Benutzername stimmen nicht ueberein. Du hast noch " + anzahlVersuche
 								+ " Versuche uebrig");
+=======
+				if(anzahlVersuche == 0) {
+					JOptionPane.showMessageDialog(null,
+							"Das Passwort und der Benutzername stimmen nicht Ueberein. Das Programm schließt sich jetzt!");
+				}else {
+					JOptionPane.showMessageDialog(null,
+							"Das Passwort und der Benutzername stimmen nicht Ueberein. Du hast noch " + anzahlVersuche
+									+ " Veruche Uebrig");
+				}
+>>>>>>> branch 'master' of https://github.com/elektroNick99/4HighSpeed.git
 			}
-
 		}
 
 		tfPassword.setText("");
 		tfUsername.setText("");
-		anzahlVersuche--;
 		
 		if(anzahlVersuche == 0) {
 			System.exit(0);
 		}
-
+		
+		anzahlVersuche--;
 	}
 }

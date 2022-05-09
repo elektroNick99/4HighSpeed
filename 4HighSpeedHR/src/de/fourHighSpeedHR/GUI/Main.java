@@ -1,14 +1,12 @@
 package de.fourHighSpeedHR.GUI;
 
-import de.fourHighSpeedHR.objects.Passworte;
-
 public class Main {
 
 	public static void main(String[] args) {
+			
+		String[] args2 = args;
 		
-		Passworte passworte = new Passworte();
-		
-		Login login = new Login(passworte.getLogin());
+		Login login = new Login(args2);
 	}
 
 }
