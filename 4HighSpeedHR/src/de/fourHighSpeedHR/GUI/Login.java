@@ -148,12 +148,12 @@ public class Login {
 				Hauptfenster hauptfenster = new Hauptfenster();
 				
 			} else {
-<<<<<<< HEAD
+
 
 				JOptionPane.showMessageDialog(null,
 						"Das Passwort und der Benutzername stimmen nicht ueberein. Du hast noch " + anzahlVersuche
 								+ " Versuche uebrig");
-=======
+
 				if(anzahlVersuche == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Das Passwort und der Benutzername stimmen nicht Ueberein. Das Programm schließt sich jetzt!");
@@ -162,7 +162,6 @@ public class Login {
 							"Das Passwort und der Benutzername stimmen nicht Ueberein. Du hast noch " + anzahlVersuche
 									+ " Veruche Uebrig");
 				}
->>>>>>> branch 'master' of https://github.com/elektroNick99/4HighSpeed.git
 			}
 		}
 
