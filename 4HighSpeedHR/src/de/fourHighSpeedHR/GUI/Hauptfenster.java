@@ -43,8 +43,8 @@ public class Hauptfenster {
 		frame.setSize(1000, 700);
 		frame.setTitle("4HighSpeed HR");
 		
-//		ImageIcon logo = new ImageIcon("logo.png");
-//		frame.setIconImage(logo.getImage());
+		ImageIcon logo = new ImageIcon("logo.png");
+		frame.setIconImage(logo.getImage());
 		
 		JPanel contentPanel = new JPanel();
 		Border padding = BorderFactory.createEmptyBorder(25, 25, 25, 25);
