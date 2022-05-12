@@ -12,8 +12,8 @@ import javax.swing.border.Border;
 import HauptfensterPanels.BewerberAnlegen;
 import HauptfensterPanels.BewerberAusgeben;
 import HauptfensterPanels.BewerberLoeschen;
-import HauptfensterPanels.Bewerbeungsgespraech;
-import HauptfensterPanels.Gehlatsausgabe;
+import HauptfensterPanels.Bewerbungsgespraech;
+import HauptfensterPanels.Gehaltsausgabe;
 import HauptfensterPanels.MitarbeiterAendern;
 import HauptfensterPanels.MitarbeiterAnlegen;
 import HauptfensterPanels.MitarbeiterAusgeben;
@@ -88,7 +88,7 @@ public class Hauptfenster {
 		panel_1.setLayout(gbl_panel_1);
 		
 		lblMitarbeiter = new JLabel("Mitarbeiter");
-		lblMitarbeiter.setFont(new Font("Lucida Grande", Font.BOLD, 20));
+		lblMitarbeiter.setFont(new Font("Arial", Font.BOLD, 20));
 		GridBagConstraints gbc_lblMitarbeiter = new GridBagConstraints();
 		gbc_lblMitarbeiter.anchor = GridBagConstraints.WEST;
 		gbc_lblMitarbeiter.insets = new Insets(0, 0, 5, 0);
@@ -97,6 +97,7 @@ public class Hauptfenster {
 		panel_1.add(lblMitarbeiter, gbc_lblMitarbeiter);
 		
 		btnMitarbeiterAnlegen = new JButton("Anlegen");
+		btnMitarbeiterAnlegen.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnMitarbeiterAnlegen = new GridBagConstraints();
 		gbc_btnMitarbeiterAnlegen.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnMitarbeiterAnlegen.insets = new Insets(0, 0, 5, 0);
@@ -106,6 +107,7 @@ public class Hauptfenster {
 		btnMitarbeiterAnlegen.addActionListener(e -> mAnlegenShow());
 		
 		btnMitarbeiterAusgeben = new JButton("Ausgeben");
+		btnMitarbeiterAusgeben.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnMitarbeiterAusgeben = new GridBagConstraints();
 		gbc_btnMitarbeiterAusgeben.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnMitarbeiterAusgeben.insets = new Insets(0, 0, 5, 0);
@@ -115,6 +117,7 @@ public class Hauptfenster {
 		btnMitarbeiterAusgeben.addActionListener(e -> mAusgebenShow());
 		
 		btnMitarbeiterLoeschen = new JButton("Loeschen");
+		btnMitarbeiterLoeschen.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnMitarbeiterLoeschen = new GridBagConstraints();
 		gbc_btnMitarbeiterLoeschen.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnMitarbeiterLoeschen.insets = new Insets(0, 0, 5, 0);
@@ -124,6 +127,7 @@ public class Hauptfenster {
 		btnMitarbeiterLoeschen.addActionListener(e -> mLoeschenShow());
 		
 		btnMitarbeiterAendern = new JButton("Aendern");
+		btnMitarbeiterAendern.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnMitarbeiterAendern = new GridBagConstraints();
 		gbc_btnMitarbeiterAendern.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnMitarbeiterAendern.insets = new Insets(0, 0, 5, 0);
@@ -133,7 +137,7 @@ public class Hauptfenster {
 		btnMitarbeiterAendern.addActionListener(e -> mAendernShow());
 		
 		lblBewerber = new JLabel("Bewerber");
-		lblBewerber.setFont(new Font("Lucida Grande", Font.BOLD, 20));
+		lblBewerber.setFont(new Font("Arial", Font.BOLD, 20));
 		GridBagConstraints gbc_lblBewerber = new GridBagConstraints();
 		gbc_lblBewerber.anchor = GridBagConstraints.WEST;
 		gbc_lblBewerber.insets = new Insets(0, 0, 5, 0);
@@ -142,6 +146,7 @@ public class Hauptfenster {
 		panel_1.add(lblBewerber, gbc_lblBewerber);
 		
 		btnBewerberAnlegen = new JButton("Anlegen");
+		btnBewerberAnlegen.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnBewerberAnlegen = new GridBagConstraints();
 		gbc_btnBewerberAnlegen.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnBewerberAnlegen.insets = new Insets(0, 0, 5, 0);
@@ -151,6 +156,7 @@ public class Hauptfenster {
 		btnBewerberAnlegen.addActionListener(e -> bAnlegenShow());
 		
 		btnBewerberAusgeben = new JButton("Ausgeben");
+		btnBewerberAusgeben.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnBewerberAusgeben = new GridBagConstraints();
 		gbc_btnBewerberAusgeben.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnBewerberAusgeben.insets = new Insets(0, 0, 5, 0);
@@ -160,6 +166,7 @@ public class Hauptfenster {
 		btnBewerberAusgeben.addActionListener(e -> bAusgebenShow());
 		
 		btnBewerberLoeschen = new JButton("Loeschen");
+		btnBewerberLoeschen.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnBewerberLoeschen = new GridBagConstraints();
 		gbc_btnBewerberLoeschen.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnBewerberLoeschen.insets = new Insets(0, 0, 5, 0);
@@ -169,6 +176,7 @@ public class Hauptfenster {
 		btnBewerberLoeschen.addActionListener(e -> bLoeschenShow());
 		
 		btnGespraech = new JButton("Bewerbungsgespraech");
+		btnGespraech.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnGespraech = new GridBagConstraints();
 		gbc_btnGespraech.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnGespraech.insets = new Insets(0, 0, 5, 0);
@@ -178,7 +186,7 @@ public class Hauptfenster {
 		btnGespraech.addActionListener(e -> bGespraechShow());
 		
 		lblRechner = new JLabel("Rechner");
-		lblRechner.setFont(new Font("Lucida Grande", Font.BOLD, 20));
+		lblRechner.setFont(new Font("Arial", Font.BOLD, 20));
 		GridBagConstraints gbc_lblRechner = new GridBagConstraints();
 		gbc_lblRechner.anchor = GridBagConstraints.WEST;
 		gbc_lblRechner.insets = new Insets(0, 0, 5, 0);
@@ -187,6 +195,7 @@ public class Hauptfenster {
 		panel_1.add(lblRechner, gbc_lblRechner);
 		
 		btnGehaltRechner = new JButton("Gehalt");
+		btnGehaltRechner.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnGehaltRechner = new GridBagConstraints();
 		gbc_btnGehaltRechner.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnGehaltRechner.gridx = 0;
@@ -210,11 +219,11 @@ public class Hauptfenster {
 		panel_2.add(bAusgeben);
 		bLoeschen = new BewerberLoeschen();
 		panel_2.add(bLoeschen);
-		bGespraech = new Bewerbeungsgespraech();
+		bGespraech = new Bewerbungsgespraech();
 		panel_2.add(bGespraech);
 
 		
-		gehaltsausgabe = new Gehlatsausgabe();
+		gehaltsausgabe = new Gehaltsausgabe();
 		panel_2.add(gehaltsausgabe);
 
 		
