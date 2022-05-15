@@ -145,7 +145,7 @@ public class Login {
 
 			if (stimmt && passworte.get(username).equals(passwort)) {
 				frame.dispose();
-				Hauptfenster hauptfenster = new Hauptfenster();
+				Hauptfenster hauptfenster = new Hauptfenster(args);
 				
 			} else {
 

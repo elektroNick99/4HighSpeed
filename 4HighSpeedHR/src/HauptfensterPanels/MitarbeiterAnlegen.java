@@ -34,11 +34,15 @@ public class MitarbeiterAnlegen extends JPanel {
 	private static JFormattedTextField tfGeburtstagMonat;
 	private static JFormattedTextField tfGeburtstagTag;
 	
+	static String [] args;
+	
 	/**
 	 * Create the panel.
 	 */
 	
-	public MitarbeiterAnlegen() {
+	public MitarbeiterAnlegen(String [] args) {
+		this.args = args;
+		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{60, 236, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0};
@@ -304,7 +308,7 @@ public class MitarbeiterAnlegen extends JPanel {
 //		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy MM dd");
 //		LocalDate geburtstag = LocalDate.parse(geb, formatter);
 		
-		MitarbeiterDB.hinzufuegenMitarbeiter(new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung, gehalt, geburtstag));
+		MitarbeiterDB.hinzufuegenMitarbeiter(new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung, gehalt, geburtstag), args);
 	}
 	
 	public static NumberFormatter getNuberformatter() {
