@@ -22,11 +22,16 @@ public class MitarbeiterDB {
 			ResultSet rs = s.executeQuery("SELECT * FROM Mitarbeiter");
 			while (rs.next()) {
 				mitarbeiterliste.add(new Mitarbeiter(rs.getString("Name"), rs.getString("Nachname"), rs.getString("Strasse"), Integer.valueOf(rs.getString("Hausnummer")), 
-						rs.getString("Ort"), Integer.valueOf(rs.getString("Postleitzahl")), Long.valueOf(rs.getString("Telefonnummer")), rs.getString("Abteilung"), Integer.valueOf(rs.getString("Gehalt"))));
+						rs.getString("Ort"), Integer.valueOf(rs.getString("Postleitzahl")), Long.valueOf(rs.getString("Telefonnummer")), rs.getString("Abteilung"), 
+						Integer.valueOf(rs.getString("Gehalt")), rs.getString("Geburtstag")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return mitarbeiterliste;
+	}
+	
+	public static void hinzufuegenMitarbeiter(Mitarbeiter ma) {
+		
 	}
 }
