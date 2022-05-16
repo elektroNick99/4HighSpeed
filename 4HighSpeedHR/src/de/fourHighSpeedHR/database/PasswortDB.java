@@ -13,11 +13,12 @@ public class PasswortDB {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection c = DriverManager.getConnection("jdbc:mysql://3.69.96.96:3306/db5", "db5", args[0]);
 			Statement s = c.createStatement();
-
+			
 			ResultSet rs = s.executeQuery("SELECT Benutzername, Passwort FROM Passwort");
 			while (rs.next()) {
 				benutzerPasswort.put(rs.getString("Benutzername"), rs.getString("Passwort"));
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

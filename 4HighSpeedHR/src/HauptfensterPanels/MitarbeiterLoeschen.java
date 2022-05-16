@@ -13,9 +13,9 @@ import javax.swing.JLabel;
 
 public class MitarbeiterLoeschen extends JPanel {
 
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField MitarbeiterLöschenNachname;
+	private JTextField mitarbeiterLöschenNachname;
+	private JTextField mitarbeiterLöschenNummer;
 
 	/**
 	 * Create the panel.
@@ -28,79 +28,79 @@ public class MitarbeiterLoeschen extends JPanel {
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
-		JLabel lblNewLabel = new JLabel("Mitarbeiter löschen");
-		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 15));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.gridx = 1;
-		gbc_lblNewLabel.gridy = 0;
-		add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblMitarbeiterLöschen = new JLabel("Mitarbeiter löschen");
+		lblMitarbeiterLöschen.setFont(new Font("Arial", Font.BOLD, 15));
+		GridBagConstraints gbc_lblMitarbeiterLöschen = new GridBagConstraints();
+		gbc_lblMitarbeiterLöschen.anchor = GridBagConstraints.WEST;
+		gbc_lblMitarbeiterLöschen.insets = new Insets(0, 0, 5, 0);
+		gbc_lblMitarbeiterLöschen.gridx = 1;
+		gbc_lblMitarbeiterLöschen.gridy = 0;
+		add(lblMitarbeiterLöschen, gbc_lblMitarbeiterLöschen);
 		
-		JLabel lblNewLabel_1 = new JLabel("Name*");
-		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_1.gridx = 1;
-		gbc_lblNewLabel_1.gridy = 1;
-		add(lblNewLabel_1, gbc_lblNewLabel_1);
+		JLabel lblMitarbeiterLöschenName = new JLabel("Name*");
+		lblMitarbeiterLöschenName.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblMitarbeiterLöschenName = new GridBagConstraints();
+		gbc_lblMitarbeiterLöschenName.anchor = GridBagConstraints.WEST;
+		gbc_lblMitarbeiterLöschenName.insets = new Insets(0, 0, 5, 0);
+		gbc_lblMitarbeiterLöschenName.gridx = 1;
+		gbc_lblMitarbeiterLöschenName.gridy = 1;
+		add(lblMitarbeiterLöschenName, gbc_lblMitarbeiterLöschenName);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 5, 0);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 2;
-		add(textField, gbc_textField);
-		textField.setColumns(10);
+		MitarbeiterLöschenNachname = new JTextField();
+		MitarbeiterLöschenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_MitarbeiterLöschenNachname = new GridBagConstraints();
+		gbc_MitarbeiterLöschenNachname.insets = new Insets(0, 0, 5, 0);
+		gbc_MitarbeiterLöschenNachname.fill = GridBagConstraints.HORIZONTAL;
+		gbc_MitarbeiterLöschenNachname.gridx = 1;
+		gbc_MitarbeiterLöschenNachname.gridy = 2;
+		add(MitarbeiterLöschenNachname, gbc_MitarbeiterLöschenNachname);
+		MitarbeiterLöschenNachname.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Nachname*");
-		lblNewLabel_2.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
-		gbc_lblNewLabel_2.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_2.gridx = 1;
-		gbc_lblNewLabel_2.gridy = 3;
-		add(lblNewLabel_2, gbc_lblNewLabel_2);
+		JLabel lblMitarbeiterLöschenNachname = new JLabel("Nachname*");
+		lblMitarbeiterLöschenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblMitarbeiterLöschenNachname = new GridBagConstraints();
+		gbc_lblMitarbeiterLöschenNachname.anchor = GridBagConstraints.WEST;
+		gbc_lblMitarbeiterLöschenNachname.insets = new Insets(0, 0, 5, 0);
+		gbc_lblMitarbeiterLöschenNachname.gridx = 1;
+		gbc_lblMitarbeiterLöschenNachname.gridy = 3;
+		add(lblMitarbeiterLöschenNachname, gbc_lblMitarbeiterLöschenNachname);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridx = 1;
-		gbc_textField_1.gridy = 4;
-		add(textField_1, gbc_textField_1);
-		textField_1.setColumns(10);
+		mitarbeiterLöschenNachname = new JTextField();
+		mitarbeiterLöschenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_mitarbeiterLöschenNachname = new GridBagConstraints();
+		gbc_mitarbeiterLöschenNachname.insets = new Insets(0, 0, 5, 0);
+		gbc_mitarbeiterLöschenNachname.fill = GridBagConstraints.HORIZONTAL;
+		gbc_mitarbeiterLöschenNachname.gridx = 1;
+		gbc_mitarbeiterLöschenNachname.gridy = 4;
+		add(mitarbeiterLöschenNachname, gbc_mitarbeiterLöschenNachname);
+		mitarbeiterLöschenNachname.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("Nummer*");
-		lblNewLabel_3.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-		gbc_lblNewLabel_3.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_3.gridx = 1;
-		gbc_lblNewLabel_3.gridy = 5;
-		add(lblNewLabel_3, gbc_lblNewLabel_3);
+		JLabel lblMitarbeiterLöschenNummer = new JLabel("Nummer*");
+		lblMitarbeiterLöschenNummer.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblMitarbeiterLöschenNummer = new GridBagConstraints();
+		gbc_lblMitarbeiterLöschenNummer.anchor = GridBagConstraints.WEST;
+		gbc_lblMitarbeiterLöschenNummer.insets = new Insets(0, 0, 5, 0);
+		gbc_lblMitarbeiterLöschenNummer.gridx = 1;
+		gbc_lblMitarbeiterLöschenNummer.gridy = 5;
+		add(lblMitarbeiterLöschenNummer, gbc_lblMitarbeiterLöschenNummer);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-		gbc_textField_2.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_2.gridx = 1;
-		gbc_textField_2.gridy = 6;
-		add(textField_2, gbc_textField_2);
-		textField_2.setColumns(10);
+		mitarbeiterLöschenNummer = new JTextField();
+		mitarbeiterLöschenNummer.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_mitarbeiterLöschenNummer = new GridBagConstraints();
+		gbc_mitarbeiterLöschenNummer.insets = new Insets(0, 0, 5, 0);
+		gbc_mitarbeiterLöschenNummer.fill = GridBagConstraints.HORIZONTAL;
+		gbc_mitarbeiterLöschenNummer.gridx = 1;
+		gbc_mitarbeiterLöschenNummer.gridy = 6;
+		add(mitarbeiterLöschenNummer, gbc_mitarbeiterLöschenNummer);
+		mitarbeiterLöschenNummer.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Löschen");
-		btnNewButton.setFont(new Font("Arial", Font.BOLD, 12));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 8;
-		add(btnNewButton, gbc_btnNewButton);
+		JButton MitarbeiterLöschen = new JButton("Löschen");
+		MitarbeiterLöschen.setFont(new Font("Arial", Font.BOLD, 12));
+		GridBagConstraints gbc_MitarbeiterLöschen = new GridBagConstraints();
+		gbc_MitarbeiterLöschen.fill = GridBagConstraints.HORIZONTAL;
+		gbc_MitarbeiterLöschen.gridx = 1;
+		gbc_MitarbeiterLöschen.gridy = 8;
+		add(MitarbeiterLöschen, gbc_MitarbeiterLöschen);
 
 
 	}

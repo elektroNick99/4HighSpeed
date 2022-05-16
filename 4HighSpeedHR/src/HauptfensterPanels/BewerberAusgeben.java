@@ -10,53 +10,58 @@ import javax.swing.JButton;
 import java.awt.Font;
 
 public class BewerberAusgeben extends JPanel {
-	private JTextField textField;
+	private JTextField bewerberliste;
 
 	/**
 	 * Create the panel.
 	 */
 	public BewerberAusgeben() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{60, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 83, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[]{60, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 83, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
-		JLabel lblNewLabel = new JLabel("Bewerberliste ausgeben");
-		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 15));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.gridx = 1;
-		gbc_lblNewLabel.gridy = 0;
-		add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblBewerberlisteAusgeben = new JLabel("Bewerberliste ausgeben");
+		lblBewerberlisteAusgeben.setFont(new Font("Arial", Font.BOLD, 15));
+		GridBagConstraints gbc_lblBewerberlisteAusgeben = new GridBagConstraints();
+		gbc_lblBewerberlisteAusgeben.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBewerberlisteAusgeben.gridx = 1;
+		gbc_lblBewerberlisteAusgeben.gridy = 0;
+		add(lblBewerberlisteAusgeben, gbc_lblBewerberlisteAusgeben);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 5, 0);
-		gbc_textField.fill = GridBagConstraints.BOTH;
-		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 1;
-		add(textField, gbc_textField);
-		textField.setColumns(10);
+		bewerberliste = new JTextField();
+		bewerberliste.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_bewerberliste = new GridBagConstraints();
+		gbc_bewerberliste.gridwidth = 2;
+		gbc_bewerberliste.gridheight = 5;
+		gbc_bewerberliste.insets = new Insets(0, 0, 5, 5);
+		gbc_bewerberliste.fill = GridBagConstraints.BOTH;
+		gbc_bewerberliste.gridx = 1;
+		gbc_bewerberliste.gridy = 1;
+		add(bewerberliste, gbc_bewerberliste);
+		bewerberliste.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Liste ausgeben PDF");
-		btnNewButton.setFont(new Font("Arial", Font.BOLD, 12));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
-		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 2;
-		add(btnNewButton, gbc_btnNewButton);
+		JButton bewerberlisteAusgebenPDF = new JButton("Liste ausgeben PDF");
+		bewerberlisteAusgebenPDF.setFont(new Font("Arial", Font.BOLD, 12));
+		GridBagConstraints gbc_bewerberlisteAusgebenPDF = new GridBagConstraints();
+		gbc_bewerberlisteAusgebenPDF.gridwidth = 2;
+		gbc_bewerberlisteAusgebenPDF.insets = new Insets(0, 0, 5, 5);
+		gbc_bewerberlisteAusgebenPDF.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bewerberlisteAusgebenPDF.gridx = 1;
+		gbc_bewerberlisteAusgebenPDF.gridy = 6;
+		add(bewerberlisteAusgebenPDF, gbc_bewerberlisteAusgebenPDF);
 		
-		JButton btnNewButton_1 = new JButton("Liste ausgeben");
-		btnNewButton_1.setFont(new Font("Arial", Font.BOLD, 12));
-		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnNewButton_1.gridx = 1;
-		gbc_btnNewButton_1.gridy = 3;
-		add(btnNewButton_1, gbc_btnNewButton_1);
+		JButton bewerberlisteAusgeben = new JButton("Liste ausgeben");
+		bewerberlisteAusgeben.setFont(new Font("Arial", Font.BOLD, 12));
+		GridBagConstraints gbc_bewerberlisteAusgeben = new GridBagConstraints();
+		gbc_bewerberlisteAusgeben.gridwidth = 2;
+		gbc_bewerberlisteAusgeben.insets = new Insets(0, 0, 0, 5);
+		gbc_bewerberlisteAusgeben.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bewerberlisteAusgeben.gridx = 1;
+		gbc_bewerberlisteAusgeben.gridy = 7;
+		add(bewerberlisteAusgeben, gbc_bewerberlisteAusgeben);
 	}
 
 }

@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import java.util.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -18,6 +19,7 @@ import HauptfensterPanels.MitarbeiterAendern;
 import HauptfensterPanels.MitarbeiterAnlegen;
 import HauptfensterPanels.MitarbeiterAusgeben;
 import HauptfensterPanels.MitarbeiterLoeschen;
+import java.awt.BorderLayout;
 
 public class Hauptfenster {
 	
@@ -36,6 +38,10 @@ public class Hauptfenster {
 	private static JLabel lblRechner;
 	private static JButton btnGehaltRechner;
 	static String [] args;
+	private JPanel panel;
+	private JLabel l1;
+	private JLabel title;
+	private JLabel Datum;
 	
 	Hauptfenster(String [] args) {
 		
@@ -54,32 +60,70 @@ public class Hauptfenster {
 		frame.setContentPane(contentPanel);
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{164, 856, 0};
+		gridBagLayout.columnWidths = new int[]{0, 200, 856, 25, 0};
 		gridBagLayout.rowHeights = new int[]{140, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
 		frame.getContentPane().setLayout(gridBagLayout);
+	
+		GridBagConstraints gbc_l1 = new GridBagConstraints();
+		gbc_l1.insets = new Insets(0, 0, 5, 5);
+		gbc_l1.gridx = 1;
+		gbc_l1.gridy = 0;
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
-		gbc_panel.weighty = 0.01;
 		gbc_panel.gridwidth = 2;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
-		gbc_panel.gridx = 0;
+		gbc_panel.gridx = 1;
 		gbc_panel.gridy = 0;
-		frame.getContentPane().add(panel, gbc_panel);
+		contentPanel.add(panel, gbc_panel);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.rowHeights = new int[]{0, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		panel.add(lblNewLabel_1);
+		ImageIcon icon = new ImageIcon ("C:\\Users\\cateh\\OneDrive\\Desktop\\uni\\firedfive.jpeg");
+		l1 = new JLabel(icon);
+		GridBagConstraints gbc_title_1_1 = new GridBagConstraints();
+		gbc_title_1_1.anchor = GridBagConstraints.WEST;
+		gbc_title_1_1.insets = new Insets(0, 0, 0, 5);
+		gbc_title_1_1.gridx = 0;
+		gbc_title_1_1.gridy = 0;
+		panel.add(l1, gbc_title_1_1);
 		
+		title = new JLabel("S4-HR");
+		title.setFont(new Font("Arial", Font.BOLD, 50));
+		GridBagConstraints gbc_title_1_11 = new GridBagConstraints();
+		gbc_title_1_11.anchor = GridBagConstraints.EAST;
+		gbc_title_1_11.insets = new Insets(0, 0, 0, 5);
+		gbc_title_1_11.gridx = 1;
+		gbc_title_1_11.gridy = 0;
+		panel.add(title, gbc_title_1_11);
+		
+		String dateStr = String.format("%1$te. %1$tB %1$tY", new Date());
+		Datum = new JLabel(dateStr);
+		Datum.setFont(new Font("Arial", Font.BOLD, 20));
+		GridBagConstraints gbc_Datum = new GridBagConstraints();
+		gbc_Datum.anchor = GridBagConstraints.EAST;
+		gbc_Datum.insets = new Insets(0, 0, 0, 5);
+		gbc_Datum.gridx = 2;
+		gbc_Datum.gridy = 0;
+		panel.add(Datum, gbc_Datum);
+	
+		
+	     
+
 		JPanel panel_1 = new JPanel();
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
 		gbc_panel_1.weighty = 1.0;
 		gbc_panel_1.weightx = 0.1;
 		gbc_panel_1.insets = new Insets(0, 0, 0, 5);
 		gbc_panel_1.fill = GridBagConstraints.BOTH;
-		gbc_panel_1.gridx = 0;
+		gbc_panel_1.gridx = 1;
 		gbc_panel_1.gridy = 1;
 		frame.getContentPane().add(panel_1, gbc_panel_1);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
@@ -207,10 +251,11 @@ public class Hauptfenster {
 		
 		panel_2 = new JPanel();
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
+		gbc_panel_2.insets = new Insets(0, 0, 0, 5);
 		gbc_panel_2.weighty = 1.0;
 		gbc_panel_2.weightx = 0.9;
 		gbc_panel_2.fill = GridBagConstraints.BOTH;
-		gbc_panel_2.gridx = 1;
+		gbc_panel_2.gridx = 2;
 		gbc_panel_2.gridy = 1;
 		frame.getContentPane().add(panel_2, gbc_panel_2);
 		panel_2.setLayout(new CardLayout(0, 0));
