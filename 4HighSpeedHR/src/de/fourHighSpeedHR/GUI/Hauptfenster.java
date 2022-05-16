@@ -41,6 +41,7 @@ public class Hauptfenster {
 	private JPanel panel;
 	private JLabel l1;
 	private JLabel title;
+	private JButton Abmelden;
 	private JLabel Datum;
 	
 	Hauptfenster(String [] args) {
@@ -62,8 +63,8 @@ public class Hauptfenster {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 200, 856, 25, 0};
 		gridBagLayout.rowHeights = new int[]{140, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		frame.getContentPane().setLayout(gridBagLayout);
 	
 		GridBagConstraints gbc_l1 = new GridBagConstraints();
@@ -81,16 +82,16 @@ public class Hauptfenster {
 		contentPanel.add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel.rowHeights = new int[]{0, 0};
+		gbl_panel.rowHeights = new int[]{0, 0, 0};
 		gbl_panel.columnWeights = new double[]{0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		ImageIcon icon = new ImageIcon ("C:\\Users\\cateh\\OneDrive\\Desktop\\uni\\firedfive.jpeg");
 		l1 = new JLabel(icon);
 		GridBagConstraints gbc_title_1_1 = new GridBagConstraints();
 		gbc_title_1_1.anchor = GridBagConstraints.WEST;
-		gbc_title_1_1.insets = new Insets(0, 0, 0, 5);
+		gbc_title_1_1.insets = new Insets(0, 0, 5, 5);
 		gbc_title_1_1.gridx = 0;
 		gbc_title_1_1.gridy = 0;
 		panel.add(l1, gbc_title_1_1);
@@ -99,19 +100,31 @@ public class Hauptfenster {
 		title.setFont(new Font("Arial", Font.BOLD, 50));
 		GridBagConstraints gbc_title_1_11 = new GridBagConstraints();
 		gbc_title_1_11.anchor = GridBagConstraints.EAST;
-		gbc_title_1_11.insets = new Insets(0, 0, 0, 5);
+		gbc_title_1_11.insets = new Insets(0, 0, 5, 5);
 		gbc_title_1_11.gridx = 1;
 		gbc_title_1_11.gridy = 0;
 		panel.add(title, gbc_title_1_11);
 		
-		String dateStr = String.format("%1$te. %1$tB %1$tY", new Date());
-		Datum = new JLabel(dateStr);
+		
+		
+		
+		Abmelden = new JButton("Abmelden");
+		GridBagConstraints gbc_Abmelden = new GridBagConstraints();
+		gbc_Abmelden.anchor = GridBagConstraints.NORTHEAST;
+		gbc_Abmelden.insets = new Insets(0, 0, 5, 5);
+		gbc_Abmelden.gridx = 2;
+		gbc_Abmelden.gridy = 0;
+		panel.add(Abmelden, gbc_Abmelden);
+		Abmelden.setFont(new Font("Arial", Font.BOLD, 12));
+		
+		String date = String.format("%1$td.%1$tm.%1$tY - %1$tH:%1$tM:%1$tS", new Date());
+		Datum = new JLabel(date);
 		Datum.setFont(new Font("Arial", Font.BOLD, 20));
 		GridBagConstraints gbc_Datum = new GridBagConstraints();
-		gbc_Datum.anchor = GridBagConstraints.EAST;
+		gbc_Datum.anchor = GridBagConstraints.NORTHEAST;
 		gbc_Datum.insets = new Insets(0, 0, 0, 5);
 		gbc_Datum.gridx = 2;
-		gbc_Datum.gridy = 0;
+		gbc_Datum.gridy = 1;
 		panel.add(Datum, gbc_Datum);
 	
 		
