@@ -143,14 +143,14 @@ public class MitarbeiterAnlegen extends JPanel {
 		gbc_lblMitarbeiterAnlegenAdresse.gridy = 5;
 		add(lblMitarbeiterAnlegenAdresse, gbc_lblMitarbeiterAnlegenAdresse);
 		
-		JLabel lblMitarbeiterAnlegenStraße = new JLabel("Straße");
-		lblMitarbeiterAnlegenStraße.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblMitarbeiterAnlegenStraße = new GridBagConstraints();
-		gbc_lblMitarbeiterAnlegenStraße.insets = new Insets(0, 0, 5, 5);
-		gbc_lblMitarbeiterAnlegenStraße.anchor = GridBagConstraints.WEST;
-		gbc_lblMitarbeiterAnlegenStraße.gridx = 1;
-		gbc_lblMitarbeiterAnlegenStraße.gridy = 6;
-		add(lblMitarbeiterAnlegenStraße, gbc_lblMitarbeiterAnlegenStraße);
+		JLabel lblMitarbeiterAnlegenStrasse = new JLabel("Strasse");
+		lblMitarbeiterAnlegenStrasse.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblMitarbeiterAnlegenStrasse = new GridBagConstraints();
+		gbc_lblMitarbeiterAnlegenStrasse.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMitarbeiterAnlegenStrasse.anchor = GridBagConstraints.WEST;
+		gbc_lblMitarbeiterAnlegenStrasse.gridx = 1;
+		gbc_lblMitarbeiterAnlegenStrasse.gridy = 6;
+		add(lblMitarbeiterAnlegenStrasse, gbc_lblMitarbeiterAnlegenStrasse);
 		
 		JLabel lblMitarbeiterAnlegenHNR = new JLabel("HNR");
 		lblMitarbeiterAnlegenHNR.setFont(new Font("Arial", Font.PLAIN, 12));

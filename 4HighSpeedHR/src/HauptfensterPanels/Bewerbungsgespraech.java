@@ -12,11 +12,11 @@ import javax.swing.JTextField;
 
 public class Bewerbungsgespraech extends JPanel {
 
-	private JTextField bewerbungsgesprächName;
-	private JTextField bewerbungsgesprächNachname;
-	private JTextField bewerbungsgesprächNummer;
+	private JTextField bewerbungsgespraechName;
+	private JTextField bewerbungsgespraechNachname;
+	private JTextField bewerbungsgespraechNummer;
 	private JTextField bisherigeNotizen;
-	private JTextField bewerberNotizenHinzufügen;
+	private JTextField bewerberNotizenHinzufuegen;
 
 	/**
 	 * Create the panel.
@@ -29,14 +29,14 @@ public class Bewerbungsgespraech extends JPanel {
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
-		JLabel lblBewerbungsgespräch = new JLabel("Bewerbungsgespräch");
-		lblBewerbungsgespräch.setFont(new Font("Arial", Font.BOLD, 15));
-		GridBagConstraints gbc_lblBewerbungsgespräch = new GridBagConstraints();
-		gbc_lblBewerbungsgespräch.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerbungsgespräch.insets = new Insets(0, 0, 5, 5);
-		gbc_lblBewerbungsgespräch.gridx = 1;
-		gbc_lblBewerbungsgespräch.gridy = 0;
-		add(lblBewerbungsgespräch, gbc_lblBewerbungsgespräch);
+		JLabel lblBewerbungsgespraech = new JLabel("Bewerbungsgespraech");
+		lblBewerbungsgespraech.setFont(new Font("Arial", Font.BOLD, 15));
+		GridBagConstraints gbc_lblBewerbungsgespraech = new GridBagConstraints();
+		gbc_lblBewerbungsgespraech.anchor = GridBagConstraints.WEST;
+		gbc_lblBewerbungsgespraech.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBewerbungsgespraech.gridx = 1;
+		gbc_lblBewerbungsgespraech.gridy = 0;
+		add(lblBewerbungsgespraech, gbc_lblBewerbungsgespraech);
 		
 		JLabel lblBewerberSuchen = new JLabel("Bewerber suchen");
 		lblBewerberSuchen.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -56,43 +56,43 @@ public class Bewerbungsgespraech extends JPanel {
 		gbc_lblBisherigeNotizen.gridy = 1;
 		add(lblBisherigeNotizen, gbc_lblBisherigeNotizen);
 		
-		JLabel lblBewerbungsgesprächName = new JLabel("Name*");
-		lblBewerbungsgesprächName.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblBewerbungsgesprächName = new GridBagConstraints();
-		gbc_lblBewerbungsgesprächName.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerbungsgesprächName.insets = new Insets(0, 0, 5, 5);
-		gbc_lblBewerbungsgesprächName.gridx = 1;
-		gbc_lblBewerbungsgesprächName.gridy = 2;
-		add(lblBewerbungsgesprächName, gbc_lblBewerbungsgesprächName);
+		JLabel lblBewerbungsgespraechName = new JLabel("Name*");
+		lblBewerbungsgespraechName.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblBewerbungsgespraechName = new GridBagConstraints();
+		gbc_lblBewerbungsgespraechName.anchor = GridBagConstraints.WEST;
+		gbc_lblBewerbungsgespraechName.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBewerbungsgespraechName.gridx = 1;
+		gbc_lblBewerbungsgespraechName.gridy = 2;
+		add(lblBewerbungsgespraechName, gbc_lblBewerbungsgespraechName);
 		
-		bewerbungsgesprächName = new JTextField();
-		bewerbungsgesprächName.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bewerbungsgesprächName = new GridBagConstraints();
-		gbc_bewerbungsgesprächName.insets = new Insets(0, 0, 5, 5);
-		gbc_bewerbungsgesprächName.fill = GridBagConstraints.HORIZONTAL;
-		gbc_bewerbungsgesprächName.gridx = 1;
-		gbc_bewerbungsgesprächName.gridy = 3;
-		add(bewerbungsgesprächName, gbc_bewerbungsgesprächName);
-		bewerbungsgesprächName.setColumns(10);
+		bewerbungsgespraechName = new JTextField();
+		bewerbungsgespraechName.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_bewerbungsgespraechName = new GridBagConstraints();
+		gbc_bewerbungsgespraechName.insets = new Insets(0, 0, 5, 5);
+		gbc_bewerbungsgespraechName.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bewerbungsgespraechName.gridx = 1;
+		gbc_bewerbungsgespraechName.gridy = 3;
+		add(bewerbungsgespraechName, gbc_bewerbungsgespraechName);
+		bewerbungsgespraechName.setColumns(10);
 		
-		JLabel lblBewerbungsgesprächNachname = new JLabel("Nachname*");
-		lblBewerbungsgesprächNachname.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblBewerbungsgesprächNachname = new GridBagConstraints();
-		gbc_lblBewerbungsgesprächNachname.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerbungsgesprächNachname.insets = new Insets(0, 0, 5, 5);
-		gbc_lblBewerbungsgesprächNachname.gridx = 1;
-		gbc_lblBewerbungsgesprächNachname.gridy = 4;
-		add(lblBewerbungsgesprächNachname, gbc_lblBewerbungsgesprächNachname);
+		JLabel lblBewerbungsgespraechNachname = new JLabel("Nachname*");
+		lblBewerbungsgespraechNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblBewerbungsgespraechNachname = new GridBagConstraints();
+		gbc_lblBewerbungsgespraechNachname.anchor = GridBagConstraints.WEST;
+		gbc_lblBewerbungsgespraechNachname.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBewerbungsgespraechNachname.gridx = 1;
+		gbc_lblBewerbungsgespraechNachname.gridy = 4;
+		add(lblBewerbungsgespraechNachname, gbc_lblBewerbungsgespraechNachname);
 		
-		bewerbungsgesprächNachname = new JTextField();
-		bewerbungsgesprächNachname.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bewerbungsgesprächNachname = new GridBagConstraints();
-		gbc_bewerbungsgesprächNachname.insets = new Insets(0, 0, 5, 5);
-		gbc_bewerbungsgesprächNachname.fill = GridBagConstraints.HORIZONTAL;
-		gbc_bewerbungsgesprächNachname.gridx = 1;
-		gbc_bewerbungsgesprächNachname.gridy = 5;
-		add(bewerbungsgesprächNachname, gbc_bewerbungsgesprächNachname);
-		bewerbungsgesprächNachname.setColumns(10);
+		bewerbungsgespraechNachname = new JTextField();
+		bewerbungsgespraechNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_bewerbungsgespraechNachname = new GridBagConstraints();
+		gbc_bewerbungsgespraechNachname.insets = new Insets(0, 0, 5, 5);
+		gbc_bewerbungsgespraechNachname.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bewerbungsgespraechNachname.gridx = 1;
+		gbc_bewerbungsgespraechNachname.gridy = 5;
+		add(bewerbungsgespraechNachname, gbc_bewerbungsgespraechNachname);
+		bewerbungsgespraechNachname.setColumns(10);
 		
 		bisherigeNotizen = new JTextField();
 		bisherigeNotizen.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -105,33 +105,33 @@ public class Bewerbungsgespraech extends JPanel {
 		add(bisherigeNotizen, gbc_bisherigeNotizen);
 		bisherigeNotizen.setColumns(10);
 		
-		JLabel lblBewerbungsgesprächNummer = new JLabel("Nummer*");
-		lblBewerbungsgesprächNummer.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblBewerbungsgesprächNummer = new GridBagConstraints();
-		gbc_lblBewerbungsgesprächNummer.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerbungsgesprächNummer.insets = new Insets(0, 0, 5, 5);
-		gbc_lblBewerbungsgesprächNummer.gridx = 1;
-		gbc_lblBewerbungsgesprächNummer.gridy = 6;
-		add(lblBewerbungsgesprächNummer, gbc_lblBewerbungsgesprächNummer);
+		JLabel lblBewerbungsgespraechNummer = new JLabel("Nummer*");
+		lblBewerbungsgespraechNummer.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblBewerbungsgespraechNummer = new GridBagConstraints();
+		gbc_lblBewerbungsgespraechNummer.anchor = GridBagConstraints.WEST;
+		gbc_lblBewerbungsgespraechNummer.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBewerbungsgespraechNummer.gridx = 1;
+		gbc_lblBewerbungsgespraechNummer.gridy = 6;
+		add(lblBewerbungsgespraechNummer, gbc_lblBewerbungsgespraechNummer);
 		
-		bewerbungsgesprächNummer = new JTextField();
-		bewerbungsgesprächNummer.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bewerbungsgesprächNummer = new GridBagConstraints();
-		gbc_bewerbungsgesprächNummer.insets = new Insets(0, 0, 5, 5);
-		gbc_bewerbungsgesprächNummer.fill = GridBagConstraints.HORIZONTAL;
-		gbc_bewerbungsgesprächNummer.gridx = 1;
-		gbc_bewerbungsgesprächNummer.gridy = 7;
-		add(bewerbungsgesprächNummer, gbc_bewerbungsgesprächNummer);
-		bewerbungsgesprächNummer.setColumns(10);
+		bewerbungsgespraechNummer = new JTextField();
+		bewerbungsgespraechNummer.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_bewerbungsgespraechNummer = new GridBagConstraints();
+		gbc_bewerbungsgespraechNummer.insets = new Insets(0, 0, 5, 5);
+		gbc_bewerbungsgespraechNummer.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bewerbungsgespraechNummer.gridx = 1;
+		gbc_bewerbungsgespraechNummer.gridy = 7;
+		add(bewerbungsgespraechNummer, gbc_bewerbungsgespraechNummer);
+		bewerbungsgespraechNummer.setColumns(10);
 		
-		JLabel lblBewerberNotizenHinzufügen = new JLabel("Bewerber Notizen hinzufügen");
-		lblBewerberNotizenHinzufügen.setFont(new Font("Arial", Font.BOLD, 15));
-		GridBagConstraints gbc_lblBewerberNotizenHinzufügen = new GridBagConstraints();
-		gbc_lblBewerberNotizenHinzufügen.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerberNotizenHinzufügen.insets = new Insets(0, 0, 5, 5);
-		gbc_lblBewerberNotizenHinzufügen.gridx = 1;
-		gbc_lblBewerberNotizenHinzufügen.gridy = 10;
-		add(lblBewerberNotizenHinzufügen, gbc_lblBewerberNotizenHinzufügen);
+		JLabel lblBewerberNotizenHinzufuegen = new JLabel("Bewerber Notizen hinzufuegen");
+		lblBewerberNotizenHinzufuegen.setFont(new Font("Arial", Font.BOLD, 15));
+		GridBagConstraints gbc_lblBewerberNotizenHinzufuegen = new GridBagConstraints();
+		gbc_lblBewerberNotizenHinzufuegen.anchor = GridBagConstraints.WEST;
+		gbc_lblBewerberNotizenHinzufuegen.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBewerberNotizenHinzufuegen.gridx = 1;
+		gbc_lblBewerberNotizenHinzufuegen.gridy = 10;
+		add(lblBewerberNotizenHinzufuegen, gbc_lblBewerberNotizenHinzufuegen);
 		
 		JLabel lblNewLabel_7 = new JLabel(" ");
 		GridBagConstraints gbc_lblNewLabel_7 = new GridBagConstraints();
@@ -141,26 +141,26 @@ public class Bewerbungsgespraech extends JPanel {
 		gbc_lblNewLabel_7.gridy = 11;
 		add(lblNewLabel_7, gbc_lblNewLabel_7);
 		
-		bewerberNotizenHinzufügen = new JTextField();
-		bewerberNotizenHinzufügen.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bewerberNotizenHinzufügen = new GridBagConstraints();
-		gbc_bewerberNotizenHinzufügen.gridwidth = 2;
-		gbc_bewerberNotizenHinzufügen.gridheight = 4;
-		gbc_bewerberNotizenHinzufügen.insets = new Insets(0, 0, 5, 0);
-		gbc_bewerberNotizenHinzufügen.fill = GridBagConstraints.BOTH;
-		gbc_bewerberNotizenHinzufügen.gridx = 1;
-		gbc_bewerberNotizenHinzufügen.gridy = 11;
-		add(bewerberNotizenHinzufügen, gbc_bewerberNotizenHinzufügen);
-		bewerberNotizenHinzufügen.setColumns(10);
+		bewerberNotizenHinzufuegen = new JTextField();
+		bewerberNotizenHinzufuegen.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_bewerberNotizenHinzufuegen = new GridBagConstraints();
+		gbc_bewerberNotizenHinzufuegen.gridwidth = 2;
+		gbc_bewerberNotizenHinzufuegen.gridheight = 4;
+		gbc_bewerberNotizenHinzufuegen.insets = new Insets(0, 0, 5, 0);
+		gbc_bewerberNotizenHinzufuegen.fill = GridBagConstraints.BOTH;
+		gbc_bewerberNotizenHinzufuegen.gridx = 1;
+		gbc_bewerberNotizenHinzufuegen.gridy = 11;
+		add(bewerberNotizenHinzufuegen, gbc_bewerberNotizenHinzufuegen);
+		bewerberNotizenHinzufuegen.setColumns(10);
 		
-		JButton bewerbungsgesprächSpeichern = new JButton("Speichern");
-		bewerbungsgesprächSpeichern.setFont(new Font("Arial", Font.BOLD, 12));
-		GridBagConstraints gbc_bewerbungsgesprächSpeichern = new GridBagConstraints();
-		gbc_bewerbungsgesprächSpeichern.insets = new Insets(0, 0, 0, 5);
-		gbc_bewerbungsgesprächSpeichern.fill = GridBagConstraints.HORIZONTAL;
-		gbc_bewerbungsgesprächSpeichern.gridx = 1;
-		gbc_bewerbungsgesprächSpeichern.gridy = 15;
-		add(bewerbungsgesprächSpeichern, gbc_bewerbungsgesprächSpeichern);
+		JButton bewerbungsgespraechSpeichern = new JButton("Speichern");
+		bewerbungsgespraechSpeichern.setFont(new Font("Arial", Font.BOLD, 12));
+		GridBagConstraints gbc_bewerbungsgespraechSpeichern = new GridBagConstraints();
+		gbc_bewerbungsgespraechSpeichern.insets = new Insets(0, 0, 0, 5);
+		gbc_bewerbungsgespraechSpeichern.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bewerbungsgespraechSpeichern.gridx = 1;
+		gbc_bewerbungsgespraechSpeichern.gridy = 15;
+		add(bewerbungsgespraechSpeichern, gbc_bewerbungsgespraechSpeichern);
 
 
 	}

@@ -87,14 +87,14 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenAdresse.gridy = 5;
 		add(lblBewerberAnlegenAdresse, gbc_lblBewerberAnlegenAdresse);
 		
-		JLabel lblBewerberAnlegenStraße = new JLabel("Straße");
-		lblBewerberAnlegenStraße.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblBewerberAnlegenStraße = new GridBagConstraints();
-		gbc_lblBewerberAnlegenStraße.insets = new Insets(0, 0, 5, 5);
-		gbc_lblBewerberAnlegenStraße.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerberAnlegenStraße.gridx = 1;
-		gbc_lblBewerberAnlegenStraße.gridy = 6;
-		add(lblBewerberAnlegenStraße, gbc_lblBewerberAnlegenStraße);
+		JLabel lblBewerberAnlegenStrasse = new JLabel("Strasse");
+		lblBewerberAnlegenStrasse.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblBewerberAnlegenStrasse = new GridBagConstraints();
+		gbc_lblBewerberAnlegenStrasse.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBewerberAnlegenStrasse.anchor = GridBagConstraints.WEST;
+		gbc_lblBewerberAnlegenStrasse.gridx = 1;
+		gbc_lblBewerberAnlegenStrasse.gridy = 6;
+		add(lblBewerberAnlegenStrasse, gbc_lblBewerberAnlegenStrasse);
 		
 		JLabel lblBewerberAnlegenHNR = new JLabel("HNR");
 		lblBewerberAnlegenHNR.setFont(new Font("Arial", Font.PLAIN, 12));

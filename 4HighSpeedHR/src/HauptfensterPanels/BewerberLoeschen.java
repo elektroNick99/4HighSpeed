@@ -10,9 +10,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public class BewerberLoeschen extends JPanel {
-	private JTextField bewerberLöschenName;
-	private JTextField bewerberLöschenNachname;
-	private JTextField bewerberLöschenNummer;
+	private JTextField bewerberLoeschenName;
+	private JTextField bewerberLoeschenNachname;
+	private JTextField bewerberLoeschenNummer;
 
 	/**
 	 * Create the panel.
@@ -25,79 +25,79 @@ public class BewerberLoeschen extends JPanel {
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
-		JLabel lblBewerberLöschen = new JLabel("Bewerber löschen");
-		lblBewerberLöschen.setFont(new Font("Arial", Font.BOLD, 15));
-		GridBagConstraints gbc_lblBewerberLöschen = new GridBagConstraints();
-		gbc_lblBewerberLöschen.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerberLöschen.insets = new Insets(0, 0, 5, 0);
-		gbc_lblBewerberLöschen.gridx = 1;
-		gbc_lblBewerberLöschen.gridy = 0;
-		add(lblBewerberLöschen, gbc_lblBewerberLöschen);
+		JLabel lblBewerberLoeschen = new JLabel("Bewerber loeschen");
+		lblBewerberLoeschen.setFont(new Font("Arial", Font.BOLD, 15));
+		GridBagConstraints gbc_lblBewerberLoeschen = new GridBagConstraints();
+		gbc_lblBewerberLoeschen.anchor = GridBagConstraints.WEST;
+		gbc_lblBewerberLoeschen.insets = new Insets(0, 0, 5, 0);
+		gbc_lblBewerberLoeschen.gridx = 1;
+		gbc_lblBewerberLoeschen.gridy = 0;
+		add(lblBewerberLoeschen, gbc_lblBewerberLoeschen);
 		
-		JLabel lblBewerberLöschenName = new JLabel("Name*");
-		lblBewerberLöschenName.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblBewerberLöschenName = new GridBagConstraints();
-		gbc_lblBewerberLöschenName.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerberLöschenName.insets = new Insets(0, 0, 5, 0);
-		gbc_lblBewerberLöschenName.gridx = 1;
-		gbc_lblBewerberLöschenName.gridy = 1;
-		add(lblBewerberLöschenName, gbc_lblBewerberLöschenName);
+		JLabel lblBewerberLoeschenName = new JLabel("Name*");
+		lblBewerberLoeschenName.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblBewerberLoeschenName = new GridBagConstraints();
+		gbc_lblBewerberLoeschenName.anchor = GridBagConstraints.WEST;
+		gbc_lblBewerberLoeschenName.insets = new Insets(0, 0, 5, 0);
+		gbc_lblBewerberLoeschenName.gridx = 1;
+		gbc_lblBewerberLoeschenName.gridy = 1;
+		add(lblBewerberLoeschenName, gbc_lblBewerberLoeschenName);
 		
-		bewerberLöschenName = new JTextField();
-		bewerberLöschenName.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bewerberLöschenName = new GridBagConstraints();
-		gbc_bewerberLöschenName.insets = new Insets(0, 0, 5, 0);
-		gbc_bewerberLöschenName.fill = GridBagConstraints.HORIZONTAL;
-		gbc_bewerberLöschenName.gridx = 1;
-		gbc_bewerberLöschenName.gridy = 2;
-		add(bewerberLöschenName, gbc_bewerberLöschenName);
-		bewerberLöschenName.setColumns(10);
+		bewerberLoeschenName = new JTextField();
+		bewerberLoeschenName.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_bewerberLoeschenName = new GridBagConstraints();
+		gbc_bewerberLoeschenName.insets = new Insets(0, 0, 5, 0);
+		gbc_bewerberLoeschenName.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bewerberLoeschenName.gridx = 1;
+		gbc_bewerberLoeschenName.gridy = 2;
+		add(bewerberLoeschenName, gbc_bewerberLoeschenName);
+		bewerberLoeschenName.setColumns(10);
 		
-		JLabel lblBewerberLöschenNachname = new JLabel("Nachname*");
-		lblBewerberLöschenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblBewerberLöschenNachname = new GridBagConstraints();
-		gbc_lblBewerberLöschenNachname.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerberLöschenNachname.insets = new Insets(0, 0, 5, 0);
-		gbc_lblBewerberLöschenNachname.gridx = 1;
-		gbc_lblBewerberLöschenNachname.gridy = 3;
-		add(lblBewerberLöschenNachname, gbc_lblBewerberLöschenNachname);
+		JLabel lblBewerberLoeschenNachname = new JLabel("Nachname*");
+		lblBewerberLoeschenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblBewerberLoeschenNachname = new GridBagConstraints();
+		gbc_lblBewerberLoeschenNachname.anchor = GridBagConstraints.WEST;
+		gbc_lblBewerberLoeschenNachname.insets = new Insets(0, 0, 5, 0);
+		gbc_lblBewerberLoeschenNachname.gridx = 1;
+		gbc_lblBewerberLoeschenNachname.gridy = 3;
+		add(lblBewerberLoeschenNachname, gbc_lblBewerberLoeschenNachname);
 		
-		bewerberLöschenNachname = new JTextField();
-		bewerberLöschenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bewerberLöschenNachname = new GridBagConstraints();
-		gbc_bewerberLöschenNachname.insets = new Insets(0, 0, 5, 0);
-		gbc_bewerberLöschenNachname.fill = GridBagConstraints.HORIZONTAL;
-		gbc_bewerberLöschenNachname.gridx = 1;
-		gbc_bewerberLöschenNachname.gridy = 4;
-		add(bewerberLöschenNachname, gbc_bewerberLöschenNachname);
-		bewerberLöschenNachname.setColumns(10);
+		bewerberLoeschenNachname = new JTextField();
+		bewerberLoeschenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_bewerberLoeschenNachname = new GridBagConstraints();
+		gbc_bewerberLoeschenNachname.insets = new Insets(0, 0, 5, 0);
+		gbc_bewerberLoeschenNachname.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bewerberLoeschenNachname.gridx = 1;
+		gbc_bewerberLoeschenNachname.gridy = 4;
+		add(bewerberLoeschenNachname, gbc_bewerberLoeschenNachname);
+		bewerberLoeschenNachname.setColumns(10);
 		
-		JLabel lblBewerberLöschenNummer = new JLabel("Nummer*");
-		lblBewerberLöschenNummer.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblBewerberLöschenNummer = new GridBagConstraints();
-		gbc_lblBewerberLöschenNummer.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerberLöschenNummer.insets = new Insets(0, 0, 5, 0);
-		gbc_lblBewerberLöschenNummer.gridx = 1;
-		gbc_lblBewerberLöschenNummer.gridy = 5;
-		add(lblBewerberLöschenNummer, gbc_lblBewerberLöschenNummer);
+		JLabel lblBewerberLoeschenNummer = new JLabel("Nummer*");
+		lblBewerberLoeschenNummer.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblBewerberLoeschenNummer = new GridBagConstraints();
+		gbc_lblBewerberLoeschenNummer.anchor = GridBagConstraints.WEST;
+		gbc_lblBewerberLoeschenNummer.insets = new Insets(0, 0, 5, 0);
+		gbc_lblBewerberLoeschenNummer.gridx = 1;
+		gbc_lblBewerberLoeschenNummer.gridy = 5;
+		add(lblBewerberLoeschenNummer, gbc_lblBewerberLoeschenNummer);
 		
-		bewerberLöschenNummer = new JTextField();
-		bewerberLöschenNummer.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bewerberLöschenNummer = new GridBagConstraints();
-		gbc_bewerberLöschenNummer.insets = new Insets(0, 0, 5, 0);
-		gbc_bewerberLöschenNummer.fill = GridBagConstraints.HORIZONTAL;
-		gbc_bewerberLöschenNummer.gridx = 1;
-		gbc_bewerberLöschenNummer.gridy = 6;
-		add(bewerberLöschenNummer, gbc_bewerberLöschenNummer);
-		bewerberLöschenNummer.setColumns(10);
+		bewerberLoeschenNummer = new JTextField();
+		bewerberLoeschenNummer.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_bewerberLoeschenNummer = new GridBagConstraints();
+		gbc_bewerberLoeschenNummer.insets = new Insets(0, 0, 5, 0);
+		gbc_bewerberLoeschenNummer.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bewerberLoeschenNummer.gridx = 1;
+		gbc_bewerberLoeschenNummer.gridy = 6;
+		add(bewerberLoeschenNummer, gbc_bewerberLoeschenNummer);
+		bewerberLoeschenNummer.setColumns(10);
 		
-		JButton bewerberLöschen = new JButton("Löschen");
-		bewerberLöschen.setFont(new Font("Arial", Font.BOLD, 12));
-		GridBagConstraints gbc_bewerberLöschen = new GridBagConstraints();
-		gbc_bewerberLöschen.fill = GridBagConstraints.HORIZONTAL;
-		gbc_bewerberLöschen.gridx = 1;
-		gbc_bewerberLöschen.gridy = 8;
-		add(bewerberLöschen, gbc_bewerberLöschen);
+		JButton bewerberLoeschen = new JButton("Loeschen");
+		bewerberLoeschen.setFont(new Font("Arial", Font.BOLD, 12));
+		GridBagConstraints gbc_bewerberLoeschen = new GridBagConstraints();
+		gbc_bewerberLoeschen.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bewerberLoeschen.gridx = 1;
+		gbc_bewerberLoeschen.gridy = 8;
+		add(bewerberLoeschen, gbc_bewerberLoeschen);
 
 
 	}
