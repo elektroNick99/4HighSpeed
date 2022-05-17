@@ -19,15 +19,16 @@ public class MitarbeiterAusgeben extends JPanel {
 	 */
 	public MitarbeiterAusgeben() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{60, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 83, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[]{60, 388, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 202, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblMitarbeiterAusgeben = new JLabel("Mitarbeiterliste ausgeben");
 		lblMitarbeiterAusgeben.setFont(new Font("Arial", Font.BOLD, 15));
 		GridBagConstraints gbc_lblMitarbeiterAusgeben = new GridBagConstraints();
+		gbc_lblMitarbeiterAusgeben.anchor = GridBagConstraints.WEST;
 		gbc_lblMitarbeiterAusgeben.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMitarbeiterAusgeben.gridx = 1;
 		gbc_lblMitarbeiterAusgeben.gridy = 0;
@@ -36,8 +37,7 @@ public class MitarbeiterAusgeben extends JPanel {
 		mitarbeiterAusgeben = new JTextField();
 		mitarbeiterAusgeben.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_mitarbeiterAusgeben = new GridBagConstraints();
-		gbc_mitarbeiterAusgeben.gridwidth = 2;
-		gbc_mitarbeiterAusgeben.gridheight = 5;
+		gbc_mitarbeiterAusgeben.gridheight = 4;
 		gbc_mitarbeiterAusgeben.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAusgeben.fill = GridBagConstraints.BOTH;
 		gbc_mitarbeiterAusgeben.gridx = 1;
@@ -48,7 +48,6 @@ public class MitarbeiterAusgeben extends JPanel {
 		JButton mitarbeiterlisteAusgebenPDF = new JButton("Liste ausgeben PDF");
 		mitarbeiterlisteAusgebenPDF.setFont(new Font("Arial", Font.BOLD, 12));
 		GridBagConstraints gbc_mitarbeiterlisteAusgebenPDF = new GridBagConstraints();
-		gbc_mitarbeiterlisteAusgebenPDF.gridwidth = 2;
 		gbc_mitarbeiterlisteAusgebenPDF.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterlisteAusgebenPDF.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mitarbeiterlisteAusgebenPDF.gridx = 1;
@@ -58,7 +57,6 @@ public class MitarbeiterAusgeben extends JPanel {
 		JButton mitarbeiterlisteAusgeben = new JButton("Liste ausgeben");
 		mitarbeiterlisteAusgeben.setFont(new Font("Arial", Font.BOLD, 12));
 		GridBagConstraints gbc_mitarbeiterlisteAusgeben = new GridBagConstraints();
-		gbc_mitarbeiterlisteAusgeben.gridwidth = 2;
 		gbc_mitarbeiterlisteAusgeben.insets = new Insets(0, 0, 0, 5);
 		gbc_mitarbeiterlisteAusgeben.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mitarbeiterlisteAusgeben.gridx = 1;

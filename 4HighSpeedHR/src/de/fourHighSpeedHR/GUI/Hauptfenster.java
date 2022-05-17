@@ -5,8 +5,14 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Timer;
+import java.util.logging.Logger;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -43,9 +49,11 @@ public class Hauptfenster {
 	private JLabel title;
 	private JButton Abmelden;
 	private JLabel Datum;
+	private JLabel Datum1;
 	
 	Hauptfenster(String [] args) {
 		
+			
 		this.args = args;
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -117,8 +125,22 @@ public class Hauptfenster {
 		panel.add(Abmelden, gbc_Abmelden);
 		Abmelden.setFont(new Font("Arial", Font.BOLD, 12));
 		
-		String date = String.format("%1$td.%1$tm.%1$tY - %1$tH:%1$tM:%1$tS", new Date());
-		Datum = new JLabel(date);
+		
+		final DateFormat theClockFormat = new SimpleDateFormat("HH:mm:ss");
+		String date = String.format("%1$td.%1$tm.%1$tY", new Date());
+		final java.util.Timer clockTimer = new java.util.Timer(true);
+		final JLabel Datum = new JLabel();
+		
+		clockTimer.scheduleAtFixedRate(new TimerTask() {
+			public void run() {
+				String uhrzeit = theClockFormat.format(new Date());
+				String aktuelleZeit = date +" "+ uhrzeit;
+				
+				synchronized(Datum.getTreeLock()) {
+					Datum.setText(aktuelleZeit);
+				}
+			}
+		}, 0, 1000);
 		Datum.setFont(new Font("Arial", Font.BOLD, 20));
 		GridBagConstraints gbc_Datum = new GridBagConstraints();
 		gbc_Datum.anchor = GridBagConstraints.NORTHEAST;
@@ -126,9 +148,7 @@ public class Hauptfenster {
 		gbc_Datum.gridx = 2;
 		gbc_Datum.gridy = 1;
 		panel.add(Datum, gbc_Datum);
-	
-		
-	     
+			
 
 		JPanel panel_1 = new JPanel();
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
@@ -297,9 +317,14 @@ public class Hauptfenster {
 		panel_2.add(mAusgeben);
 		
 		
-		frame.setVisible(true);
+
+		frame.setVisible(true);	
+		
 	}
 
+
+
+	
 	public static void bAnlegenShow() {
 		
 		bAnlegen.setVisible(true);
@@ -407,6 +432,9 @@ public class Hauptfenster {
 		mAnlegen.setVisible(false);
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(true);
+	
+	
 	}
-
+	
+	
 }

@@ -188,6 +188,7 @@ public class MitarbeiterAendern extends JPanel {
 		JButton mitarbeiterSuchen = new JButton("Suchen");
 		mitarbeiterSuchen.setFont(new Font("Arial", Font.BOLD, 12));
 		GridBagConstraints gbc_mitarbeiterSuchen = new GridBagConstraints();
+		gbc_mitarbeiterSuchen.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mitarbeiterSuchen.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterSuchen.gridx = 1;
 		gbc_mitarbeiterSuchen.gridy = 8;
