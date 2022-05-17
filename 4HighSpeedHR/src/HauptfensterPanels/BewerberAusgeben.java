@@ -17,15 +17,16 @@ public class BewerberAusgeben extends JPanel {
 	 */
 	public BewerberAusgeben() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{60, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 83, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[]{60, 500, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 300, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblBewerberlisteAusgeben = new JLabel("Bewerberliste ausgeben");
 		lblBewerberlisteAusgeben.setFont(new Font("Arial", Font.BOLD, 15));
 		GridBagConstraints gbc_lblBewerberlisteAusgeben = new GridBagConstraints();
+		gbc_lblBewerberlisteAusgeben.anchor = GridBagConstraints.WEST;
 		gbc_lblBewerberlisteAusgeben.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBewerberlisteAusgeben.gridx = 1;
 		gbc_lblBewerberlisteAusgeben.gridy = 0;
@@ -35,7 +36,7 @@ public class BewerberAusgeben extends JPanel {
 		bewerberliste.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_bewerberliste = new GridBagConstraints();
 		gbc_bewerberliste.gridwidth = 2;
-		gbc_bewerberliste.gridheight = 5;
+		gbc_bewerberliste.gridheight = 4;
 		gbc_bewerberliste.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberliste.fill = GridBagConstraints.BOTH;
 		gbc_bewerberliste.gridx = 1;
