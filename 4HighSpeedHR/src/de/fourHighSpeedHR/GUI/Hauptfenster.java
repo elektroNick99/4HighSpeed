@@ -87,7 +87,7 @@ public class Hauptfenster {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		ImageIcon icon = new ImageIcon ("C:\\Users\\cateh\\OneDrive\\Desktop\\uni\\firedfive.jpeg");
+		ImageIcon icon = new ImageIcon ("logo.png");
 		l1 = new JLabel(icon);
 		GridBagConstraints gbc_title_1_1 = new GridBagConstraints();
 		gbc_title_1_1.anchor = GridBagConstraints.WEST;
