@@ -405,7 +405,7 @@ public class MitarbeiterAnlegen extends JPanel {
 		} else {
 			
 			MitarbeiterDB.hinzufuegenMitarbeiter(
-					new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung, gehalt, geburtstag), args);
+					new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung, gehalt, geburtstag));
 
 			mitarbeiterAnlegenName.setText("");
 			mitarbeiterAnlegenNachname.setText("");

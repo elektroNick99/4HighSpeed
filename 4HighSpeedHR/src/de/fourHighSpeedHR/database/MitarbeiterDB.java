@@ -8,11 +8,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import de.fourHighSpeedHR.GUI.Main;
 import de.fourHighSpeedHR.objects.Mitarbeiter;
 
 public class MitarbeiterDB {
+	
+	static String[] args = Main.args2;
 
-	public static ArrayList<Mitarbeiter> ausgebenMitarbeiterAlle(String[] args) {
+	public static ArrayList<Mitarbeiter> ausgebenMitarbeiterAlle() {
 
 		ArrayList<Mitarbeiter> mitarbeiterliste = new ArrayList<>();
 
@@ -35,7 +38,7 @@ public class MitarbeiterDB {
 		return mitarbeiterliste;
 	}
 
-	public static void hinzufuegenMitarbeiter(Mitarbeiter ma, String[] args) {
+	public static void hinzufuegenMitarbeiter(Mitarbeiter ma) {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -52,7 +55,7 @@ public class MitarbeiterDB {
 			int gehalt = ma.getGehalt();
 			String geburtstag = ma.getGeb();
 
-			String id = name.charAt(1) + "" + nachname.charAt(1) + "" + geburtstag;
+			String id = name.charAt(0) + "" + nachname.charAt(0) + "" + geburtstag;
 
 			String sql = "INSERT INTO Mitarbeiter VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stm = c.prepareStatement(sql);
@@ -75,5 +78,24 @@ public class MitarbeiterDB {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public static void loeschenMitarbeiter(String id) {
+		
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection c = DriverManager.getConnection("jdbc:mysql://3.69.96.96:3306/db5", "db5", args[0]);
+
+			String sql = "DELETE FROM Mitarbeiter WHERE id = ?";
+			PreparedStatement stm = c.prepareStatement(sql);
+			stm.setString(1, id);
+			stm.executeUpdate();
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
 	}
 }
