@@ -12,10 +12,10 @@ import de.fourHighSpeedHR.objects.Mitarbeiter;
 
 public class MitarbeiterDB {
 
-	public static ArrayList<Mitarbeiter> ausgebenMitarbeiterAlle(String[] args){
-		
+	public static ArrayList<Mitarbeiter> ausgebenMitarbeiterAlle(String[] args) {
+
 		ArrayList<Mitarbeiter> mitarbeiterliste = new ArrayList<>();
-		
+
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection c = DriverManager.getConnection("jdbc:mysql://3.69.96.96:3306/db5", "db5", args[0]);
@@ -23,22 +23,24 @@ public class MitarbeiterDB {
 
 			ResultSet rs = s.executeQuery("SELECT * FROM Mitarbeiter");
 			while (rs.next()) {
-				mitarbeiterliste.add(new Mitarbeiter(rs.getString("Name"), rs.getString("Nachname"), rs.getString("Strasse"), Integer.valueOf(rs.getString("Hausnummer")), 
-						rs.getString("Ort"), Integer.valueOf(rs.getString("Postleitzahl")), Long.valueOf(rs.getString("Telefonnummer")), rs.getString("Abteilung"), 
-						Integer.valueOf(rs.getString("Gehalt")), rs.getString("Geburtstag")));
+				mitarbeiterliste.add(new Mitarbeiter(rs.getString("Name"), rs.getString("Nachname"),
+						rs.getString("Strasse"), Integer.valueOf(rs.getString("Hausnummer")), rs.getString("Ort"),
+						Integer.valueOf(rs.getString("Postleitzahl")), Long.valueOf(rs.getString("Telefonnummer")),
+						rs.getString("Abteilung"), Integer.valueOf(rs.getString("Gehalt")),
+						rs.getString("Geburtstag")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return mitarbeiterliste;
 	}
-	
-	public static void hinzufuegenMitarbeiter(Mitarbeiter ma, String [] args) {
-		
+
+	public static void hinzufuegenMitarbeiter(Mitarbeiter ma, String[] args) {
+
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection c = DriverManager.getConnection("jdbc:mysql://3.69.96.96:3306/db5", "db5", args[0]);
-			
+
 			String name = ma.getName();
 			String nachname = ma.getNachname();
 			String strasse = ma.getStrasse();
@@ -49,14 +51,9 @@ public class MitarbeiterDB {
 			String abteilung = ma.getAbteilung();
 			int gehalt = ma.getGehalt();
 			String geburtstag = ma.getGeb();
-			
-			String id = name.charAt(1)+""+nachname.charAt(1)+""+geburtstag;
-			System.out.println(id);
 
-//			String sql = "INSERT INTO Mitarbeiter VALUES ("+id+", "+name+", "+nachname+", "+strasse+", "+hnr+", "+ort+", "
-//					+ plz+", "+tel+", "+abteilung+", "+gehalt+", "+geburtstag+")";
-//			System.out.println(sql);
-			
+			String id = name.charAt(1) + "" + nachname.charAt(1) + "" + geburtstag;
+
 			String sql = "INSERT INTO Mitarbeiter VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stm = c.prepareStatement(sql);
 			stm.setString(1, id);
@@ -72,9 +69,6 @@ public class MitarbeiterDB {
 			stm.setString(11, geburtstag);
 			stm.executeUpdate();
 
-//			Statement stm = c.createStatement();
-//			stm.executeUpdate(sql);
-			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
