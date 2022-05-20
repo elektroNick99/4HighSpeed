@@ -31,10 +31,11 @@ public class MitarbeiterDB {
 						Integer.valueOf(rs.getString("Postleitzahl")), Long.valueOf(rs.getString("Telefonnummer")),
 						rs.getString("Abteilung"), Integer.valueOf(rs.getString("Gehalt")),
 						rs.getString("Geburtstag")));
-				
-				c.close();
 
 			}
+			
+			c.close();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

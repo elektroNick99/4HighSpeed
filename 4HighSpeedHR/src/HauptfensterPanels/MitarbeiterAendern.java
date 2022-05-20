@@ -360,7 +360,7 @@ public class MitarbeiterAendern extends JPanel {
 					mitarbeiterAEndernStrasse.setText(m.getStrasse());
 					mitarbeiterAEndernHNR.setText(String.valueOf(m.getHnr()));
 					mitarbeiterAEndernTel.setText(String.valueOf(m.getTel()));
-					mitarbeiterAEndernPLZ.setText(String.valueOf(m.getTel()));
+					mitarbeiterAEndernPLZ.setText(String.valueOf(m.getPlz()));
 
 					mitarbeiterSuchenName.setText("");
 					mitarbeiterSuchenNachname.setText("");
