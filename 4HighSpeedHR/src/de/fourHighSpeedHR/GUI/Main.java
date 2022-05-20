@@ -9,7 +9,7 @@ public class Main {
 		
 		args2 = args;
 		
-		Login login = new Login(args2);
+		Login login = new Login();
 	}
 
 }

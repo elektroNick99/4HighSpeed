@@ -31,6 +31,9 @@ public class MitarbeiterDB {
 						Integer.valueOf(rs.getString("Postleitzahl")), Long.valueOf(rs.getString("Telefonnummer")),
 						rs.getString("Abteilung"), Integer.valueOf(rs.getString("Gehalt")),
 						rs.getString("Geburtstag")));
+				
+				c.close();
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -71,6 +74,9 @@ public class MitarbeiterDB {
 			stm.setString(10, Integer.valueOf(gehalt).toString());
 			stm.setString(11, geburtstag);
 			stm.executeUpdate();
+			
+			c.close();
+
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -91,6 +97,9 @@ public class MitarbeiterDB {
 			PreparedStatement stm = c.prepareStatement(sql);
 			stm.setString(1, id);
 			stm.executeUpdate();
+			
+			c.close();
+
 			
 		} catch (Exception e) {
 			

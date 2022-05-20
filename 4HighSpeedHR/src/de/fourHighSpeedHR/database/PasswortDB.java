@@ -3,11 +3,15 @@ package de.fourHighSpeedHR.database;
 import java.sql.*;
 import java.util.HashMap;
 
+import de.fourHighSpeedHR.GUI.Main;
+
 public class PasswortDB {
 
-	public static HashMap<String, String> connectToDataBasePW(String[] args) {
+	public static HashMap<String, String> connectToDataBasePW() {
 
 		HashMap<String, String> benutzerPasswort = new HashMap<>();
+		
+		String [] args = Main.args2;
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -18,6 +22,9 @@ public class PasswortDB {
 			while (rs.next()) {
 				benutzerPasswort.put(rs.getString("Benutzername"), rs.getString("Passwort"));
 			}
+			
+			c.close();
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();

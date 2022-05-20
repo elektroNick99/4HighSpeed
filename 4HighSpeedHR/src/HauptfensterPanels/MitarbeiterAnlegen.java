@@ -31,14 +31,12 @@ public class MitarbeiterAnlegen extends JPanel {
 	private static JTextField tfGeburtstagMonat;
 	private static JTextField tfGeburtstagTag;
 
-	static String[] args;
 
 	/**
 	 * Create the panel.
 	 */
 
-	public MitarbeiterAnlegen(String[] args) {
-		this.args = args;
+	public MitarbeiterAnlegen() {
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 60, 236, 0, 0, 0, 0 };

@@ -43,7 +43,6 @@ public class Hauptfenster {
 	private static JButton btnGespraech;
 	private static JLabel lblRechner;
 	private static JButton btnGehaltRechner;
-	static String [] args;
 	private JPanel panel;
 	private JLabel l1;
 	private JLabel title;
@@ -51,10 +50,9 @@ public class Hauptfenster {
 	private JLabel Datum;
 	private JLabel Datum1;
 	
-	Hauptfenster(String [] args) {
+	Hauptfenster() {
 		
 			
-		this.args = args;
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1000, 700);
@@ -309,7 +307,7 @@ public class Hauptfenster {
 		
 		mAendern = new MitarbeiterAendern();
 		panel_2.add(mAendern);
-		mAnlegen = new MitarbeiterAnlegen(args);
+		mAnlegen = new MitarbeiterAnlegen();
 		panel_2.add(mAnlegen);
 		mLoeschen = new MitarbeiterLoeschen();
 		panel_2.add(mLoeschen);

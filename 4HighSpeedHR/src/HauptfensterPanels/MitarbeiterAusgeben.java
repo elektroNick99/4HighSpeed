@@ -49,12 +49,6 @@ public class MitarbeiterAusgeben extends JPanel {
 
 		lblListeAusgabe = new JLabel();
 		lblListeAusgabe.setHorizontalAlignment(SwingConstants.LEFT);
-//		GridBagConstraints gbc_lblListeAusgabe = new GridBagConstraints();
-//		gbc_lblListeAusgabe.insets = new Insets(0, 0, 5, 0);
-//		gbc_lblListeAusgabe.gridx = 1;
-//		gbc_lblListeAusgabe.gridy = 1;
-//		add(lblListeAusgabe, gbc_lblListeAusgabe);
-
 		JScrollPane scroll = new JScrollPane(lblListeAusgabe, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		GridBagConstraints gbc_scroll = new GridBagConstraints();

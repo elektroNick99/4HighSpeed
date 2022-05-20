@@ -1,18 +1,27 @@
 package HauptfensterPanels;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Font;
 import java.awt.Insets;
+import java.util.ArrayList;
+
 import javax.swing.JTextField;
+
+import de.fourHighSpeedHR.database.BewerberDB;
+import de.fourHighSpeedHR.database.MitarbeiterDB;
+import de.fourHighSpeedHR.objects.Bewerber;
+import de.fourHighSpeedHR.objects.Mitarbeiter;
+
 import javax.swing.JButton;
 
 public class BewerberLoeschen extends JPanel {
-	private JTextField bewerberLoeschenName;
-	private JTextField bewerberLoeschenNachname;
-	private JTextField bewerberLoeschenNummer;
+	private static JTextField bewerberLoeschenName;
+	private static JTextField bewerberLoeschenNachname;
+	private static JTextField bewerberLoeschenNummer;
 
 	/**
 	 * Create the panel.
@@ -93,13 +102,46 @@ public class BewerberLoeschen extends JPanel {
 		
 		JButton bewerberLoeschen = new JButton("Loeschen");
 		bewerberLoeschen.setFont(new Font("Arial", Font.BOLD, 12));
+		bewerberLoeschen.addActionListener(e -> bwLoeschen());
 		GridBagConstraints gbc_bewerberLoeschen = new GridBagConstraints();
 		gbc_bewerberLoeschen.fill = GridBagConstraints.HORIZONTAL;
 		gbc_bewerberLoeschen.gridx = 1;
 		gbc_bewerberLoeschen.gridy = 8;
 		add(bewerberLoeschen, gbc_bewerberLoeschen);
 
+	}
+	
+	public static void bwLoeschen() {
+		
+		String name = bewerberLoeschenName.getText();
+		String nachname = bewerberLoeschenNachname.getText();
+		String idInput = bewerberLoeschenNummer.getText();
 
+		if (name.equals("") || nachname.equals("") || idInput.equals("")) {
+
+			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
+			
+		} else {
+			ArrayList<Bewerber> bewerber = BewerberDB.ausgebenBewerberAlle();
+
+			for (int i = 0; i < bewerber.size(); i++) {
+
+				Bewerber b = bewerber.get(i);
+				String id = "" + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb();
+				
+				if (b.getName().equals(name) && b.getNachname().equals(nachname) && id.equals(idInput)) {
+
+					BewerberDB.loeschenBewerber(idInput);;
+					
+					bewerberLoeschenName.setText("");
+					bewerberLoeschenNachname.setText("");
+					bewerberLoeschenNummer.setText("");
+					
+					JOptionPane.showMessageDialog(null, "Der Bewerber "+name+" "+ nachname+" wurde geloescht!");
+
+				}
+			}
+		}
 	}
 
 }

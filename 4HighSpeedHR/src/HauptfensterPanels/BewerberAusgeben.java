@@ -2,16 +2,30 @@ package HauptfensterPanels;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.util.ArrayList;
+
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+
+import de.fourHighSpeedHR.database.BewerberDB;
+import de.fourHighSpeedHR.database.MitarbeiterDB;
+import de.fourHighSpeedHR.objects.Bewerber;
+import de.fourHighSpeedHR.objects.Mitarbeiter;
+
 import javax.swing.JButton;
 import java.awt.Font;
 
 public class BewerberAusgeben extends JPanel {
-	private JTextField bewerberliste;
 
+	private static JLabel lblListeAusgabe;
+
+	
 	/**
 	 * Create the panel.
 	 */
@@ -32,20 +46,21 @@ public class BewerberAusgeben extends JPanel {
 		gbc_lblBewerberlisteAusgeben.gridy = 0;
 		add(lblBewerberlisteAusgeben, gbc_lblBewerberlisteAusgeben);
 		
-		bewerberliste = new JTextField();
-		bewerberliste.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bewerberliste = new GridBagConstraints();
-		gbc_bewerberliste.gridwidth = 2;
-		gbc_bewerberliste.gridheight = 4;
-		gbc_bewerberliste.insets = new Insets(0, 0, 5, 5);
-		gbc_bewerberliste.fill = GridBagConstraints.BOTH;
-		gbc_bewerberliste.gridx = 1;
-		gbc_bewerberliste.gridy = 1;
-		add(bewerberliste, gbc_bewerberliste);
-		bewerberliste.setColumns(10);
+		lblListeAusgabe = new JLabel();
+		lblListeAusgabe.setHorizontalAlignment(SwingConstants.LEFT);
+
+		JScrollPane scroll = new JScrollPane(lblListeAusgabe, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		GridBagConstraints gbc_scroll = new GridBagConstraints();
+		gbc_scroll.fill = GridBagConstraints.BOTH;
+		gbc_scroll.insets = new Insets(0, 0, 5, 0);
+		gbc_scroll.gridx = 1;
+		gbc_scroll.gridy = 1;
+		add(scroll, gbc_scroll);
 		
 		JButton bewerberlisteAusgebenPDF = new JButton("Liste ausgeben PDF");
 		bewerberlisteAusgebenPDF.setFont(new Font("Arial", Font.BOLD, 12));
+		bewerberlisteAusgebenPDF.addActionListener(e -> ausgebenBewerberListePDF());
 		GridBagConstraints gbc_bewerberlisteAusgebenPDF = new GridBagConstraints();
 		gbc_bewerberlisteAusgebenPDF.gridwidth = 2;
 		gbc_bewerberlisteAusgebenPDF.insets = new Insets(0, 0, 5, 5);
@@ -56,6 +71,7 @@ public class BewerberAusgeben extends JPanel {
 		
 		JButton bewerberlisteAusgeben = new JButton("Liste ausgeben");
 		bewerberlisteAusgeben.setFont(new Font("Arial", Font.BOLD, 12));
+		bewerberlisteAusgeben.addActionListener(e -> ausgebenBewerberListe());
 		GridBagConstraints gbc_bewerberlisteAusgeben = new GridBagConstraints();
 		gbc_bewerberlisteAusgeben.gridwidth = 2;
 		gbc_bewerberlisteAusgeben.insets = new Insets(0, 0, 0, 5);
@@ -63,6 +79,37 @@ public class BewerberAusgeben extends JPanel {
 		gbc_bewerberlisteAusgeben.gridx = 1;
 		gbc_bewerberlisteAusgeben.gridy = 7;
 		add(bewerberlisteAusgeben, gbc_bewerberlisteAusgeben);
+	}
+	
+	public static void ausgebenBewerberListe() {
+		
+		
+		StringBuilder result = new StringBuilder();
+
+		ArrayList<Bewerber> bewerberListe = BewerberDB.ausgebenBewerberAlle();
+
+		for (int i = 0; i < bewerberListe.size(); i++) {
+			Bewerber b = bewerberListe.get(i);
+			result.append(i+1+". Mitarbeiter: " +b.getName() + " " + b.getNachname() + ":\n");
+			result.append("Mitarbeiter ID: " + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb() + "\n");
+			result.append("Anschrift:"+ "\n");
+			result.append(b.getStrasse() + " " + b.getHnr() + "\n");
+			result.append(b.getPlz() + " " + b.getOrt() + "\n");
+			result.append("Tel.: "+b.getTel() + "\n");
+			result.append("Geburtstag: "+b.getGeb() + "\n");
+			result.append("Notizen:\n"+b.getNotizen() + "\n"+ "\n" + "\n");
+		}
+
+		lblListeAusgabe.setText(zeilenFormattieren(result.toString()));
+
+	}
+
+	public static String zeilenFormattieren(String s) {
+		return "<html>" + s.replaceAll("\n", "<br>");
+	}
+	
+	public static void ausgebenBewerberListePDF() {
+		//ToDp PDF erstellen und auf desktop speichern
 	}
 
 }

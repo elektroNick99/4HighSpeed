@@ -10,9 +10,10 @@ public class Bewerber {
 	private int plz;
 	private long tel;
 	private String notizen;
-	
+	private String geb;
+
 	public Bewerber(String name, String nachname, String strasse, int hnr, String ort, int plz, long tel,
-			String notizen) {
+			String notizen, String geb) {
 		this.name = name;
 		this.nachname = nachname;
 		this.strasse = strasse;
@@ -21,12 +22,21 @@ public class Bewerber {
 		this.plz = plz;
 		this.tel = tel;
 		this.notizen = notizen;
+		this.geb = geb;
 	}
 
 	@Override
 	public String toString() {
 		return "Bewerber [name=" + name + ", nachname=" + nachname + ", strasse=" + strasse + ", hnr=" + hnr + ", ort="
 				+ ort + ", plz=" + plz + ", tel=" + tel + ", notizen=" + notizen + "]";
+	}
+
+	public String getGeb() {
+		return geb;
+	}
+
+	public void setGeb(String geb) {
+		this.geb = geb;
 	}
 
 	public String getName() {
@@ -91,5 +101,5 @@ public class Bewerber {
 
 	public void setNotizen(String notizen) {
 		this.notizen = notizen;
-	}	
+	}
 }

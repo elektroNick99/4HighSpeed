@@ -4,31 +4,46 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import de.fourHighSpeedHR.database.BewerberDB;
+import de.fourHighSpeedHR.database.MitarbeiterDB;
+import de.fourHighSpeedHR.objects.Bewerber;
+import de.fourHighSpeedHR.objects.Mitarbeiter;
+
+import javax.swing.JFormattedTextField;
+import javax.swing.JEditorPane;
+
 public class BewerberAnlegen extends JPanel {
 
-	private JTextField bewerberAnlegenName;
-	private JTextField bewerberAnlegenNachname;
-	private JTextField bewerberAnlegenStraße;
-	private JTextField bewerberAnlegenHNR;
-	private JTextField bewerberAnlegenOrt;
-	private JTextField bewerberAnlegenPLZ;
-	private JTextField bewerberAnlegenTel;
-	private JTextField bewerberAnlegenNotizen;
+	private static JTextField bewerberAnlegenName;
+	private static JTextField bewerberAnlegenNachname;
+	private static JTextField bewerberAnlegenStraße;
+	private static JTextField bewerberAnlegenHNR;
+	private static JTextField bewerberAnlegenOrt;
+	private static JTextField bewerberAnlegenPLZ;
+	private static JTextField bewerberAnlegenTel;
+	private static JTextField tfGeburtstagJahr;
+	private static JTextField tfGeburtstagMonat;
+	private static JTextField tfGeburtstagTag;
+	private static JEditorPane epBewerberNotizen;
+
 	/**
 	 * Create the panel.
 	 */
 	public BewerberAnlegen() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{60, 236, 0, 0};
+		gridBagLayout.columnWidths = new int[]{60, 236, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblNeuerBewerberAnlegen = new JLabel("Neuer Bewerber anlegen");
@@ -68,6 +83,16 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenNachname.gridy = 3;
 		add(lblBewerberAnlegenNachname, gbc_lblBewerberAnlegenNachname);
 		
+		JLabel lblGeburtstag = new JLabel("Geburtstag (YYYY/MM/DD)");
+		lblGeburtstag.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_lblGeburtstag = new GridBagConstraints();
+		gbc_lblGeburtstag.anchor = GridBagConstraints.WEST;
+		gbc_lblGeburtstag.gridwidth = 3;
+		gbc_lblGeburtstag.insets = new Insets(0, 0, 5, 0);
+		gbc_lblGeburtstag.gridx = 2;
+		gbc_lblGeburtstag.gridy = 3;
+		add(lblGeburtstag, gbc_lblGeburtstag);
+		
 		bewerberAnlegenNachname = new JTextField();
 		bewerberAnlegenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_bewerberAnlegenNachname = new GridBagConstraints();
@@ -76,7 +101,68 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenNachname.gridx = 1;
 		gbc_bewerberAnlegenNachname.gridy = 4;
 		add(bewerberAnlegenNachname, gbc_bewerberAnlegenNachname);
-		bewerberAnlegenNachname.setColumns(10);
+		bewerberAnlegenNachname.setColumns(25);
+		
+		tfGeburtstagJahr = new JTextField();
+		tfGeburtstagJahr.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfGeburtstagJahr.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
+		GridBagConstraints gbc_tfGeburtstagJahr = new GridBagConstraints();
+		gbc_tfGeburtstagJahr.insets = new Insets(0, 0, 5, 5);
+		gbc_tfGeburtstagJahr.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfGeburtstagJahr.gridx = 2;
+		gbc_tfGeburtstagJahr.gridy = 4;
+		add(tfGeburtstagJahr, gbc_tfGeburtstagJahr);
+		tfGeburtstagJahr.setColumns(4);
+		
+		tfGeburtstagMonat = new JTextField();
+		tfGeburtstagMonat.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfGeburtstagMonat.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
+		GridBagConstraints gbc_tfGeburtstagMonat = new GridBagConstraints();
+		gbc_tfGeburtstagMonat.weightx = 0.1;
+		gbc_tfGeburtstagMonat.insets = new Insets(0, 0, 5, 5);
+		gbc_tfGeburtstagMonat.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfGeburtstagMonat.gridx = 3;
+		gbc_tfGeburtstagMonat.gridy = 4;
+		add(tfGeburtstagMonat, gbc_tfGeburtstagMonat);
+		tfGeburtstagMonat.setColumns(2);
+		
+		tfGeburtstagTag = new JTextField();
+		tfGeburtstagTag.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfGeburtstagTag.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
+		GridBagConstraints gbc_tfGeburtstagTag = new GridBagConstraints();
+		gbc_tfGeburtstagTag.insets = new Insets(0, 0, 5, 0);
+		gbc_tfGeburtstagTag.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfGeburtstagTag.gridx = 4;
+		gbc_tfGeburtstagTag.gridy = 4;
+		add(tfGeburtstagTag, gbc_tfGeburtstagTag);
+		tfGeburtstagTag.setColumns(2);
 		
 		JLabel lblBewerberAnlegenAdresse = new JLabel("Adresse");
 		lblBewerberAnlegenAdresse.setFont(new Font("Arial", Font.BOLD, 12));
@@ -100,7 +186,7 @@ public class BewerberAnlegen extends JPanel {
 		lblBewerberAnlegenHNR.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenHNR = new GridBagConstraints();
 		gbc_lblBewerberAnlegenHNR.anchor = GridBagConstraints.WEST;
-		gbc_lblBewerberAnlegenHNR.insets = new Insets(0, 0, 5, 0);
+		gbc_lblBewerberAnlegenHNR.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBewerberAnlegenHNR.gridx = 2;
 		gbc_lblBewerberAnlegenHNR.gridy = 6;
 		add(lblBewerberAnlegenHNR, gbc_lblBewerberAnlegenHNR);
@@ -113,17 +199,28 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenStraße.gridx = 1;
 		gbc_bewerberAnlegenStraße.gridy = 7;
 		add(bewerberAnlegenStraße, gbc_bewerberAnlegenStraße);
-		bewerberAnlegenStraße.setColumns(10);
+		bewerberAnlegenStraße.setColumns(25);
 		
 		bewerberAnlegenHNR = new JTextField();
 		bewerberAnlegenHNR.setFont(new Font("Arial", Font.PLAIN, 12));
+		bewerberAnlegenHNR.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
 		GridBagConstraints gbc_bewerberAnlegenHNR = new GridBagConstraints();
-		gbc_bewerberAnlegenHNR.insets = new Insets(0, 0, 5, 0);
+		gbc_bewerberAnlegenHNR.gridwidth = 2;
+		gbc_bewerberAnlegenHNR.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenHNR.fill = GridBagConstraints.HORIZONTAL;
 		gbc_bewerberAnlegenHNR.gridx = 2;
 		gbc_bewerberAnlegenHNR.gridy = 7;
 		add(bewerberAnlegenHNR, gbc_bewerberAnlegenHNR);
-		bewerberAnlegenHNR.setColumns(10);
+		bewerberAnlegenHNR.setColumns(4);
 		
 		JLabel lblBewerberAnlegenOrt = new JLabel("Ort");
 		lblBewerberAnlegenOrt.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -137,7 +234,7 @@ public class BewerberAnlegen extends JPanel {
 		JLabel lblBewerberAnlegenPLZ = new JLabel("PLZ");
 		lblBewerberAnlegenPLZ.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenPLZ = new GridBagConstraints();
-		gbc_lblBewerberAnlegenPLZ.insets = new Insets(0, 0, 5, 0);
+		gbc_lblBewerberAnlegenPLZ.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBewerberAnlegenPLZ.anchor = GridBagConstraints.WEST;
 		gbc_lblBewerberAnlegenPLZ.gridx = 2;
 		gbc_lblBewerberAnlegenPLZ.gridy = 8;
@@ -151,17 +248,28 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenOrt.gridx = 1;
 		gbc_bewerberAnlegenOrt.gridy = 9;
 		add(bewerberAnlegenOrt, gbc_bewerberAnlegenOrt);
-		bewerberAnlegenOrt.setColumns(10);
+		bewerberAnlegenOrt.setColumns(25);
 		
 		bewerberAnlegenPLZ = new JTextField();
 		bewerberAnlegenPLZ.setFont(new Font("Arial", Font.PLAIN, 12));
+		bewerberAnlegenPLZ.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
 		GridBagConstraints gbc_bewerberAnlegenPLZ = new GridBagConstraints();
-		gbc_bewerberAnlegenPLZ.insets = new Insets(0, 0, 5, 0);
+		gbc_bewerberAnlegenPLZ.gridwidth = 2;
+		gbc_bewerberAnlegenPLZ.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenPLZ.fill = GridBagConstraints.HORIZONTAL;
 		gbc_bewerberAnlegenPLZ.gridx = 2;
 		gbc_bewerberAnlegenPLZ.gridy = 9;
 		add(bewerberAnlegenPLZ, gbc_bewerberAnlegenPLZ);
-		bewerberAnlegenPLZ.setColumns(10);
+		bewerberAnlegenPLZ.setColumns(5);
 		
 		JLabel lblBewerberAnlegenTel = new JLabel("Tel.:");
 		lblBewerberAnlegenTel.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -174,13 +282,23 @@ public class BewerberAnlegen extends JPanel {
 		
 		bewerberAnlegenTel = new JTextField();
 		bewerberAnlegenTel.setFont(new Font("Arial", Font.PLAIN, 12));
+		bewerberAnlegenTel.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
 		GridBagConstraints gbc_bewerberAnlegenTel = new GridBagConstraints();
 		gbc_bewerberAnlegenTel.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenTel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_bewerberAnlegenTel.gridx = 1;
 		gbc_bewerberAnlegenTel.gridy = 11;
 		add(bewerberAnlegenTel, gbc_bewerberAnlegenTel);
-		bewerberAnlegenTel.setColumns(10);
+		bewerberAnlegenTel.setColumns(11);
 		
 		JLabel lblBewerberAnlegenNotizen = new JLabel("Notizen");
 		lblBewerberAnlegenNotizen.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -191,18 +309,19 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenNotizen.gridy = 12;
 		add(lblBewerberAnlegenNotizen, gbc_lblBewerberAnlegenNotizen);
 		
-		bewerberAnlegenNotizen = new JTextField();
-		bewerberAnlegenNotizen.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bewerberAnlegenNotizen = new GridBagConstraints();
-		gbc_bewerberAnlegenNotizen.insets = new Insets(0, 0, 5, 5);
-		gbc_bewerberAnlegenNotizen.fill = GridBagConstraints.BOTH;
-		gbc_bewerberAnlegenNotizen.gridx = 1;
-		gbc_bewerberAnlegenNotizen.gridy = 13;
-		add(bewerberAnlegenNotizen, gbc_bewerberAnlegenNotizen);
-		bewerberAnlegenNotizen.setColumns(10);
+		epBewerberNotizen = new JEditorPane();
+		epBewerberNotizen.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_epBewerberNotizen = new GridBagConstraints();
+		gbc_epBewerberNotizen.gridwidth = 4;
+		gbc_epBewerberNotizen.insets = new Insets(0, 0, 5, 5);
+		gbc_epBewerberNotizen.fill = GridBagConstraints.BOTH;
+		gbc_epBewerberNotizen.gridx = 1;
+		gbc_epBewerberNotizen.gridy = 13;
+		add(epBewerberNotizen, gbc_epBewerberNotizen);
 		
 		JButton bewerberAnlegenSpeichern = new JButton("Speichern");
 		bewerberAnlegenSpeichern.setFont(new Font("Arial", Font.BOLD, 12));
+		bewerberAnlegenSpeichern.addActionListener(e -> speichenBewerber());
 		GridBagConstraints gbc_bewerberAnlegenSpeichern = new GridBagConstraints();
 		gbc_bewerberAnlegenSpeichern.fill = GridBagConstraints.HORIZONTAL;
 		gbc_bewerberAnlegenSpeichern.insets = new Insets(0, 0, 0, 5);
@@ -210,6 +329,67 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenSpeichern.gridy = 14;
 		add(bewerberAnlegenSpeichern, gbc_bewerberAnlegenSpeichern);
 
+	}
+	
+	public static void speichenBewerber() {
+		
+		String name = "";
+		String nachname = "";
+		String strasse = "";
+		String ort = "";
+		String notizen = "";
+		String geburtstag = "";
+		int hnr = 0, plz = 0;
+		long tel = 0;
+
+		/**
+		 * Erst Nummern ueberpruefen da sonst NumberFormatException
+		 */
+		
+		if (bewerberAnlegenHNR.getText().equals("") || bewerberAnlegenPLZ.getText().equals("")
+				|| bewerberAnlegenTel.getText().equals("")) {
+
+		} else {
+			
+			name = bewerberAnlegenName.getText();
+			nachname = bewerberAnlegenNachname.getText();
+			strasse = bewerberAnlegenStraße.getText();
+			hnr = Integer.valueOf(bewerberAnlegenHNR.getText());
+			ort = bewerberAnlegenOrt.getText();
+			plz = Integer.valueOf(bewerberAnlegenPLZ.getText());
+			tel = Long.valueOf(bewerberAnlegenTel.getText());
+			notizen = epBewerberNotizen.getText();
+			geburtstag = tfGeburtstagTag.getText() + "." + tfGeburtstagMonat.getText() + "."
+					+ tfGeburtstagJahr.getText();
+			
+		}
+
+		/**
+		 * Test ob alle Felder ausgefüllt sind
+		 */
+		
+		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("")
+				|| geburtstag.equals("") || hnr == 0 || plz == 0 || tel == 0) {
+			
+			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
+			
+		} else {
+			
+			BewerberDB.hinzufuegenBewerber(
+					new Bewerber(name, nachname, strasse, hnr, ort, plz, tel, notizen, geburtstag));
+
+			bewerberAnlegenName.setText("");
+			bewerberAnlegenNachname.setText("");
+			bewerberAnlegenStraße.setText("");
+			bewerberAnlegenHNR.setText("");
+			bewerberAnlegenOrt.setText("");
+			bewerberAnlegenPLZ.setText("");
+			bewerberAnlegenTel.setText("");
+			epBewerberNotizen.setText("");
+			tfGeburtstagJahr.setText("");
+			tfGeburtstagMonat.setText("");
+			tfGeburtstagTag.setText("");
+		}
 	}
 
 }

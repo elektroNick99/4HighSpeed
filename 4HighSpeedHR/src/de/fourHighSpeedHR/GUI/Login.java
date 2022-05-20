@@ -24,13 +24,10 @@ public class Login {
 	private JTextField tfUsername;
 	private JPasswordField tfPassword;
 	private JFrame frame;
-	String [] args;
 	public static int anzahlVersuche = 5;
 
-	Login(String [] argsEingabe) {
+	Login() {
 		
-		args = argsEingabe;
-
 		frame = new JFrame();
 		frame.setTitle("4HighSpeed HR - Login");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -130,7 +127,7 @@ public class Login {
 
 		boolean stimmt = false;
 		
-		HashMap<String, String> passworte = PasswortDB.connectToDataBasePW(args);
+		HashMap<String, String> passworte = PasswortDB.connectToDataBasePW();
 
 		if (passwort.equals("") || username.equals("")) {
 
@@ -145,7 +142,7 @@ public class Login {
 
 			if (stimmt && passworte.get(username).equals(passwort)) {
 				frame.dispose();
-				Hauptfenster hauptfenster = new Hauptfenster(args);
+				Hauptfenster hauptfenster = new Hauptfenster();
 				
 			} else {
 

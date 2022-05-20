@@ -4,19 +4,30 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JEditorPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import de.fourHighSpeedHR.database.BewerberDB;
+import de.fourHighSpeedHR.objects.Bewerber;
 
 public class Bewerbungsgespraech extends JPanel {
 
-	private JTextField bewerbungsgespraechName;
-	private JTextField bewerbungsgespraechNachname;
-	private JTextField bewerbungsgespraechNummer;
-	private JTextField bisherigeNotizen;
-	private JTextField bewerberNotizenHinzufuegen;
+	private static JTextField bewerbungsgespraechName;
+	private static JTextField bewerbungsgespraechNachname;
+	private static JTextField bewerbungsgespraechNummer;
+	private static JEditorPane epBewerberNotizen;
+	
+	private static String notizenBewerber;
+	private static String idBewerber;
+
+
 
 	/**
 	 * Create the panel.
@@ -25,7 +36,7 @@ public class Bewerbungsgespraech extends JPanel {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{60, 276, 138, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 144, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
@@ -46,15 +57,6 @@ public class Bewerbungsgespraech extends JPanel {
 		gbc_lblBewerberSuchen.gridx = 1;
 		gbc_lblBewerberSuchen.gridy = 1;
 		add(lblBewerberSuchen, gbc_lblBewerberSuchen);
-		
-		JLabel lblBisherigeNotizen = new JLabel("bisherige Notizen");
-		lblBisherigeNotizen.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_lblBisherigeNotizen = new GridBagConstraints();
-		gbc_lblBisherigeNotizen.anchor = GridBagConstraints.WEST;
-		gbc_lblBisherigeNotizen.insets = new Insets(0, 0, 5, 0);
-		gbc_lblBisherigeNotizen.gridx = 2;
-		gbc_lblBisherigeNotizen.gridy = 1;
-		add(lblBisherigeNotizen, gbc_lblBisherigeNotizen);
 		
 		JLabel lblBewerbungsgespraechName = new JLabel("Name*");
 		lblBewerbungsgespraechName.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -94,17 +96,6 @@ public class Bewerbungsgespraech extends JPanel {
 		add(bewerbungsgespraechNachname, gbc_bewerbungsgespraechNachname);
 		bewerbungsgespraechNachname.setColumns(10);
 		
-		bisherigeNotizen = new JTextField();
-		bisherigeNotizen.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bisherigeNotizen = new GridBagConstraints();
-		gbc_bisherigeNotizen.gridheight = 5;
-		gbc_bisherigeNotizen.insets = new Insets(0, 0, 5, 0);
-		gbc_bisherigeNotizen.fill = GridBagConstraints.BOTH;
-		gbc_bisherigeNotizen.gridx = 2;
-		gbc_bisherigeNotizen.gridy = 3;
-		add(bisherigeNotizen, gbc_bisherigeNotizen);
-		bisherigeNotizen.setColumns(10);
-		
 		JLabel lblBewerbungsgespraechNummer = new JLabel("Nummer*");
 		lblBewerbungsgespraechNummer.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerbungsgespraechNummer = new GridBagConstraints();
@@ -124,7 +115,18 @@ public class Bewerbungsgespraech extends JPanel {
 		add(bewerbungsgespraechNummer, gbc_bewerbungsgespraechNummer);
 		bewerbungsgespraechNummer.setColumns(10);
 		
-		JLabel lblBewerberNotizenHinzufuegen = new JLabel("Bewerber Notizen hinzufuegen");
+		JButton btnBewerberSuchen = new JButton("Bewerber suchen");
+		btnBewerberSuchen.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBewerberSuchen.addActionListener(e -> suchenBewerber());
+		btnBewerberSuchen.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_btnBewerberSuchen = new GridBagConstraints();
+		gbc_btnBewerberSuchen.anchor = GridBagConstraints.WEST;
+		gbc_btnBewerberSuchen.insets = new Insets(0, 0, 5, 0);
+		gbc_btnBewerberSuchen.gridx = 2;
+		gbc_btnBewerberSuchen.gridy = 7;
+		add(btnBewerberSuchen, gbc_btnBewerberSuchen);
+		
+		JLabel lblBewerberNotizenHinzufuegen = new JLabel("Bewerber Notizen");
 		lblBewerberNotizenHinzufuegen.setFont(new Font("Arial", Font.BOLD, 15));
 		GridBagConstraints gbc_lblBewerberNotizenHinzufuegen = new GridBagConstraints();
 		gbc_lblBewerberNotizenHinzufuegen.anchor = GridBagConstraints.WEST;
@@ -132,6 +134,13 @@ public class Bewerbungsgespraech extends JPanel {
 		gbc_lblBewerberNotizenHinzufuegen.gridx = 1;
 		gbc_lblBewerberNotizenHinzufuegen.gridy = 10;
 		add(lblBewerberNotizenHinzufuegen, gbc_lblBewerberNotizenHinzufuegen);
+		
+		JLabel lblNewLabel = new JLabel("");
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel.gridx = 2;
+		gbc_lblNewLabel.gridy = 10;
+		add(lblNewLabel, gbc_lblNewLabel);
 		
 		JLabel lblNewLabel_7 = new JLabel(" ");
 		GridBagConstraints gbc_lblNewLabel_7 = new GridBagConstraints();
@@ -141,20 +150,20 @@ public class Bewerbungsgespraech extends JPanel {
 		gbc_lblNewLabel_7.gridy = 11;
 		add(lblNewLabel_7, gbc_lblNewLabel_7);
 		
-		bewerberNotizenHinzufuegen = new JTextField();
-		bewerberNotizenHinzufuegen.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_bewerberNotizenHinzufuegen = new GridBagConstraints();
-		gbc_bewerberNotizenHinzufuegen.gridwidth = 2;
-		gbc_bewerberNotizenHinzufuegen.gridheight = 4;
-		gbc_bewerberNotizenHinzufuegen.insets = new Insets(0, 0, 5, 0);
-		gbc_bewerberNotizenHinzufuegen.fill = GridBagConstraints.BOTH;
-		gbc_bewerberNotizenHinzufuegen.gridx = 1;
-		gbc_bewerberNotizenHinzufuegen.gridy = 11;
-		add(bewerberNotizenHinzufuegen, gbc_bewerberNotizenHinzufuegen);
-		bewerberNotizenHinzufuegen.setColumns(10);
+		epBewerberNotizen = new JEditorPane();
+		epBewerberNotizen.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_epBewerberNotizen = new GridBagConstraints();
+		gbc_epBewerberNotizen.gridwidth = 2;
+		gbc_epBewerberNotizen.gridheight = 4;
+		gbc_epBewerberNotizen.insets = new Insets(0, 0, 5, 0);
+		gbc_epBewerberNotizen.fill = GridBagConstraints.BOTH;
+		gbc_epBewerberNotizen.gridx = 1;
+		gbc_epBewerberNotizen.gridy = 11;
+		add(epBewerberNotizen, gbc_epBewerberNotizen);
 		
 		JButton bewerbungsgespraechSpeichern = new JButton("Speichern");
 		bewerbungsgespraechSpeichern.setFont(new Font("Arial", Font.BOLD, 12));
+		bewerbungsgespraechSpeichern.addActionListener(e -> aendernNotizen());
 		GridBagConstraints gbc_bewerbungsgespraechSpeichern = new GridBagConstraints();
 		gbc_bewerbungsgespraechSpeichern.insets = new Insets(0, 0, 0, 5);
 		gbc_bewerbungsgespraechSpeichern.fill = GridBagConstraints.HORIZONTAL;
@@ -162,7 +171,52 @@ public class Bewerbungsgespraech extends JPanel {
 		gbc_bewerbungsgespraechSpeichern.gridy = 15;
 		add(bewerbungsgespraechSpeichern, gbc_bewerbungsgespraechSpeichern);
 
+	}
+	
+	public static void suchenBewerber() {
+		
+		String name = bewerbungsgespraechName.getText();
+		String nachname = bewerbungsgespraechNachname.getText();
+		String idInput = bewerbungsgespraechNummer.getText();
 
+		if (name.equals("") || nachname.equals("") || idInput.equals("")) {
+
+			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
+			
+		} else {
+			ArrayList<Bewerber> bewerber = BewerberDB.ausgebenBewerberAlle();
+
+			for (int i = 0; i < bewerber.size(); i++) {
+
+				Bewerber b = bewerber.get(i);
+				String id = "" + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb();
+				
+				if (b.getName().equals(name) && b.getNachname().equals(nachname) && id.equals(idInput)) {
+
+					notizenBewerber = b.getNotizen();
+					idBewerber = id;
+
+					epBewerberNotizen.setText(notizenBewerber);
+				}
+			}
+		}
+	}
+	
+	public static void aendernNotizen() {
+		
+		String notizen = epBewerberNotizen.getText();
+		
+		if(!notizen.equals("")) {
+			
+			BewerberDB.aendernNotizen(notizen, idBewerber);
+
+		}
+		
+		epBewerberNotizen.setText("");
+		bewerbungsgespraechName.setText("");
+		bewerbungsgespraechNachname.setText("");
+		bewerbungsgespraechNummer.setText("");
+		
 	}
 
 }
