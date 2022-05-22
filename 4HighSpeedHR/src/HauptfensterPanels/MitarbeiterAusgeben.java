@@ -67,15 +67,8 @@ public class MitarbeiterAusgeben extends JPanel {
 		gbc_mitarbeiterlisteAusgebenPDF.gridx = 1;
 		gbc_mitarbeiterlisteAusgebenPDF.gridy = 6;
 		add(mitarbeiterlisteAusgebenPDF, gbc_mitarbeiterlisteAusgebenPDF);
-
-		JButton mitarbeiterlisteAusgeben = new JButton("Liste ausgeben");
-		mitarbeiterlisteAusgeben.setFont(new Font("Arial", Font.BOLD, 12));
-		mitarbeiterlisteAusgeben.addActionListener(e -> ausgebenMitarbeiterListe());
-		GridBagConstraints gbc_mitarbeiterlisteAusgeben = new GridBagConstraints();
-		gbc_mitarbeiterlisteAusgeben.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterlisteAusgeben.gridx = 1;
-		gbc_mitarbeiterlisteAusgeben.gridy = 7;
-		add(mitarbeiterlisteAusgeben, gbc_mitarbeiterlisteAusgeben);
+		
+		ausgebenMitarbeiterListe();
 	}
 
 	public static void ausgebenMitarbeiterListe() {

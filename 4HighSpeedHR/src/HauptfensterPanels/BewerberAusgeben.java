@@ -69,16 +69,7 @@ public class BewerberAusgeben extends JPanel {
 		gbc_bewerberlisteAusgebenPDF.gridy = 6;
 		add(bewerberlisteAusgebenPDF, gbc_bewerberlisteAusgebenPDF);
 		
-		JButton bewerberlisteAusgeben = new JButton("Liste ausgeben");
-		bewerberlisteAusgeben.setFont(new Font("Arial", Font.BOLD, 12));
-		bewerberlisteAusgeben.addActionListener(e -> ausgebenBewerberListe());
-		GridBagConstraints gbc_bewerberlisteAusgeben = new GridBagConstraints();
-		gbc_bewerberlisteAusgeben.gridwidth = 2;
-		gbc_bewerberlisteAusgeben.insets = new Insets(0, 0, 0, 5);
-		gbc_bewerberlisteAusgeben.fill = GridBagConstraints.HORIZONTAL;
-		gbc_bewerberlisteAusgeben.gridx = 1;
-		gbc_bewerberlisteAusgeben.gridy = 7;
-		add(bewerberlisteAusgeben, gbc_bewerberlisteAusgeben);
+		ausgebenBewerberListe();
 	}
 	
 	public static void ausgebenBewerberListe() {
@@ -91,7 +82,7 @@ public class BewerberAusgeben extends JPanel {
 		for (int i = 0; i < bewerberListe.size(); i++) {
 			Bewerber b = bewerberListe.get(i);
 			result.append(i+1+". Mitarbeiter: " +b.getName() + " " + b.getNachname() + ":\n");
-			result.append("Mitarbeiter ID: " + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb() + "\n");
+			result.append("Bewerber ID: " + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb() + "\n");
 			result.append("Anschrift:"+ "\n");
 			result.append(b.getStrasse() + " " + b.getHnr() + "\n");
 			result.append(b.getPlz() + " " + b.getOrt() + "\n");

@@ -24,9 +24,11 @@ public class Login {
 	private JTextField tfUsername;
 	private JPasswordField tfPassword;
 	private JFrame frame;
-	public static int anzahlVersuche = 5;
+	public static int anzahlVersuche;
 
 	Login() {
+		
+		anzahlVersuche = 5;
 		
 		frame = new JFrame();
 		frame.setTitle("4HighSpeed HR - Login");
