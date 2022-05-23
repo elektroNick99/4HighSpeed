@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -69,6 +71,14 @@ public class Bewerbungsgespraech extends JPanel {
 		
 		bewerbungsgespraechName = new JTextField();
 		bewerbungsgespraechName.setFont(new Font("Arial", Font.PLAIN, 12));
+		bewerbungsgespraechName.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_bewerbungsgespraechName = new GridBagConstraints();
 		gbc_bewerbungsgespraechName.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerbungsgespraechName.fill = GridBagConstraints.HORIZONTAL;
@@ -88,6 +98,14 @@ public class Bewerbungsgespraech extends JPanel {
 		
 		bewerbungsgespraechNachname = new JTextField();
 		bewerbungsgespraechNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		bewerbungsgespraechNachname.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_bewerbungsgespraechNachname = new GridBagConstraints();
 		gbc_bewerbungsgespraechNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerbungsgespraechNachname.fill = GridBagConstraints.HORIZONTAL;

@@ -10,6 +10,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -51,6 +53,14 @@ public class MitarbeiterLoeschen extends JPanel {
 
 		tfName = new JTextField();
 		tfName.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfName.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_tfName = new GridBagConstraints();
 		gbc_tfName.insets = new Insets(0, 0, 5, 0);
 		gbc_tfName.fill = GridBagConstraints.HORIZONTAL;
@@ -70,6 +80,14 @@ public class MitarbeiterLoeschen extends JPanel {
 
 		tfNachname = new JTextField();
 		tfNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfNachname.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_tfNachname = new GridBagConstraints();
 		gbc_tfNachname.insets = new Insets(0, 0, 5, 0);
 		gbc_tfNachname.fill = GridBagConstraints.HORIZONTAL;

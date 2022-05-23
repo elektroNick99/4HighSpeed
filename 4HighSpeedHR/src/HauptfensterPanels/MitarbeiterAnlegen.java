@@ -66,6 +66,14 @@ public class MitarbeiterAnlegen extends JPanel {
 
 		mitarbeiterAnlegenName = new JTextField();
 		mitarbeiterAnlegenName.setFont(new Font("Arial", Font.PLAIN, 12));
+		mitarbeiterAnlegenName.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_mitarbeiterAnlegenName = new GridBagConstraints();
 		gbc_mitarbeiterAnlegenName.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAnlegenName.fill = GridBagConstraints.HORIZONTAL;
@@ -95,6 +103,14 @@ public class MitarbeiterAnlegen extends JPanel {
 
 		mitarbeiterAnlegenNachname = new JTextField();
 		mitarbeiterAnlegenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		mitarbeiterAnlegenNachname.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_mitarbeiterAnlegenNachname = new GridBagConstraints();
 		gbc_mitarbeiterAnlegenNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAnlegenNachname.fill = GridBagConstraints.HORIZONTAL;
@@ -189,6 +205,14 @@ public class MitarbeiterAnlegen extends JPanel {
 
 		mitarbeiterAnlegenStraße = new JTextField();
 		mitarbeiterAnlegenStraße.setFont(new Font("Arial", Font.PLAIN, 12));
+		mitarbeiterAnlegenStraße.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_mitarbeiterAnlegenStraße = new GridBagConstraints();
 		gbc_mitarbeiterAnlegenStraße.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAnlegenStraße.fill = GridBagConstraints.HORIZONTAL;
@@ -238,6 +262,14 @@ public class MitarbeiterAnlegen extends JPanel {
 
 		mitarbeiterAnlegenOrt = new JTextField();
 		mitarbeiterAnlegenOrt.setFont(new Font("Arial", Font.PLAIN, 12));
+		mitarbeiterAnlegenOrt.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_mitarbeiterAnlegenOrt = new GridBagConstraints();
 		gbc_mitarbeiterAnlegenOrt.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAnlegenOrt.fill = GridBagConstraints.HORIZONTAL;
@@ -315,6 +347,14 @@ public class MitarbeiterAnlegen extends JPanel {
 
 		mitarbeiterAnlegenAbteilung = new JTextField();
 		mitarbeiterAnlegenAbteilung.setFont(new Font("Arial", Font.PLAIN, 12));
+		mitarbeiterAnlegenAbteilung.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_mitarbeiterAnlegenAbteilung = new GridBagConstraints();
 		gbc_mitarbeiterAnlegenAbteilung.anchor = GridBagConstraints.NORTH;
 		gbc_mitarbeiterAnlegenAbteilung.insets = new Insets(0, 0, 5, 5);

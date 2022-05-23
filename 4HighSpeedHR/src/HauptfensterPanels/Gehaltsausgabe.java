@@ -93,6 +93,14 @@ public class Gehaltsausgabe extends JPanel {
 	    
 	    mitarbeiterGehaltName = new JTextField();
 	    mitarbeiterGehaltName.setFont(new Font("Arial", Font.PLAIN, 12));
+	    mitarbeiterGehaltName.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 	    GridBagConstraints gbc_mitarbeiterGehaltName = new GridBagConstraints();
 	    gbc_mitarbeiterGehaltName.insets = new Insets(0, 0, 5, 5);
 	    gbc_mitarbeiterGehaltName.fill = GridBagConstraints.HORIZONTAL;
@@ -112,6 +120,14 @@ public class Gehaltsausgabe extends JPanel {
 		
 		mitarbeiterGehaltNachname = new JTextField();
 		mitarbeiterGehaltNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		mitarbeiterGehaltNachname.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_mitarbeiterGehaltNachname = new GridBagConstraints();
 		gbc_mitarbeiterGehaltNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterGehaltNachname.fill = GridBagConstraints.HORIZONTAL;
@@ -282,7 +298,7 @@ public class Gehaltsausgabe extends JPanel {
 			JOptionPane.showMessageDialog(null, "Geben Sie bitte der Anzahl der Monaten");
 			
 		}else {
-			String label = "Für "+ monate + " Monate wurde berechnet: "+ monate*gehalt;
+			String label = "Fuer "+ monate + " Monate wurde berechnet: "+ monate*gehalt;
 			lblGehaltAusgeben.setText("<html><body>"+ mitarbeiterDaten+ "<br>"+  label +"</body></html>");
 			
 		}
@@ -299,7 +315,7 @@ public class Gehaltsausgabe extends JPanel {
 		Integer allerGehalt=0;
 		
 		if (text.equals("")) {
-			JOptionPane.showMessageDialog(null, "Geben Sie bitte der Anzahl der Monaten");
+			JOptionPane.showMessageDialog(null, "Geben Sie bitte die Anzahl der Monaten");
 			
 		}else {
 			ArrayList<Mitarbeiter> mitarbeiter = MitarbeiterDB.ausgebenMitarbeiterAlle();
@@ -310,7 +326,7 @@ public class Gehaltsausgabe extends JPanel {
 				 allerGehalt= allerGehalt+ mitarbeiter.get(i).getGehalt()*monate;
 							
 			}
-			lblListeAusgeben.setText( "<html><body>"+ result.toString() + "<br> <hr>"+  "Das Gehalt aller Mitarbeiter wurde für "+ monate + " Monate berechnet: "+ allerGehalt +"</body></html>" );		
+			lblListeAusgeben.setText( "<html><body>"+ result.toString() + "<br> <hr>"+  "Das Gehalt aller Mitarbeiter wurde fï¿½r "+ monate + " Monate berechnet: "+ allerGehalt +"</body></html>" );		
 
 		}
 	

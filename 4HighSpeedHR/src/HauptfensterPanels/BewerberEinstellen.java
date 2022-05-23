@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -95,6 +97,14 @@ public class BewerberEinstellen extends JPanel {
 
 		tfNameSuchen = new JTextField();
 		tfNameSuchen.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfNameSuchen.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_tfNameSuchen = new GridBagConstraints();
 		gbc_tfNameSuchen.insets = new Insets(0, 0, 5, 5);
 		gbc_tfNameSuchen.fill = GridBagConstraints.HORIZONTAL;
@@ -105,6 +115,14 @@ public class BewerberEinstellen extends JPanel {
 
 		tfName = new JTextField();
 		tfName.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfName.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_tfName = new GridBagConstraints();
 		gbc_tfName.insets = new Insets(0, 0, 5, 5);
 		gbc_tfName.fill = GridBagConstraints.HORIZONTAL;
@@ -133,6 +151,14 @@ public class BewerberEinstellen extends JPanel {
 
 		tfNachnameSuchen = new JTextField();
 		tfNachnameSuchen.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfNachnameSuchen.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_tfNachnameSuchen = new GridBagConstraints();
 		gbc_tfNachnameSuchen.insets = new Insets(0, 0, 5, 5);
 		gbc_tfNachnameSuchen.fill = GridBagConstraints.HORIZONTAL;
@@ -143,6 +169,14 @@ public class BewerberEinstellen extends JPanel {
 
 		tfNachname = new JTextField();
 		tfNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfNachname.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_tfNachname = new GridBagConstraints();
 		gbc_tfNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_tfNachname.fill = GridBagConstraints.HORIZONTAL;
@@ -209,6 +243,14 @@ public class BewerberEinstellen extends JPanel {
 
 		tfStrasse = new JTextField();
 		tfStrasse.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfStrasse.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_tfStrasse = new GridBagConstraints();
 		gbc_tfStrasse.insets = new Insets(0, 0, 5, 5);
 		gbc_tfStrasse.fill = GridBagConstraints.HORIZONTAL;
@@ -219,6 +261,16 @@ public class BewerberEinstellen extends JPanel {
 
 		tfHNR = new JTextField();
 		tfHNR.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfHNR.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
 		GridBagConstraints gbc_tfHNR = new GridBagConstraints();
 		gbc_tfHNR.insets = new Insets(0, 0, 5, 0);
 		gbc_tfHNR.fill = GridBagConstraints.HORIZONTAL;
@@ -247,6 +299,14 @@ public class BewerberEinstellen extends JPanel {
 
 		tfOrt = new JTextField();
 		tfOrt.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfOrt.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_tfOrt = new GridBagConstraints();
 		gbc_tfOrt.insets = new Insets(0, 0, 5, 5);
 		gbc_tfOrt.fill = GridBagConstraints.HORIZONTAL;
@@ -257,6 +317,16 @@ public class BewerberEinstellen extends JPanel {
 
 		tfPLZ = new JTextField();
 		tfPLZ.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfPLZ.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
 		GridBagConstraints gbc_tfPLZ = new GridBagConstraints();
 		gbc_tfPLZ.insets = new Insets(0, 0, 5, 0);
 		gbc_tfPLZ.fill = GridBagConstraints.HORIZONTAL;
@@ -276,6 +346,16 @@ public class BewerberEinstellen extends JPanel {
 
 		tfTel = new JTextField();
 		tfTel.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfTel.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
 		GridBagConstraints gbc_tfTel = new GridBagConstraints();
 		gbc_tfTel.insets = new Insets(0, 0, 5, 5);
 		gbc_tfTel.fill = GridBagConstraints.HORIZONTAL;
@@ -304,6 +384,14 @@ public class BewerberEinstellen extends JPanel {
 
 		tfAbteilung = new JTextField();
 		tfAbteilung.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfAbteilung.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_tfAbteilung = new GridBagConstraints();
 		gbc_tfAbteilung.anchor = GridBagConstraints.NORTH;
 		gbc_tfAbteilung.insets = new Insets(0, 0, 5, 5);
@@ -315,6 +403,16 @@ public class BewerberEinstellen extends JPanel {
 
 		tfGehalt = new JTextField();
 		tfGehalt.setFont(new Font("Arial", Font.PLAIN, 12));
+		tfGehalt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
 		GridBagConstraints gbc_tfGehalt = new GridBagConstraints();
 		gbc_tfGehalt.insets = new Insets(0, 0, 5, 0);
 		gbc_tfGehalt.fill = GridBagConstraints.HORIZONTAL;

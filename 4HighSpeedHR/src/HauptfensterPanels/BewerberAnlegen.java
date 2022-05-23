@@ -66,6 +66,14 @@ public class BewerberAnlegen extends JPanel {
 		
 	    bewerberAnlegenName = new JTextField();
 	    bewerberAnlegenName.setFont(new Font("Arial", Font.PLAIN, 12));
+	    bewerberAnlegenName.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_bewerberAnlegenName = new GridBagConstraints();
 		gbc_bewerberAnlegenName.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenName.fill = GridBagConstraints.HORIZONTAL;
@@ -95,6 +103,14 @@ public class BewerberAnlegen extends JPanel {
 		
 		bewerberAnlegenNachname = new JTextField();
 		bewerberAnlegenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
+		bewerberAnlegenNachname.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_bewerberAnlegenNachname = new GridBagConstraints();
 		gbc_bewerberAnlegenNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenNachname.fill = GridBagConstraints.HORIZONTAL;
@@ -193,6 +209,14 @@ public class BewerberAnlegen extends JPanel {
 		
 		bewerberAnlegenStraße = new JTextField();
 		bewerberAnlegenStraße.setFont(new Font("Arial", Font.PLAIN, 12));
+		bewerberAnlegenStraße.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_bewerberAnlegenStraße = new GridBagConstraints();
 		gbc_bewerberAnlegenStraße.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenStraße.fill = GridBagConstraints.HORIZONTAL;
@@ -242,6 +266,14 @@ public class BewerberAnlegen extends JPanel {
 		
 		bewerberAnlegenOrt = new JTextField();
 		bewerberAnlegenOrt.setFont(new Font("Arial", Font.PLAIN, 12));
+		bewerberAnlegenOrt.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	             char c = e.getKeyChar();
+	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
+	                 e.consume();  // ignore the event if it's not an alphabet
+	             }
+	         }
+	      });
 		GridBagConstraints gbc_bewerberAnlegenOrt = new GridBagConstraints();
 		gbc_bewerberAnlegenOrt.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenOrt.fill = GridBagConstraints.HORIZONTAL;
