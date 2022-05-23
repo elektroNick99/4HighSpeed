@@ -115,9 +115,6 @@ public class Hauptfenster {
 		gbc_title_1_11.gridy = 0;
 		panel.add(title, gbc_title_1_11);
 		
-		
-		
-		
 		Abmelden = new JButton("Abmelden");
 		Abmelden.addActionListener(e-> abmeldenProgramm());
 		GridBagConstraints gbc_Abmelden = new GridBagConstraints();
@@ -339,9 +336,6 @@ public class Hauptfenster {
 		frame.setVisible(true);	
 		
 	}
-
-
-
 	
 	public static void bAnlegenShow() {
 		
@@ -356,6 +350,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		
 	}
 	public static void bAusgebenShow() {
 		
