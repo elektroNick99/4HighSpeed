@@ -458,7 +458,22 @@ public class MitarbeiterAnlegen extends JPanel {
 			tfGeburtstagMonat.setText("");
 			tfGeburtstagTag.setText("");
 		}
-
+	}
+	
+	public static void clearAll() {
+		
+		mitarbeiterAnlegenName.setText("");
+		mitarbeiterAnlegenNachname.setText("");
+		mitarbeiterAnlegenStraße.setText("");
+		mitarbeiterAnlegenHNR.setText("");
+		mitarbeiterAnlegenOrt.setText("");
+		mitarbeiterAnlegenPLZ.setText("");
+		mitarbeiterAnlegenTel.setText("");
+		mitarbeiterAnlegenAbteilung.setText("");
+		mitarbeiterAnlegenGehalt.setText("");
+		tfGeburtstagJahr.setText("");
+		tfGeburtstagMonat.setText("");
+		tfGeburtstagTag.setText("");
 	}
 
 }

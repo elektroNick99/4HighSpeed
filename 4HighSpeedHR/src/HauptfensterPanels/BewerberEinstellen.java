@@ -535,5 +535,22 @@ public class BewerberEinstellen extends JPanel {
 		}
 		
 	}
+	
+	public static void clearAll() {
+
+		tfName.setText("");
+		tfNachname.setText("");
+		tfStrasse.setText("");
+		tfHNR.setText("");
+		tfOrt.setText("");
+		tfPLZ.setText("");
+		tfTel.setText("");
+		tfAbteilung.setText("");
+		tfGehalt.setText("");
+
+		tfNameSuchen.setText("");
+		tfNachnameSuchen.setText("");
+		tfNummer.setText("");
+	}
 
 }

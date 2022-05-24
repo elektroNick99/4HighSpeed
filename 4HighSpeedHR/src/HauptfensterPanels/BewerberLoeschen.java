@@ -161,5 +161,12 @@ public class BewerberLoeschen extends JPanel {
 			}
 		}
 	}
+	
+	public static void clearAll() {
+		
+		bewerberLoeschenName.setText("");
+		bewerberLoeschenNachname.setText("");
+		bewerberLoeschenNummer.setText("");
+	}
 
 }

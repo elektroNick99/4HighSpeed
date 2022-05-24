@@ -536,5 +536,22 @@ public class MitarbeiterAendern extends JPanel {
 		}
 
 	}
+	
+	public static void clearAll() {
+		
+		mitarbeiterSuchenName.setText("");
+		mitarbeiterSuchenNachname.setText("");
+		mitarbeiterSuchenNummer.setText("");
+		
+		mitarbeiterAEndernName.setText("");
+		mitarbeiterAEndernNachname.setText("");
+		mitarbeiterAEndernStrasse.setText("");
+		mitarbeiterAEndernHNR.setText("");
+		mitarbeiterAEndernOrt.setText("");
+		mitarbeiterAEndernPLZ.setText("");
+		mitarbeiterAEndernTel.setText("");
+		mitarbeiterAEndernAbteilung.setText("");
+		mitarbeiterAEndernGehalt.setText("");
+	}
 
 }

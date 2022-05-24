@@ -350,6 +350,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		BewerberAnlegen.clearAll();
 		
 	}
 	public static void bAusgebenShow() {
@@ -381,6 +382,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		BewerberLoeschen.clearAll();
 
 	}
 	public static void bGespraechShow() {
@@ -396,6 +398,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		Bewerbungsgespraech.clearAll();
 
 	}
 	public static void bEinstellenShow() {
@@ -410,6 +413,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		BewerberEinstellen.clearAll();
 
 	}
 	public static void gehaltsausgabeShow() {
@@ -425,6 +429,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		Gehaltsausgabe.clearAll();
 
 	}
 	public static void mAendernShow() {
@@ -440,7 +445,8 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
-
+		MitarbeiterAendern.clearAll();
+		
 	}
 	public static void mAnlegenShow() {
 		
@@ -455,6 +461,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		MitarbeiterAnlegen.clearAll();
 
 	}
 	public static void mLoeschenShow() {
@@ -470,6 +477,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(true);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		MitarbeiterLoeschen.clearAll();
 
 	}
 	public static void mAusgebenShow() {

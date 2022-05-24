@@ -24,6 +24,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 
 public class Gehaltsausgabe extends JPanel {
+	
 	private static JTextField mitarbeiterGehaltName;
 	private static JTextField mitarbeiterGehaltNachname;
 	private static JTextField mitarbeiterGehaltNummer;
@@ -291,6 +292,16 @@ public class Gehaltsausgabe extends JPanel {
 	
 	public static void ausgebenBewerberListePDF() {
 		//ToDp PDF erstellen und auf desktop speichern
+	}
+	
+	public static void clearAll() {
+		
+		mitarbeiterGehaltName.setText("");
+		mitarbeiterGehaltNachname.setText("");
+		mitarbeiterGehaltNummer.setText("");
+		mitarbeiterGehaltMonate.setText("");
+		lblMitarbeiter.setText("");
+		lblListeAusgabe.setText("");
 	}
 
 }

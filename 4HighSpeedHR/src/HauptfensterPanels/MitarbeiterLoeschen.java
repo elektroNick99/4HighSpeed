@@ -159,5 +159,12 @@ public class MitarbeiterLoeschen extends JPanel {
 		}
 
 	}
+	
+	public static void clearAll() {
+		
+		tfName.setText("");
+		tfNachname.setText("");
+		tfID.setText("");
+	}
 
 }

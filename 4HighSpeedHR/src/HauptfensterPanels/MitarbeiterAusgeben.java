@@ -100,5 +100,4 @@ public class MitarbeiterAusgeben extends JPanel {
 	public static void ausgebenMitarbeiterListePDF() {
 		//ToDo PDF erstellen und auf desktop speichern
 	}
-
 }

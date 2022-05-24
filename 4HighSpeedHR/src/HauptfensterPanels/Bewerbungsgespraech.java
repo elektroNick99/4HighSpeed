@@ -236,5 +236,13 @@ public class Bewerbungsgespraech extends JPanel {
 		bewerbungsgespraechNummer.setText("");
 		
 	}
+	
+	public static void clearAll() {
+		
+		epBewerberNotizen.setText("");
+		bewerbungsgespraechName.setText("");
+		bewerbungsgespraechNachname.setText("");
+		bewerbungsgespraechNummer.setText("");
+	}
 
 }

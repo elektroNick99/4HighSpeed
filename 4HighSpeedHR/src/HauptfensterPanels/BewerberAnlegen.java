@@ -423,5 +423,20 @@ public class BewerberAnlegen extends JPanel {
 			tfGeburtstagTag.setText("");
 		}
 	}
+	
+	public static void clearAll() {
+
+		bewerberAnlegenName.setText("");
+		bewerberAnlegenNachname.setText("");
+		bewerberAnlegenStraße.setText("");
+		bewerberAnlegenHNR.setText("");
+		bewerberAnlegenOrt.setText("");
+		bewerberAnlegenPLZ.setText("");
+		bewerberAnlegenTel.setText("");
+		epBewerberNotizen.setText("");
+		tfGeburtstagJahr.setText("");
+		tfGeburtstagMonat.setText("");
+		tfGeburtstagTag.setText("");
+	}
 
 }
