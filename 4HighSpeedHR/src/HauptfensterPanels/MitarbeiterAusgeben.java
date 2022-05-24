@@ -68,7 +68,6 @@ public class MitarbeiterAusgeben extends JPanel {
 		gbc_mitarbeiterlisteAusgebenPDF.gridy = 6;
 		add(mitarbeiterlisteAusgebenPDF, gbc_mitarbeiterlisteAusgebenPDF);
 		
-		ausgebenMitarbeiterListe();
 	}
 
 	public static void ausgebenMitarbeiterListe() {

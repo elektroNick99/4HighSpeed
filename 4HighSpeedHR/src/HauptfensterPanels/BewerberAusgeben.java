@@ -69,7 +69,6 @@ public class BewerberAusgeben extends JPanel {
 		gbc_bewerberlisteAusgebenPDF.gridy = 6;
 		add(bewerberlisteAusgebenPDF, gbc_bewerberlisteAusgebenPDF);
 		
-		ausgebenBewerberListe();
 	}
 	
 	public static void ausgebenBewerberListe() {

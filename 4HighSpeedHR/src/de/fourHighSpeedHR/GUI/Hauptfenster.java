@@ -365,6 +365,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		BewerberAusgeben.ausgebenBewerberListe();
 
 	}
 	public static void bLoeschenShow() {
@@ -484,7 +485,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(true);
 		start.setVisible(false);
-
+		MitarbeiterAusgeben.ausgebenMitarbeiterListe();
 	
 	}
 	
