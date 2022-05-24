@@ -8,10 +8,7 @@ import java.awt.Insets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.Timer;
-import java.util.logging.Logger;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -28,7 +25,6 @@ import HauptfensterPanels.MitarbeiterAusgeben;
 import HauptfensterPanels.MitarbeiterLoeschen;
 import HauptfensterPanels.Start;
 
-import java.awt.BorderLayout;
 
 public class Hauptfenster {
 	
