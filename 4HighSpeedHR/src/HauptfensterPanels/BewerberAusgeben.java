@@ -7,11 +7,24 @@ import javax.swing.JScrollPane;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import de.fourHighSpeedHR.database.BewerberDB;
 import de.fourHighSpeedHR.database.MitarbeiterDB;
@@ -99,7 +112,64 @@ public class BewerberAusgeben extends JPanel {
 	}
 	
 	public static void ausgebenBewerberListePDF() {
-		//ToDp PDF erstellen und auf desktop speichern
+		
+		ArrayList<Bewerber> bewerberListe = BewerberDB.ausgebenBewerberAlle();
+
+		try {
+			
+			String fileName = System.getProperty("user.home") + "/Desktop"+"/Bewerber.pdf";
+			Document doc = new Document(PageSize.A4.rotate());
+			PdfWriter.getInstance(doc, new FileOutputStream(fileName));
+			
+			doc.open();
+			
+			Paragraph par = new Paragraph("Liste aller Bewerber:");
+			doc.add(par);
+			
+			Paragraph par2 = new Paragraph(" ");
+			doc.add(par2);
+
+			PdfPTable tabelle = new PdfPTable(new float[] { 0.8f,1,1,1, 3 });
+			tabelle.setWidthPercentage(100);
+	        PdfPCell c1 = new PdfPCell(new Phrase("\nID\n\n"));
+	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabelle.addCell(c1);
+
+	        c1 = new PdfPCell(new Phrase("\nName"));
+	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabelle.addCell(c1);
+
+	        c1 = new PdfPCell(new Phrase("\nNachname"));
+	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabelle.addCell(c1);
+
+	        c1 = new PdfPCell(new Phrase("\nTel"));
+	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabelle.addCell(c1);
+
+	        c1 = new PdfPCell(new Phrase("\nNotizen"));
+	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabelle.addCell(c1);
+	        
+	        tabelle.setHeaderRows(1);
+			
+	        for (int i = 0; i < bewerberListe.size(); i++) {
+				Bewerber b = bewerberListe.get(i);
+				String id = "" + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb();
+				tabelle.addCell(id);
+				tabelle.addCell(b.getName());
+				tabelle.addCell(b.getNachname());
+				tabelle.addCell(Long.valueOf(b.getTel()).toString());
+				tabelle.addCell(b.getNotizen());
+			}
+	        
+	        doc.add(tabelle);
+			doc.close();
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		}
+	
 	}
 
 }

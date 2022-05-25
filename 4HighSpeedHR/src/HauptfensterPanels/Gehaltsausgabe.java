@@ -20,7 +20,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 import javax.swing.SwingConstants;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import javax.swing.JScrollPane;
 
 public class Gehaltsausgabe extends JPanel {
@@ -188,6 +202,7 @@ public class Gehaltsausgabe extends JPanel {
 		
 		JButton gehaltAusgebenPDF = new JButton("Gehalt ausgeben PDF");
 		gehaltAusgebenPDF.setFont(new Font("Arial", Font.BOLD, 12));
+		gehaltAusgebenPDF.addActionListener(e -> ausgebenGehaltPDF());
 		GridBagConstraints gbc_gehaltAusgebenPDF = new GridBagConstraints();
 		gbc_gehaltAusgebenPDF.fill = GridBagConstraints.HORIZONTAL;
 		gbc_gehaltAusgebenPDF.insets = new Insets(0, 0, 5, 5);
@@ -290,8 +305,77 @@ public class Gehaltsausgabe extends JPanel {
 		return "<html>" + s.replaceAll("\n", "<br>");
 	}
 	
-	public static void ausgebenBewerberListePDF() {
-		//ToDp PDF erstellen und auf desktop speichern
+	public static void ausgebenGehaltPDF() {
+		
+		ArrayList<Mitarbeiter> mitarbeiterListe = MitarbeiterDB.ausgebenMitarbeiterAlle();
+
+		try {
+			
+			String fileName = System.getProperty("user.home") + "/Desktop"+"/GehaltAusgabe.pdf";
+			Document doc = new Document(PageSize.A4);
+			PdfWriter.getInstance(doc, new FileOutputStream(fileName));
+			
+			doc.open();
+			
+			Paragraph par = new Paragraph("Gehaltliste aller Mitarbeiter pro Monat:");
+			doc.add(par);
+			
+			Paragraph par2 = new Paragraph(" ");
+			doc.add(par2);
+
+			PdfPTable tabelle = new PdfPTable(new float[] { 1,1,1,1 });
+			tabelle.setWidthPercentage(100);
+	        PdfPCell c1 = new PdfPCell(new Phrase("\nName\n\n"));
+	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabelle.addCell(c1);
+
+	        c1 = new PdfPCell(new Phrase("\nNachname"));
+	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabelle.addCell(c1);
+
+	        c1 = new PdfPCell(new Phrase("\nAbteilung"));
+	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabelle.addCell(c1);
+	        
+	        c1 = new PdfPCell(new Phrase("\nGehalt"));
+	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabelle.addCell(c1);
+	        
+	        tabelle.setHeaderRows(1);
+	        
+	        int gehaltSumme = 0;
+			
+	        for (int i = 0; i < mitarbeiterListe.size(); i++) {
+	        	Mitarbeiter m = mitarbeiterListe.get(i);
+				tabelle.addCell(m.getName());
+				tabelle.addCell(m.getNachname());
+				tabelle.addCell(m.getAbteilung());
+		        PdfPCell c2 = new PdfPCell(new Phrase(Integer.valueOf(m.getGehalt()).toString()+ ",00 €"));
+		        c2.setHorizontalAlignment(Element.ALIGN_RIGHT);
+		        tabelle.addCell(c2);
+		        gehaltSumme += m.getGehalt();
+			}
+	        
+	        doc.add(tabelle);
+	        
+			Paragraph par3 = new Paragraph(" ");
+			doc.add(par3);
+			
+			Paragraph par4 = new Paragraph("Das gesamte Gehalt aller Mitarbeiter pro Monat betraegt");
+			doc.add(par4);
+			
+			Paragraph par5 = new Paragraph(" ");
+			doc.add(par5);
+			
+			Paragraph par6 = new Paragraph(Integer.valueOf(gehaltSumme).toString()+ ",00 €");
+			doc.add(par6);
+	        
+			doc.close();
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		}
+	
 	}
 	
 	public static void clearAll() {
