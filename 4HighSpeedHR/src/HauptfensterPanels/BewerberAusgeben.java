@@ -117,7 +117,7 @@ public class BewerberAusgeben extends JPanel {
 
 		try {
 			
-			String fileName = System.getProperty("user.home") + "/Desktop"+"/Bewerber.pdf";
+			String fileName = System.getProperty("user.home") + "/Bewerber.pdf";
 			Document doc = new Document(PageSize.A4.rotate());
 			PdfWriter.getInstance(doc, new FileOutputStream(fileName));
 			

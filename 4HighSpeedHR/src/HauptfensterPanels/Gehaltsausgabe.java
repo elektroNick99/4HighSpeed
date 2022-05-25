@@ -311,7 +311,7 @@ public class Gehaltsausgabe extends JPanel {
 
 		try {
 			
-			String fileName = System.getProperty("user.home") + "/Desktop"+"/GehaltAusgabe.pdf";
+			String fileName = System.getProperty("user.home") + "/GehaltAusgabe.pdf";
 			Document doc = new Document(PageSize.A4);
 			PdfWriter.getInstance(doc, new FileOutputStream(fileName));
 			

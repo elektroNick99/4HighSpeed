@@ -117,7 +117,7 @@ public class MitarbeiterAusgeben extends JPanel {
 
 		try {
 			
-			String fileName = System.getProperty("user.home") + "/Desktop"+"/Mitarbeiter.pdf";
+			String fileName = System.getProperty("user.home") + "/Mitarbeiter.pdf";
 			Document doc = new Document(PageSize.A4.rotate());
 			PdfWriter.getInstance(doc, new FileOutputStream(fileName));
 			
