@@ -9,6 +9,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -100,7 +102,9 @@ public class BewerberAusgeben extends JPanel {
 			result.append(b.getPlz() + " " + b.getOrt() + "\n");
 			result.append("Tel.: "+b.getTel() + "\n");
 			result.append("Geburtstag: "+b.getGeb() + "\n");
-			result.append("Notizen:\n"+b.getNotizen() + "\n"+ "\n" + "\n");
+			result.append("Notizen:\n"+b.getNotizen() + "\n");
+			result.append("Status:\n"+b.getStatus() + "\n"+ "\n" + "\n");
+
 		}
 
 		lblListeAusgabe.setText(zeilenFormattieren(result.toString()));
@@ -123,13 +127,18 @@ public class BewerberAusgeben extends JPanel {
 			
 			doc.open();
 			
-			Paragraph par = new Paragraph("Liste aller Bewerber:");
+			Paragraph par = new Paragraph("Liste aller Bewerber:\n");
 			doc.add(par);
+			
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+			String now = String.valueOf(LocalDate.now().format(formatter));
+			Paragraph para = new Paragraph("Stand: "+now);
+			doc.add(para);
 			
 			Paragraph par2 = new Paragraph(" ");
 			doc.add(par2);
 
-			PdfPTable tabelle = new PdfPTable(new float[] { 0.8f,1,1,1, 3 });
+			PdfPTable tabelle = new PdfPTable(new float[] { 0.8f,1,1,1, 3, 0.5f });
 			tabelle.setWidthPercentage(100);
 	        PdfPCell c1 = new PdfPCell(new Phrase("\nID\n\n"));
 	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -151,6 +160,10 @@ public class BewerberAusgeben extends JPanel {
 	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
 	        tabelle.addCell(c1);
 	        
+	        c1 = new PdfPCell(new Phrase("\nStatus"));
+	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabelle.addCell(c1);
+	        
 	        tabelle.setHeaderRows(1);
 			
 	        for (int i = 0; i < bewerberListe.size(); i++) {
@@ -161,6 +174,7 @@ public class BewerberAusgeben extends JPanel {
 				tabelle.addCell(b.getNachname());
 				tabelle.addCell(Long.valueOf(b.getTel()).toString());
 				tabelle.addCell(b.getNotizen());
+				tabelle.addCell(b.getStatus());
 			}
 	        
 	        doc.add(tabelle);

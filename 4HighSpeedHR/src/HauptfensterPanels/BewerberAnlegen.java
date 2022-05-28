@@ -6,12 +6,16 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import com.toedter.calendar.JDateChooser;
 
 import de.fourHighSpeedHR.database.BewerberDB;
 import de.fourHighSpeedHR.database.MitarbeiterDB;
@@ -30,10 +34,9 @@ public class BewerberAnlegen extends JPanel {
 	private static JTextField bewerberAnlegenOrt;
 	private static JTextField bewerberAnlegenPLZ;
 	private static JTextField bewerberAnlegenTel;
-	private static JTextField tfGeburtstagJahr;
-	private static JTextField tfGeburtstagMonat;
-	private static JTextField tfGeburtstagTag;
 	private static JEditorPane epBewerberNotizen;
+	private static JDateChooser dateChooser;
+	private static final SimpleDateFormat SDF = new SimpleDateFormat("dd.MM.yyyy");
 
 	/**
 	 * Create the panel.
@@ -91,12 +94,11 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenNachname.gridy = 3;
 		add(lblBewerberAnlegenNachname, gbc_lblBewerberAnlegenNachname);
 		
-		JLabel lblGeburtstag = new JLabel("Geburtstag (YYYY/MM/DD)");
+		JLabel lblGeburtstag = new JLabel("Geburtstag ");
 		lblGeburtstag.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblGeburtstag = new GridBagConstraints();
 		gbc_lblGeburtstag.anchor = GridBagConstraints.WEST;
-		gbc_lblGeburtstag.gridwidth = 3;
-		gbc_lblGeburtstag.insets = new Insets(0, 0, 5, 0);
+		gbc_lblGeburtstag.insets = new Insets(0, 0, 5, 5);
 		gbc_lblGeburtstag.gridx = 2;
 		gbc_lblGeburtstag.gridy = 3;
 		add(lblGeburtstag, gbc_lblGeburtstag);
@@ -119,66 +121,21 @@ public class BewerberAnlegen extends JPanel {
 		add(bewerberAnlegenNachname, gbc_bewerberAnlegenNachname);
 		bewerberAnlegenNachname.setColumns(25);
 		
-		tfGeburtstagJahr = new JTextField();
-		tfGeburtstagJahr.setFont(new Font("Arial", Font.PLAIN, 12));
-		tfGeburtstagJahr.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-			}
-		});
-		GridBagConstraints gbc_tfGeburtstagJahr = new GridBagConstraints();
-		gbc_tfGeburtstagJahr.insets = new Insets(0, 0, 5, 5);
-		gbc_tfGeburtstagJahr.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfGeburtstagJahr.gridx = 2;
-		gbc_tfGeburtstagJahr.gridy = 4;
-		add(tfGeburtstagJahr, gbc_tfGeburtstagJahr);
-		tfGeburtstagJahr.setColumns(4);
+//		JLabel lblNewLabel = new JLabel("New label");
+//		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+//		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+//		gbc_lblNewLabel.gridx = 2;
+//		gbc_lblNewLabel.gridy = 4;
+//		add(lblNewLabel, gbc_lblNewLabel);
 		
-		tfGeburtstagMonat = new JTextField();
-		tfGeburtstagMonat.setFont(new Font("Arial", Font.PLAIN, 12));
-		tfGeburtstagMonat.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-			}
-		});
-		GridBagConstraints gbc_tfGeburtstagMonat = new GridBagConstraints();
-		gbc_tfGeburtstagMonat.weightx = 0.1;
-		gbc_tfGeburtstagMonat.insets = new Insets(0, 0, 5, 5);
-		gbc_tfGeburtstagMonat.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfGeburtstagMonat.gridx = 3;
-		gbc_tfGeburtstagMonat.gridy = 4;
-		add(tfGeburtstagMonat, gbc_tfGeburtstagMonat);
-		tfGeburtstagMonat.setColumns(2);
-		
-		tfGeburtstagTag = new JTextField();
-		tfGeburtstagTag.setFont(new Font("Arial", Font.PLAIN, 12));
-		tfGeburtstagTag.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-			}
-		});
-		GridBagConstraints gbc_tfGeburtstagTag = new GridBagConstraints();
-		gbc_tfGeburtstagTag.insets = new Insets(0, 0, 5, 0);
-		gbc_tfGeburtstagTag.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfGeburtstagTag.gridx = 4;
-		gbc_tfGeburtstagTag.gridy = 4;
-		add(tfGeburtstagTag, gbc_tfGeburtstagTag);
-		tfGeburtstagTag.setColumns(2);
+		dateChooser = new JDateChooser();
+		dateChooser.setDateFormatString("dd.MM.yyyy");
+		GridBagConstraints gbc_dateChooser = new GridBagConstraints();
+		gbc_dateChooser.insets = new Insets(0, 0, 5, 5);
+		gbc_dateChooser.fill = GridBagConstraints.HORIZONTAL;
+		gbc_dateChooser.gridx = 2;
+		gbc_dateChooser.gridy = 4;
+		add(dateChooser, gbc_dateChooser);
 		
 		JLabel lblBewerberAnlegenAdresse = new JLabel("Adresse");
 		lblBewerberAnlegenAdresse.setFont(new Font("Arial", Font.BOLD, 12));
@@ -238,7 +195,6 @@ public class BewerberAnlegen extends JPanel {
 			}
 		});
 		GridBagConstraints gbc_bewerberAnlegenHNR = new GridBagConstraints();
-		gbc_bewerberAnlegenHNR.gridwidth = 2;
 		gbc_bewerberAnlegenHNR.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenHNR.fill = GridBagConstraints.HORIZONTAL;
 		gbc_bewerberAnlegenHNR.gridx = 2;
@@ -295,7 +251,6 @@ public class BewerberAnlegen extends JPanel {
 			}
 		});
 		GridBagConstraints gbc_bewerberAnlegenPLZ = new GridBagConstraints();
-		gbc_bewerberAnlegenPLZ.gridwidth = 2;
 		gbc_bewerberAnlegenPLZ.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenPLZ.fill = GridBagConstraints.HORIZONTAL;
 		gbc_bewerberAnlegenPLZ.gridx = 2;
@@ -345,7 +300,7 @@ public class BewerberAnlegen extends JPanel {
 		epBewerberNotizen.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_epBewerberNotizen = new GridBagConstraints();
 		gbc_epBewerberNotizen.gridwidth = 4;
-		gbc_epBewerberNotizen.insets = new Insets(0, 0, 5, 5);
+		gbc_epBewerberNotizen.insets = new Insets(0, 0, 5, 0);
 		gbc_epBewerberNotizen.fill = GridBagConstraints.BOTH;
 		gbc_epBewerberNotizen.gridx = 1;
 		gbc_epBewerberNotizen.gridy = 13;
@@ -373,6 +328,7 @@ public class BewerberAnlegen extends JPanel {
 		String geburtstag = "";
 		int hnr = 0, plz = 0;
 		long tel = 0;
+		String status = "nicht eingestellt";
 
 		/**
 		 * Erst Nummern ueberpruefen da sonst NumberFormatException
@@ -391,8 +347,8 @@ public class BewerberAnlegen extends JPanel {
 			plz = Integer.valueOf(bewerberAnlegenPLZ.getText());
 			tel = Long.valueOf(bewerberAnlegenTel.getText());
 			notizen = epBewerberNotizen.getText();
-			geburtstag = tfGeburtstagTag.getText() + "." + tfGeburtstagMonat.getText() + "."
-					+ tfGeburtstagJahr.getText();
+			
+			geburtstag = SDF.format(dateChooser.getDate());
 			
 		}
 
@@ -400,27 +356,16 @@ public class BewerberAnlegen extends JPanel {
 		 * Test ob alle Felder ausgefüllt sind
 		 */
 		
-		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("")
-				|| geburtstag.equals("") || hnr == 0 || plz == 0 || tel == 0) {
+		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("")|| hnr == 0 || plz == 0 || tel == 0) {
 			
 			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
 			
 		} else {
 			
 			BewerberDB.hinzufuegenBewerber(
-					new Bewerber(name, nachname, strasse, hnr, ort, plz, tel, notizen, geburtstag));
+					new Bewerber(name, nachname, strasse, hnr, ort, plz, tel, notizen, geburtstag, status));
 
-			bewerberAnlegenName.setText("");
-			bewerberAnlegenNachname.setText("");
-			bewerberAnlegenStraße.setText("");
-			bewerberAnlegenHNR.setText("");
-			bewerberAnlegenOrt.setText("");
-			bewerberAnlegenPLZ.setText("");
-			bewerberAnlegenTel.setText("");
-			epBewerberNotizen.setText("");
-			tfGeburtstagJahr.setText("");
-			tfGeburtstagMonat.setText("");
-			tfGeburtstagTag.setText("");
+			clearAll();
 		}
 	}
 	
@@ -434,9 +379,9 @@ public class BewerberAnlegen extends JPanel {
 		bewerberAnlegenPLZ.setText("");
 		bewerberAnlegenTel.setText("");
 		epBewerberNotizen.setText("");
-		tfGeburtstagJahr.setText("");
-		tfGeburtstagMonat.setText("");
-		tfGeburtstagTag.setText("");
+		
+		Date date = new Date();
+		dateChooser.setDate(date);
 	}
 
 }

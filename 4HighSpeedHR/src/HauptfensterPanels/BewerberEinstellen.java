@@ -16,8 +16,11 @@ import javax.swing.JTextField;
 
 import de.fourHighSpeedHR.database.BewerberDB;
 import de.fourHighSpeedHR.database.MitarbeiterDB;
+import de.fourHighSpeedHR.objects.Abteilungen;
 import de.fourHighSpeedHR.objects.Bewerber;
+import de.fourHighSpeedHR.objects.Gehaltsgruppe;
 import de.fourHighSpeedHR.objects.Mitarbeiter;
+import javax.swing.JComboBox;
 
 public class BewerberEinstellen extends JPanel {
 
@@ -31,11 +34,12 @@ public class BewerberEinstellen extends JPanel {
 	private static JTextField tfOrt;
 	private static JTextField tfPLZ;
 	private static JTextField tfTel;
-	private static JTextField tfAbteilung;
-	private static JTextField tfGehalt;
 	private static JTextField tfNameSuchen;
 	private static JTextField tfNachnameSuchen;
 	private static JTextField tfNummer;
+	private static JComboBox cbGehalt, cbAbteilung;
+	private static Bewerber b;
+
 	
 	/**
 	 * Create the panel.
@@ -44,9 +48,9 @@ public class BewerberEinstellen extends JPanel {
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 60, 112, 144, 236, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
@@ -381,45 +385,24 @@ public class BewerberEinstellen extends JPanel {
 		gbc_lblGehlat.gridx = 4;
 		gbc_lblGehlat.gridy = 13;
 		add(lblGehlat, gbc_lblGehlat);
-
-		tfAbteilung = new JTextField();
-		tfAbteilung.setFont(new Font("Arial", Font.PLAIN, 12));
-		tfAbteilung.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
-		GridBagConstraints gbc_tfAbteilung = new GridBagConstraints();
-		gbc_tfAbteilung.anchor = GridBagConstraints.NORTH;
-		gbc_tfAbteilung.insets = new Insets(0, 0, 5, 5);
-		gbc_tfAbteilung.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfAbteilung.gridx = 3;
-		gbc_tfAbteilung.gridy = 14;
-		add(tfAbteilung, gbc_tfAbteilung);
-		tfAbteilung.setColumns(10);
-
-		tfGehalt = new JTextField();
-		tfGehalt.setFont(new Font("Arial", Font.PLAIN, 12));
-		tfGehalt.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-			}
-		});
-		GridBagConstraints gbc_tfGehalt = new GridBagConstraints();
-		gbc_tfGehalt.insets = new Insets(0, 0, 5, 0);
-		gbc_tfGehalt.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfGehalt.gridx = 4;
-		gbc_tfGehalt.gridy = 14;
-		add(tfGehalt, gbc_tfGehalt);
-		tfGehalt.setColumns(10);
+		
+		Abteilungen[] abteilungen = Abteilungen.values();
+		cbAbteilung = new JComboBox(abteilungen);		
+		GridBagConstraints gbc_cbAbteilung = new GridBagConstraints();
+		gbc_cbAbteilung.insets = new Insets(0, 0, 5, 5);
+		gbc_cbAbteilung.fill = GridBagConstraints.HORIZONTAL;
+		gbc_cbAbteilung.gridx = 3;
+		gbc_cbAbteilung.gridy = 14;
+		add(cbAbteilung, gbc_cbAbteilung);
+		
+		Gehaltsgruppe[] gehaltsgruppe = Gehaltsgruppe.values();
+		cbGehalt = new JComboBox(gehaltsgruppe);
+		GridBagConstraints gbc_cbGehalt = new GridBagConstraints();
+		gbc_cbGehalt.insets = new Insets(0, 0, 5, 0);
+		gbc_cbGehalt.fill = GridBagConstraints.HORIZONTAL;
+		gbc_cbGehalt.gridx = 4;
+		gbc_cbGehalt.gridy = 14;
+		add(cbGehalt, gbc_cbGehalt);
 
 		JButton btnSpeichern = new JButton("Speichern");
 		btnSpeichern.setFont(new Font("Arial", Font.BOLD, 12));
@@ -428,7 +411,7 @@ public class BewerberEinstellen extends JPanel {
 		gbc_btnSpeichern.gridwidth = 2;
 		gbc_btnSpeichern.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnSpeichern.gridx = 3;
-		gbc_btnSpeichern.gridy = 15;
+		gbc_btnSpeichern.gridy = 16;
 		add(btnSpeichern, gbc_btnSpeichern);
 
 	}
@@ -448,7 +431,7 @@ public class BewerberEinstellen extends JPanel {
 
 			for (int i = 0; i < bewerber.size(); i++) {
 
-				Bewerber b = bewerber.get(i);
+				b = bewerber.get(i);
 				String id = "" + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb();
 
 				if (b.getName().equals(nameInput) && b.getNachname().equals(nachnameInput) && id.equals(idInput)) {
@@ -491,7 +474,7 @@ public class BewerberEinstellen extends JPanel {
 		 */
 
 		if (tfHNR.getText().equals("") || tfPLZ.getText().equals("")
-				|| tfTel.getText().equals("") || tfGehalt.getText().equals("")) {
+				|| tfTel.getText().equals("")) {
 
 		} else {
 
@@ -502,8 +485,12 @@ public class BewerberEinstellen extends JPanel {
 			ort = tfOrt.getText();
 			plz = Integer.valueOf(tfPLZ.getText());
 			tel = Long.valueOf(tfTel.getText());
-			abteilung = tfAbteilung.getText();
-			gehalt = Integer.valueOf(tfGehalt.getText());
+			
+			Abteilungen ab = (Abteilungen) cbAbteilung.getSelectedItem();
+			abteilung = ab.toString();
+			
+			Gehaltsgruppe gg = (Gehaltsgruppe) cbGehalt.getSelectedItem();
+			gehalt = gg.gehalt;
 
 		}
 
@@ -511,18 +498,18 @@ public class BewerberEinstellen extends JPanel {
 		 * Test ob alle Felder ausgefüllt sind
 		 */
 
-		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("") || abteilung.equals("")
-				|| hnr == 0 || plz == 0 || gehalt == 0 || tel == 0) {
+		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("")
+				|| hnr == 0 || plz == 0 || tel == 0) {
 
 			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
 
 		} else {
-			
-			BewerberDB.loeschenBewerber(idB);
-			
+						
 			MitarbeiterDB.hinzufuegenMitarbeiter(
-					new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung, gehalt, gebB));
+					new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung, gehalt, gebB, "eingestellt"));
 		
+			BewerberDB.aendernStatus("eingestellt", idB);
+			
 			tfName.setText("");
 			tfNachname.setText("");
 			tfStrasse.setText("");
@@ -530,8 +517,6 @@ public class BewerberEinstellen extends JPanel {
 			tfOrt.setText("");
 			tfPLZ.setText("");
 			tfTel.setText("");
-			tfAbteilung.setText("");
-			tfGehalt.setText("");
 		}
 		
 	}
@@ -545,9 +530,10 @@ public class BewerberEinstellen extends JPanel {
 		tfOrt.setText("");
 		tfPLZ.setText("");
 		tfTel.setText("");
-		tfAbteilung.setText("");
-		tfGehalt.setText("");
 
+		cbGehalt.setSelectedItem(Gehaltsgruppe.GEHALTSGRUPPE_1);
+		cbAbteilung.setSelectedItem(Abteilungen.EINKAUF);
+		
 		tfNameSuchen.setText("");
 		tfNachnameSuchen.setText("");
 		tfNummer.setText("");

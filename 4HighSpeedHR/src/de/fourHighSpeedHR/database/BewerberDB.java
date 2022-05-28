@@ -28,7 +28,7 @@ public class BewerberDB {
 				bewerberliste.add(new Bewerber(rs.getString("Name"), rs.getString("Nachname"), rs.getString("Strasse"),
 						Integer.valueOf(rs.getString("Hausnummer")), rs.getString("Ort"),
 						Integer.valueOf(rs.getString("Postleitzahl")), Long.valueOf(rs.getString("Telefonnummer")),
-						rs.getString("Notizen"), rs.getString("Geburtstag")));
+						rs.getString("Notizen"), rs.getString("Geburtstag"), rs.getString("Status")));
 			}
 			
 			c.close();
@@ -54,10 +54,11 @@ public class BewerberDB {
 			long tel = b.getTel();
 			String geburtstag = b.getGeb();
 			String notizen = b.getNotizen();
+			String status = b.getStatus();
 
 			String id = name.charAt(0) + "" + nachname.charAt(0) + "" + geburtstag;
 
-			String sql = "INSERT INTO Bewerber VALUES (?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO Bewerber VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stm = c.prepareStatement(sql);
 			stm.setString(1, id);
 			stm.setString(2, name);
@@ -69,6 +70,7 @@ public class BewerberDB {
 			stm.setString(8, Long.valueOf(tel).toString());
 			stm.setString(9, notizen);
 			stm.setString(10, geburtstag);
+			stm.setString(11, status);
 			stm.executeUpdate();
 
 			c.close();
@@ -116,6 +118,28 @@ public class BewerberDB {
 			
 			c.close();
 
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+	}
+	
+	public static void aendernStatus(String status, String idBewerber) {
+		
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection c = DriverManager.getConnection("jdbc:mysql://3.69.96.96:3306/db5", "db5", args[0]);
+
+			String sql = "UPDATE Bewerber SET Status = ? WHERE id = ?";
+			PreparedStatement stm = c.prepareStatement(sql);
+			stm.setString(1, status);
+			stm.setString(2, idBewerber);
+			stm.executeUpdate();
+			
+			c.close();
 			
 		} catch (Exception e) {
 			

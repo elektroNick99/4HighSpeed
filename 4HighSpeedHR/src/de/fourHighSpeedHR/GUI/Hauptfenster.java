@@ -23,6 +23,7 @@ import HauptfensterPanels.MitarbeiterAendern;
 import HauptfensterPanels.MitarbeiterAnlegen;
 import HauptfensterPanels.MitarbeiterAusgeben;
 import HauptfensterPanels.MitarbeiterLoeschen;
+import HauptfensterPanels.MitarbieterNeuerBenuter;
 import HauptfensterPanels.Start;
 
 
@@ -31,7 +32,8 @@ public class Hauptfenster {
 	private static JFrame frame;
 	
 	private static JPanel panel_2;
-	private static JPanel start, bAnlegen, bAusgeben, bLoeschen, bGespraech, bEinstellen, gehaltsausgabe, mAendern, mAnlegen, mLoeschen, mAusgeben;
+	private static JPanel start, bAnlegen, bAusgeben, bLoeschen, bGespraech, bEinstellen, gehaltsausgabe, 
+	mAendern, mAnlegen, mLoeschen, mAusgeben, mNeuerBenutzer;
 	private static JLabel lblMitarbeiter;
 	private static JButton btnMitarbeiterAnlegen;
 	private static JButton btnMitarbeiterAusgeben;
@@ -49,6 +51,7 @@ public class Hauptfenster {
 	private JLabel title;
 	private JButton Abmelden;
 	private JButton btnBewerberEinstellen;
+	private JButton btnBenutzerHinzufuegen;
 	
 	Hauptfenster() {
 			
@@ -88,9 +91,9 @@ public class Hauptfenster {
 		contentPanel.add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{0, 0, 0, 0};
-		gbl_panel.rowHeights = new int[]{0, 0, 0};
+		gbl_panel.rowHeights = new int[]{0, 0, 0, 0};
 		gbl_panel.columnWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		ImageIcon icon = new ImageIcon ("logo.png");
@@ -139,6 +142,7 @@ public class Hauptfenster {
 		}, 0, 1000);
 		Datum.setFont(new Font("Arial", Font.BOLD, 20));
 		GridBagConstraints gbc_Datum = new GridBagConstraints();
+		gbc_Datum.insets = new Insets(0, 0, 5, 0);
 		gbc_Datum.anchor = GridBagConstraints.NORTHEAST;
 		gbc_Datum.gridx = 2;
 		gbc_Datum.gridy = 1;
@@ -156,9 +160,9 @@ public class Hauptfenster {
 		frame.getContentPane().add(panel_1, gbc_panel_1);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
 		gbl_panel_1.columnWidths = new int[]{149, 0};
-		gbl_panel_1.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_1.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panel_1.columnWeights = new double[]{0.0, Double.MIN_VALUE};
-		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_1.setLayout(gbl_panel_1);
 		
 		lblMitarbeiter = new JLabel("Mitarbeiter");
@@ -210,13 +214,24 @@ public class Hauptfenster {
 		panel_1.add(btnMitarbeiterAendern, gbc_btnMitarbeiterAendern);
 		btnMitarbeiterAendern.addActionListener(e -> mAendernShow());
 		
+		btnBenutzerHinzufuegen = new JButton("Neuer Benutzer");
+		btnBenutzerHinzufuegen.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnBenutzerHinzufuegen.addActionListener(e -> mNeuerBenutzerShow());
+		GridBagConstraints gbc_btnBenutzerHinzufuegen = new GridBagConstraints();
+		gbc_btnBenutzerHinzufuegen.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnBenutzerHinzufuegen.anchor = GridBagConstraints.SOUTH;
+		gbc_btnBenutzerHinzufuegen.insets = new Insets(0, 0, 5, 0);
+		gbc_btnBenutzerHinzufuegen.gridx = 0;
+		gbc_btnBenutzerHinzufuegen.gridy = 5;
+		panel_1.add(btnBenutzerHinzufuegen, gbc_btnBenutzerHinzufuegen);
+		
 		lblBewerber = new JLabel("Bewerber");
 		lblBewerber.setFont(new Font("Arial", Font.BOLD, 20));
 		GridBagConstraints gbc_lblBewerber = new GridBagConstraints();
 		gbc_lblBewerber.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblBewerber.insets = new Insets(0, 0, 5, 0);
 		gbc_lblBewerber.gridx = 0;
-		gbc_lblBewerber.gridy = 5;
+		gbc_lblBewerber.gridy = 6;
 		panel_1.add(lblBewerber, gbc_lblBewerber);
 		
 		btnBewerberAnlegen = new JButton("Anlegen");
@@ -225,7 +240,7 @@ public class Hauptfenster {
 		gbc_btnBewerberAnlegen.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnBewerberAnlegen.insets = new Insets(0, 0, 5, 0);
 		gbc_btnBewerberAnlegen.gridx = 0;
-		gbc_btnBewerberAnlegen.gridy = 6;
+		gbc_btnBewerberAnlegen.gridy = 7;
 		panel_1.add(btnBewerberAnlegen, gbc_btnBewerberAnlegen);
 		btnBewerberAnlegen.addActionListener(e -> bAnlegenShow());
 		
@@ -235,7 +250,7 @@ public class Hauptfenster {
 		gbc_btnBewerberAusgeben.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnBewerberAusgeben.insets = new Insets(0, 0, 5, 0);
 		gbc_btnBewerberAusgeben.gridx = 0;
-		gbc_btnBewerberAusgeben.gridy = 7;
+		gbc_btnBewerberAusgeben.gridy = 8;
 		panel_1.add(btnBewerberAusgeben, gbc_btnBewerberAusgeben);
 		btnBewerberAusgeben.addActionListener(e -> bAusgebenShow());
 		
@@ -245,7 +260,7 @@ public class Hauptfenster {
 		gbc_btnBewerberLoeschen.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnBewerberLoeschen.insets = new Insets(0, 0, 5, 0);
 		gbc_btnBewerberLoeschen.gridx = 0;
-		gbc_btnBewerberLoeschen.gridy = 8;
+		gbc_btnBewerberLoeschen.gridy = 9;
 		panel_1.add(btnBewerberLoeschen, gbc_btnBewerberLoeschen);
 		btnBewerberLoeschen.addActionListener(e -> bLoeschenShow());
 		
@@ -255,7 +270,7 @@ public class Hauptfenster {
 		gbc_btnGespraech.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnGespraech.insets = new Insets(0, 0, 5, 0);
 		gbc_btnGespraech.gridx = 0;
-		gbc_btnGespraech.gridy = 9;
+		gbc_btnGespraech.gridy = 10;
 		panel_1.add(btnGespraech, gbc_btnGespraech);
 		btnGespraech.addActionListener(e -> bGespraechShow());
 		
@@ -265,7 +280,7 @@ public class Hauptfenster {
 		gbc_btnBewerberEinstellen.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnBewerberEinstellen.insets = new Insets(0, 0, 5, 0);
 		gbc_btnBewerberEinstellen.gridx = 0;
-		gbc_btnBewerberEinstellen.gridy = 10;
+		gbc_btnBewerberEinstellen.gridy = 11;
 		panel_1.add(btnBewerberEinstellen, gbc_btnBewerberEinstellen);
 		btnBewerberEinstellen.addActionListener(e -> bEinstellenShow());
 		
@@ -275,7 +290,7 @@ public class Hauptfenster {
 		gbc_lblRechner.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblRechner.insets = new Insets(0, 0, 5, 0);
 		gbc_lblRechner.gridx = 0;
-		gbc_lblRechner.gridy = 11;
+		gbc_lblRechner.gridy = 12;
 		panel_1.add(lblRechner, gbc_lblRechner);
 		
 		btnGehaltRechner = new JButton("Gehalt");
@@ -284,7 +299,7 @@ public class Hauptfenster {
 		gbc_btnGehaltRechner.insets = new Insets(0, 0, 5, 0);
 		gbc_btnGehaltRechner.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnGehaltRechner.gridx = 0;
-		gbc_btnGehaltRechner.gridy = 12;
+		gbc_btnGehaltRechner.gridy = 13;
 		panel_1.add(btnGehaltRechner, gbc_btnGehaltRechner);
 		btnGehaltRechner.addActionListener(e -> gehaltsausgabeShow());
 		
@@ -326,6 +341,9 @@ public class Hauptfenster {
 		panel_2.add(mLoeschen);
 		mAusgeben = new MitarbeiterAusgeben();
 		panel_2.add(mAusgeben);
+		mNeuerBenutzer = new MitarbieterNeuerBenuter();
+		panel_2.add(mNeuerBenutzer);
+		
 		
 		
 
@@ -346,6 +364,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		mNeuerBenutzer.setVisible(false);
 		BewerberAnlegen.clearAll();
 		
 	}
@@ -362,6 +381,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		mNeuerBenutzer.setVisible(false);
 		BewerberAusgeben.ausgebenBewerberListe();
 
 	}
@@ -378,6 +398,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		mNeuerBenutzer.setVisible(false);
 		BewerberLoeschen.clearAll();
 
 	}
@@ -394,6 +415,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		mNeuerBenutzer.setVisible(false);
 		Bewerbungsgespraech.clearAll();
 
 	}
@@ -409,6 +431,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		mNeuerBenutzer.setVisible(false);
 		BewerberEinstellen.clearAll();
 
 	}
@@ -425,6 +448,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		mNeuerBenutzer.setVisible(false);
 		Gehaltsausgabe.clearAll();
 
 	}
@@ -441,6 +465,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		mNeuerBenutzer.setVisible(false);
 		MitarbeiterAendern.clearAll();
 		
 	}
@@ -457,6 +482,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		mNeuerBenutzer.setVisible(false);
 		MitarbeiterAnlegen.clearAll();
 
 	}
@@ -473,6 +499,7 @@ public class Hauptfenster {
 		mLoeschen.setVisible(true);
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
+		mNeuerBenutzer.setVisible(false);
 		MitarbeiterLoeschen.clearAll();
 
 	}
@@ -489,8 +516,27 @@ public class Hauptfenster {
 		mLoeschen.setVisible(false);
 		mAusgeben.setVisible(true);
 		start.setVisible(false);
+		mNeuerBenutzer.setVisible(false);
 		MitarbeiterAusgeben.ausgebenMitarbeiterListe();
 	
+	}
+	
+	public static void mNeuerBenutzerShow() {
+		
+		bAnlegen.setVisible(false);
+		bAusgeben.setVisible(false);
+		bLoeschen.setVisible(false);
+		bGespraech.setVisible(false);
+		bEinstellen.setVisible(false);
+		gehaltsausgabe.setVisible(false);
+		mAendern.setVisible(false);
+		mAnlegen.setVisible(false);
+		mLoeschen.setVisible(false);
+		mAusgeben.setVisible(false);
+		start.setVisible(false);
+		mNeuerBenutzer.setVisible(true);
+		MitarbieterNeuerBenuter.clearAll();
+		MitarbieterNeuerBenuter.disableTextField();
 	}
 	
 	public static void abmeldenProgramm(){

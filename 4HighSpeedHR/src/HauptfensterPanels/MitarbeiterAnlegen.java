@@ -12,9 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import de.fourHighSpeedHR.database.MitarbeiterDB;
+import de.fourHighSpeedHR.objects.Abteilungen;
+import de.fourHighSpeedHR.objects.Gehaltsgruppe;
 import de.fourHighSpeedHR.objects.Mitarbeiter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import javax.swing.JComboBox;
+import com.toedter.calendar.JDateChooser;
 
 public class MitarbeiterAnlegen extends JPanel {
 
@@ -25,12 +33,8 @@ public class MitarbeiterAnlegen extends JPanel {
 	private static JTextField mitarbeiterAnlegenOrt;
 	private static JTextField mitarbeiterAnlegenPLZ;
 	private static JTextField mitarbeiterAnlegenTel;
-	private static JTextField mitarbeiterAnlegenAbteilung;
-	private static JTextField mitarbeiterAnlegenGehalt;
-	private static JTextField tfGeburtstagJahr;
-	private static JTextField tfGeburtstagMonat;
-	private static JTextField tfGeburtstagTag;
-
+	private static JComboBox cbGehalt, cbAbteilung;
+	private static JDateChooser dateChooser;
 
 	/**
 	 * Create the panel.
@@ -39,11 +43,11 @@ public class MitarbeiterAnlegen extends JPanel {
 	public MitarbeiterAnlegen() {
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 60, 236, 0, 0, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
+		gridBagLayout.columnWidths = new int[] { 60, 236, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-				0.0, Double.MIN_VALUE };
+				0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
 		JLabel lblMitarbeiterAnlegen = new JLabel("Neuer Mitarbeiter anlegen");
@@ -67,13 +71,14 @@ public class MitarbeiterAnlegen extends JPanel {
 		mitarbeiterAnlegenName = new JTextField();
 		mitarbeiterAnlegenName.setFont(new Font("Arial", Font.PLAIN, 12));
 		mitarbeiterAnlegenName.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_mitarbeiterAnlegenName = new GridBagConstraints();
 		gbc_mitarbeiterAnlegenName.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAnlegenName.fill = GridBagConstraints.HORIZONTAL;
@@ -91,10 +96,9 @@ public class MitarbeiterAnlegen extends JPanel {
 		gbc_lblMitarbeiterAnlegenNachname.gridy = 3;
 		add(lblMitarbeiterAnlegenNachname, gbc_lblMitarbeiterAnlegenNachname);
 
-		JLabel lblMitarbeiterAnlegenGeburtstag = new JLabel("Geburtstag (YYYY/MM/DD)");
+		JLabel lblMitarbeiterAnlegenGeburtstag = new JLabel("Geburtstag");
 		lblMitarbeiterAnlegenGeburtstag.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblMitarbeiterAnlegenGeburtstag = new GridBagConstraints();
-		gbc_lblMitarbeiterAnlegenGeburtstag.gridwidth = 3;
 		gbc_lblMitarbeiterAnlegenGeburtstag.anchor = GridBagConstraints.WEST;
 		gbc_lblMitarbeiterAnlegenGeburtstag.insets = new Insets(0, 0, 5, 0);
 		gbc_lblMitarbeiterAnlegenGeburtstag.gridx = 2;
@@ -104,13 +108,14 @@ public class MitarbeiterAnlegen extends JPanel {
 		mitarbeiterAnlegenNachname = new JTextField();
 		mitarbeiterAnlegenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
 		mitarbeiterAnlegenNachname.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_mitarbeiterAnlegenNachname = new GridBagConstraints();
 		gbc_mitarbeiterAnlegenNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAnlegenNachname.fill = GridBagConstraints.HORIZONTAL;
@@ -119,62 +124,14 @@ public class MitarbeiterAnlegen extends JPanel {
 		add(mitarbeiterAnlegenNachname, gbc_mitarbeiterAnlegenNachname);
 		mitarbeiterAnlegenNachname.setColumns(20);
 
-		tfGeburtstagJahr = new JTextField();
-		tfGeburtstagJahr.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-			}
-		});
-		GridBagConstraints gbc_tfGeburtstagJahr = new GridBagConstraints();
-		gbc_tfGeburtstagJahr.insets = new Insets(0, 0, 5, 5);
-		gbc_tfGeburtstagJahr.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfGeburtstagJahr.gridx = 2;
-		gbc_tfGeburtstagJahr.gridy = 4;
-		add(tfGeburtstagJahr, gbc_tfGeburtstagJahr);
-		tfGeburtstagJahr.setColumns(4);
-
-		tfGeburtstagMonat = new JTextField();
-		tfGeburtstagMonat.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-			}
-		});
-		GridBagConstraints gbc_tfGeburtstagMonat = new GridBagConstraints();
-		gbc_tfGeburtstagMonat.insets = new Insets(0, 0, 5, 5);
-		gbc_tfGeburtstagMonat.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfGeburtstagMonat.gridx = 3;
-		gbc_tfGeburtstagMonat.gridy = 4;
-		add(tfGeburtstagMonat, gbc_tfGeburtstagMonat);
-		tfGeburtstagMonat.setColumns(2);
-
-		tfGeburtstagTag = new JTextField();
-		tfGeburtstagTag.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-			}
-		});
-		GridBagConstraints gbc_tfGeburtstagTag = new GridBagConstraints();
-		gbc_tfGeburtstagTag.insets = new Insets(0, 0, 5, 0);
-		gbc_tfGeburtstagTag.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfGeburtstagTag.gridx = 4;
-		gbc_tfGeburtstagTag.gridy = 4;
-		add(tfGeburtstagTag, gbc_tfGeburtstagTag);
-		tfGeburtstagTag.setColumns(2);
+		dateChooser = new JDateChooser();
+		dateChooser.setDateFormatString("dd.MM.yyyy");
+		GridBagConstraints gbc_dateChooser = new GridBagConstraints();
+		gbc_dateChooser.insets = new Insets(0, 0, 5, 0);
+		gbc_dateChooser.fill = GridBagConstraints.HORIZONTAL;
+		gbc_dateChooser.gridx = 2;
+		gbc_dateChooser.gridy = 4;
+		add(dateChooser, gbc_dateChooser);
 
 		JLabel lblMitarbeiterAnlegenAdresse = new JLabel("Adresse");
 		lblMitarbeiterAnlegenAdresse.setFont(new Font("Arial", Font.BOLD, 12));
@@ -198,7 +155,7 @@ public class MitarbeiterAnlegen extends JPanel {
 		lblMitarbeiterAnlegenHNR.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblMitarbeiterAnlegenHNR = new GridBagConstraints();
 		gbc_lblMitarbeiterAnlegenHNR.anchor = GridBagConstraints.WEST;
-		gbc_lblMitarbeiterAnlegenHNR.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMitarbeiterAnlegenHNR.insets = new Insets(0, 0, 5, 0);
 		gbc_lblMitarbeiterAnlegenHNR.gridx = 2;
 		gbc_lblMitarbeiterAnlegenHNR.gridy = 6;
 		add(lblMitarbeiterAnlegenHNR, gbc_lblMitarbeiterAnlegenHNR);
@@ -206,13 +163,14 @@ public class MitarbeiterAnlegen extends JPanel {
 		mitarbeiterAnlegenStraße = new JTextField();
 		mitarbeiterAnlegenStraße.setFont(new Font("Arial", Font.PLAIN, 12));
 		mitarbeiterAnlegenStraße.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_mitarbeiterAnlegenStraße = new GridBagConstraints();
 		gbc_mitarbeiterAnlegenStraße.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAnlegenStraße.fill = GridBagConstraints.HORIZONTAL;
@@ -234,7 +192,6 @@ public class MitarbeiterAnlegen extends JPanel {
 		});
 		mitarbeiterAnlegenHNR.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_mitarbeiterAnlegenHNR = new GridBagConstraints();
-		gbc_mitarbeiterAnlegenHNR.gridwidth = 2;
 		gbc_mitarbeiterAnlegenHNR.insets = new Insets(0, 0, 5, 0);
 		gbc_mitarbeiterAnlegenHNR.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mitarbeiterAnlegenHNR.gridx = 2;
@@ -254,7 +211,7 @@ public class MitarbeiterAnlegen extends JPanel {
 		JLabel lblMitarbeiterAnlegenPLZ = new JLabel("PLZ");
 		lblMitarbeiterAnlegenPLZ.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblMitarbeiterAnlegenPLZ = new GridBagConstraints();
-		gbc_lblMitarbeiterAnlegenPLZ.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMitarbeiterAnlegenPLZ.insets = new Insets(0, 0, 5, 0);
 		gbc_lblMitarbeiterAnlegenPLZ.anchor = GridBagConstraints.WEST;
 		gbc_lblMitarbeiterAnlegenPLZ.gridx = 2;
 		gbc_lblMitarbeiterAnlegenPLZ.gridy = 8;
@@ -263,13 +220,14 @@ public class MitarbeiterAnlegen extends JPanel {
 		mitarbeiterAnlegenOrt = new JTextField();
 		mitarbeiterAnlegenOrt.setFont(new Font("Arial", Font.PLAIN, 12));
 		mitarbeiterAnlegenOrt.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_mitarbeiterAnlegenOrt = new GridBagConstraints();
 		gbc_mitarbeiterAnlegenOrt.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAnlegenOrt.fill = GridBagConstraints.HORIZONTAL;
@@ -290,7 +248,6 @@ public class MitarbeiterAnlegen extends JPanel {
 			}
 		});
 		GridBagConstraints gbc_mitarbeiterAnlegenPLZ = new GridBagConstraints();
-		gbc_mitarbeiterAnlegenPLZ.gridwidth = 2;
 		gbc_mitarbeiterAnlegenPLZ.insets = new Insets(0, 0, 5, 0);
 		gbc_mitarbeiterAnlegenPLZ.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mitarbeiterAnlegenPLZ.gridx = 2;
@@ -340,50 +297,28 @@ public class MitarbeiterAnlegen extends JPanel {
 		lblMitarbeiterAnlegenGehalt.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblMitarbeiterAnlegenGehalt = new GridBagConstraints();
 		gbc_lblMitarbeiterAnlegenGehalt.anchor = GridBagConstraints.WEST;
-		gbc_lblMitarbeiterAnlegenGehalt.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMitarbeiterAnlegenGehalt.insets = new Insets(0, 0, 5, 0);
 		gbc_lblMitarbeiterAnlegenGehalt.gridx = 2;
 		gbc_lblMitarbeiterAnlegenGehalt.gridy = 12;
 		add(lblMitarbeiterAnlegenGehalt, gbc_lblMitarbeiterAnlegenGehalt);
 
-		mitarbeiterAnlegenAbteilung = new JTextField();
-		mitarbeiterAnlegenAbteilung.setFont(new Font("Arial", Font.PLAIN, 12));
-		mitarbeiterAnlegenAbteilung.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
-		GridBagConstraints gbc_mitarbeiterAnlegenAbteilung = new GridBagConstraints();
-		gbc_mitarbeiterAnlegenAbteilung.anchor = GridBagConstraints.NORTH;
-		gbc_mitarbeiterAnlegenAbteilung.insets = new Insets(0, 0, 5, 5);
-		gbc_mitarbeiterAnlegenAbteilung.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAnlegenAbteilung.gridx = 1;
-		gbc_mitarbeiterAnlegenAbteilung.gridy = 13;
-		add(mitarbeiterAnlegenAbteilung, gbc_mitarbeiterAnlegenAbteilung);
-		mitarbeiterAnlegenAbteilung.setColumns(10);
+		Abteilungen[] abteilungen = Abteilungen.values();
+		cbAbteilung = new JComboBox(abteilungen);
+		GridBagConstraints gbc_cbAbteilung = new GridBagConstraints();
+		gbc_cbAbteilung.insets = new Insets(0, 0, 5, 5);
+		gbc_cbAbteilung.fill = GridBagConstraints.HORIZONTAL;
+		gbc_cbAbteilung.gridx = 1;
+		gbc_cbAbteilung.gridy = 13;
+		add(cbAbteilung, gbc_cbAbteilung);
 
-		mitarbeiterAnlegenGehalt = new JTextField();
-		mitarbeiterAnlegenGehalt.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-			}
-		});
-		mitarbeiterAnlegenGehalt.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_mitarbeiterAnlegenGehalt = new GridBagConstraints();
-		gbc_mitarbeiterAnlegenGehalt.gridwidth = 2;
-		gbc_mitarbeiterAnlegenGehalt.insets = new Insets(0, 0, 5, 0);
-		gbc_mitarbeiterAnlegenGehalt.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAnlegenGehalt.gridx = 2;
-		gbc_mitarbeiterAnlegenGehalt.gridy = 13;
-		add(mitarbeiterAnlegenGehalt, gbc_mitarbeiterAnlegenGehalt);
-		mitarbeiterAnlegenGehalt.setColumns(7);
+		Gehaltsgruppe[] gehaltsgruppe = Gehaltsgruppe.values();
+		cbGehalt = new JComboBox(gehaltsgruppe);
+		GridBagConstraints gbc_cbGehalt = new GridBagConstraints();
+		gbc_cbGehalt.insets = new Insets(0, 0, 5, 0);
+		gbc_cbGehalt.fill = GridBagConstraints.HORIZONTAL;
+		gbc_cbGehalt.gridx = 2;
+		gbc_cbGehalt.gridy = 13;
+		add(cbGehalt, gbc_cbGehalt);
 
 		JButton mitarbeiterAnlegenSpeichern = new JButton("Speichern");
 		mitarbeiterAnlegenSpeichern.setFont(new Font("Arial", Font.BOLD, 12));
@@ -391,7 +326,7 @@ public class MitarbeiterAnlegen extends JPanel {
 		gbc_mitarbeiterAnlegenSpeichern.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mitarbeiterAnlegenSpeichern.insets = new Insets(0, 0, 0, 5);
 		gbc_mitarbeiterAnlegenSpeichern.gridx = 1;
-		gbc_mitarbeiterAnlegenSpeichern.gridy = 14;
+		gbc_mitarbeiterAnlegenSpeichern.gridy = 15;
 		add(mitarbeiterAnlegenSpeichern, gbc_mitarbeiterAnlegenSpeichern);
 		mitarbeiterAnlegenSpeichern.addActionListener(e -> speichern());
 
@@ -411,12 +346,12 @@ public class MitarbeiterAnlegen extends JPanel {
 		/**
 		 * Erst Nummern ueberpruefen da sonst NumberFormatException
 		 */
-		
+
 		if (mitarbeiterAnlegenHNR.getText().equals("") || mitarbeiterAnlegenPLZ.getText().equals("")
-				|| mitarbeiterAnlegenTel.getText().equals("") || mitarbeiterAnlegenGehalt.getText().equals("")) {
+				|| mitarbeiterAnlegenTel.getText().equals("")) {
 
 		} else {
-			
+
 			name = mitarbeiterAnlegenName.getText();
 			nachname = mitarbeiterAnlegenNachname.getText();
 			strasse = mitarbeiterAnlegenStraße.getText();
@@ -424,44 +359,37 @@ public class MitarbeiterAnlegen extends JPanel {
 			ort = mitarbeiterAnlegenOrt.getText();
 			plz = Integer.valueOf(mitarbeiterAnlegenPLZ.getText());
 			tel = Long.valueOf(mitarbeiterAnlegenTel.getText());
-			abteilung = mitarbeiterAnlegenAbteilung.getText();
-			gehalt = Integer.valueOf(mitarbeiterAnlegenGehalt.getText());
-			geburtstag = tfGeburtstagTag.getText() + "." + tfGeburtstagMonat.getText() + "."
-					+ tfGeburtstagJahr.getText();
-			
+
+			Abteilungen ab = (Abteilungen) cbAbteilung.getSelectedItem();
+			abteilung = ab.toString();
+
+			Gehaltsgruppe gg = (Gehaltsgruppe) cbGehalt.getSelectedItem();
+			gehalt = gg.gehalt;
+
+			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+			geburtstag = sdf.format(dateChooser.getDate());
 		}
 
 		/**
 		 * Test ob alle Felder ausgefüllt sind
 		 */
-		
-		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("") || abteilung.equals("")
-				|| geburtstag.equals("") || hnr == 0 || plz == 0 || gehalt == 0 || tel == 0) {
-			
-			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
-			
-		} else {
-			
-			MitarbeiterDB.hinzufuegenMitarbeiter(
-					new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung, gehalt, geburtstag));
 
-			mitarbeiterAnlegenName.setText("");
-			mitarbeiterAnlegenNachname.setText("");
-			mitarbeiterAnlegenStraße.setText("");
-			mitarbeiterAnlegenHNR.setText("");
-			mitarbeiterAnlegenOrt.setText("");
-			mitarbeiterAnlegenPLZ.setText("");
-			mitarbeiterAnlegenTel.setText("");
-			mitarbeiterAnlegenAbteilung.setText("");
-			mitarbeiterAnlegenGehalt.setText("");
-			tfGeburtstagJahr.setText("");
-			tfGeburtstagMonat.setText("");
-			tfGeburtstagTag.setText("");
+		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("") || abteilung.equals("")
+				|| geburtstag.equals("") || hnr == 0 || plz == 0 || tel == 0) {
+
+			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
+
+		} else {
+
+			MitarbeiterDB.hinzufuegenMitarbeiter(new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung,
+					gehalt, geburtstag, "eingestellt"));
+
+			clearAll();
 		}
 	}
-	
+
 	public static void clearAll() {
-		
+
 		mitarbeiterAnlegenName.setText("");
 		mitarbeiterAnlegenNachname.setText("");
 		mitarbeiterAnlegenStraße.setText("");
@@ -469,11 +397,12 @@ public class MitarbeiterAnlegen extends JPanel {
 		mitarbeiterAnlegenOrt.setText("");
 		mitarbeiterAnlegenPLZ.setText("");
 		mitarbeiterAnlegenTel.setText("");
-		mitarbeiterAnlegenAbteilung.setText("");
-		mitarbeiterAnlegenGehalt.setText("");
-		tfGeburtstagJahr.setText("");
-		tfGeburtstagMonat.setText("");
-		tfGeburtstagTag.setText("");
+
+		Date date = new Date();
+		dateChooser.setDate(date);
+
+		cbGehalt.setSelectedItem(Gehaltsgruppe.GEHALTSGRUPPE_1);
+		cbAbteilung.setSelectedItem(Abteilungen.EINKAUF);
 	}
 
 }

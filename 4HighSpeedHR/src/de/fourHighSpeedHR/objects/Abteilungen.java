@@ -1,0 +1,13 @@
+package de.fourHighSpeedHR.objects;
+
+public enum Abteilungen {
+
+	GESCHAEFTSLEITUNG,
+	VERKAUF,
+	MONTAGE,
+	LAGERVERWALTUNG,
+	EINKAUF,
+	BUCHHALTUNG,
+	PERSONALABTEILUNG;
+	
+}

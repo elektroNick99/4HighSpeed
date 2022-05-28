@@ -12,9 +12,10 @@ public class Mitarbeiter {
 	private String abteilung;
 	private int gehalt;
 	private String geb;
+	private String status;
 	
 	public Mitarbeiter(String name, String nachname, String strasse, int hnr, String ort, int plz, long tel,
-			String abteilung, int gehalt, String geb) {
+			String abteilung, int gehalt, String geb, String status) {
 		this.name = name;
 		this.nachname = nachname;
 		this.strasse = strasse;
@@ -25,6 +26,7 @@ public class Mitarbeiter {
 		this.abteilung = abteilung;
 		this.gehalt = gehalt;
 		this.geb = geb;
+		this.status = status;
 	}
 	@Override
 	public String toString() {
@@ -111,4 +113,11 @@ public class Mitarbeiter {
 	public void setGeb(String geb) {
 		this.geb = geb;
 	}	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 }

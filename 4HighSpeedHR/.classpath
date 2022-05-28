@@ -6,7 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/nickl/OneDrive/Dokumente/Studium/WI_Projekt1/itextpdf-5.0.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/nickl/OneDrive/Dokumente/Studium/WI_Projekt1/mysql-connector-java-8.0.19.jar"/>
+	<classpathentry kind="lib" path="lib/itext-5.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.19.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

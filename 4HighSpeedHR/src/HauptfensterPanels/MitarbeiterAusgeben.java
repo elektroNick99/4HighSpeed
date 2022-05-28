@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -38,7 +40,7 @@ import de.fourHighSpeedHR.objects.Mitarbeiter;
 import javax.swing.ScrollPaneConstants;
 
 public class MitarbeiterAusgeben extends JPanel {
-	
+
 	private static JLabel lblListeAusgabe;
 
 	/**
@@ -81,7 +83,7 @@ public class MitarbeiterAusgeben extends JPanel {
 		gbc_mitarbeiterlisteAusgebenPDF.gridx = 1;
 		gbc_mitarbeiterlisteAusgebenPDF.gridy = 6;
 		add(mitarbeiterlisteAusgebenPDF, gbc_mitarbeiterlisteAusgebenPDF);
-		
+
 	}
 
 	public static void ausgebenMitarbeiterListe() {
@@ -92,15 +94,17 @@ public class MitarbeiterAusgeben extends JPanel {
 
 		for (int i = 0; i < mitarbeiterListe.size(); i++) {
 			Mitarbeiter m = mitarbeiterListe.get(i);
-			result.append(i+1+". Mitarbeiter: " +m.getName() + " " + m.getNachname() + ":\n");
+			result.append(i + 1 + ". Mitarbeiter: " + m.getName() + " " + m.getNachname() + ":\n");
 			result.append("Mitarbeiter ID: " + m.getName().charAt(0) + m.getNachname().charAt(0) + m.getGeb() + "\n");
-			result.append("Anschrift:"+ "\n");
+			result.append("Anschrift:" + "\n");
 			result.append(m.getStrasse() + " " + m.getHnr() + "\n");
 			result.append(m.getPlz() + " " + m.getOrt() + "\n");
-			result.append("Tel.: "+m.getTel() + "\n");
-			result.append("Geburtstag: "+m.getGeb() + "\n");
-			result.append("Abteilung: "+m.getAbteilung() + "\n");
-			result.append("Gehalt: "+m.getGehalt() + " €\n" + "\n" + "\n");
+			result.append("Tel.: " + m.getTel() + "\n");
+			result.append("Geburtstag: " + m.getGeb() + "\n");
+			result.append("Abteilung: " + m.getAbteilung() + "\n");
+			result.append("Gehalt: " + m.getGehalt() + " €\n");
+			result.append("Status: " + m.getStatus() + " \n" + "\n" + "\n");
+
 		}
 
 		lblListeAusgabe.setText(zeilenFormattieren(result.toString()));
@@ -110,71 +114,82 @@ public class MitarbeiterAusgeben extends JPanel {
 	public static String zeilenFormattieren(String s) {
 		return "<html>" + s.replaceAll("\n", "<br>");
 	}
-	
+
 	public static void ausgebenMitarbeiterListePDF() {
-		
+
 		ArrayList<Mitarbeiter> mitarbeiterListe = MitarbeiterDB.ausgebenMitarbeiterAlle();
 
 		try {
-			
+
 			String fileName = System.getProperty("user.home") + "/Mitarbeiter.pdf";
 			Document doc = new Document(PageSize.A4.rotate());
 			PdfWriter.getInstance(doc, new FileOutputStream(fileName));
-			
+
 			doc.open();
-			
-			Paragraph par = new Paragraph("Liste aller Mitarbeiter:");
+
+			Paragraph par = new Paragraph("Liste aller Mitarbeiter:\n");
 			doc.add(par);
-			
+
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+			String now = String.valueOf(LocalDate.now().format(formatter));
+			Paragraph para = new Paragraph("Stand: " + now);
+			doc.add(para);
+
 			Paragraph par2 = new Paragraph(" ");
 			doc.add(par2);
 
-			PdfPTable tabelle = new PdfPTable(new float[] { 1,1,1,1,1,1 });
+			PdfPTable tabelle = new PdfPTable(new float[] { 1, 1, 1, 1, 1, 1, 0.8f });
 			tabelle.setWidthPercentage(100);
-	        PdfPCell c1 = new PdfPCell(new Phrase("\nID\n\n"));
-	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-	        tabelle.addCell(c1);
+			PdfPCell c1 = new PdfPCell(new Phrase("\nID\n\n"));
+			c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			tabelle.addCell(c1);
 
-	        c1 = new PdfPCell(new Phrase("\nName"));
-	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-	        tabelle.addCell(c1);
+			c1 = new PdfPCell(new Phrase("\nName"));
+			c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			tabelle.addCell(c1);
 
-	        c1 = new PdfPCell(new Phrase("\nNachname"));
-	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-	        tabelle.addCell(c1);
+			c1 = new PdfPCell(new Phrase("\nNachname"));
+			c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			tabelle.addCell(c1);
 
-	        c1 = new PdfPCell(new Phrase("\nTel"));
-	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-	        tabelle.addCell(c1);
+			c1 = new PdfPCell(new Phrase("\nTel"));
+			c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			tabelle.addCell(c1);
 
-	        c1 = new PdfPCell(new Phrase("\nAbteilung"));
-	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-	        tabelle.addCell(c1);
-	        
-	        c1 = new PdfPCell(new Phrase("\nGehalt"));
-	        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-	        tabelle.addCell(c1);
-	        
-	        tabelle.setHeaderRows(1);
+			c1 = new PdfPCell(new Phrase("\nAbteilung"));
+			c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			tabelle.addCell(c1);
+
+			c1 = new PdfPCell(new Phrase("\nStatus"));
+			c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			tabelle.addCell(c1);
 			
-	        for (int i = 0; i < mitarbeiterListe.size(); i++) {
-	        	Mitarbeiter m = mitarbeiterListe.get(i);
+			c1 = new PdfPCell(new Phrase("\nGehalt"));
+			c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			tabelle.addCell(c1);
+
+			tabelle.setHeaderRows(1);
+
+			for (int i = 0; i < mitarbeiterListe.size(); i++) {
+				Mitarbeiter m = mitarbeiterListe.get(i);
 				String id = "" + m.getName().charAt(0) + m.getNachname().charAt(0) + m.getGeb();
 				tabelle.addCell(id);
 				tabelle.addCell(m.getName());
 				tabelle.addCell(m.getNachname());
 				tabelle.addCell(Long.valueOf(m.getTel()).toString());
 				tabelle.addCell(m.getAbteilung());
-		        PdfPCell c2 = new PdfPCell(new Phrase(Integer.valueOf(m.getGehalt()).toString()+ ",00 €"));
-		        c2.setHorizontalAlignment(Element.ALIGN_RIGHT);
-		        tabelle.addCell(c2);			}
-	        
-	        doc.add(tabelle);
+				tabelle.addCell(m.getStatus());
+				PdfPCell c2 = new PdfPCell(new Phrase(Integer.valueOf(m.getGehalt()).toString() + ",00 €"));
+				c2.setHorizontalAlignment(Element.ALIGN_RIGHT);
+				tabelle.addCell(c2);
+			}
+
+			doc.add(tabelle);
 			doc.close();
-			
+
 		} catch (FileNotFoundException | DocumentException e) {
 			e.printStackTrace();
 		}
-	
+
 	}
 }

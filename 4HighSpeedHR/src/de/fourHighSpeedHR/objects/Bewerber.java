@@ -11,9 +11,10 @@ public class Bewerber {
 	private long tel;
 	private String notizen;
 	private String geb;
+	private String status;
 
 	public Bewerber(String name, String nachname, String strasse, int hnr, String ort, int plz, long tel,
-			String notizen, String geb) {
+			String notizen, String geb, String status) {
 		this.name = name;
 		this.nachname = nachname;
 		this.strasse = strasse;
@@ -23,6 +24,7 @@ public class Bewerber {
 		this.tel = tel;
 		this.notizen = notizen;
 		this.geb = geb;
+		this.status = status;
 	}
 
 	@Override
@@ -102,4 +104,13 @@ public class Bewerber {
 	public void setNotizen(String notizen) {
 		this.notizen = notizen;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 }

@@ -30,7 +30,7 @@ public class MitarbeiterDB {
 						rs.getString("Strasse"), Integer.valueOf(rs.getString("Hausnummer")), rs.getString("Ort"),
 						Integer.valueOf(rs.getString("Postleitzahl")), Long.valueOf(rs.getString("Telefonnummer")),
 						rs.getString("Abteilung"), Integer.valueOf(rs.getString("Gehalt")),
-						rs.getString("Geburtstag")));
+						rs.getString("Geburtstag"), rs.getString("Status")));
 
 			}
 			
@@ -58,10 +58,11 @@ public class MitarbeiterDB {
 			String abteilung = ma.getAbteilung();
 			int gehalt = ma.getGehalt();
 			String geburtstag = ma.getGeb();
+			String status = ma.getStatus();
 
 			String id = name.charAt(0) + "" + nachname.charAt(0) + "" + geburtstag;
 
-			String sql = "INSERT INTO Mitarbeiter VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO Mitarbeiter VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stm = c.prepareStatement(sql);
 			stm.setString(1, id);
 			stm.setString(2, name);
@@ -74,6 +75,8 @@ public class MitarbeiterDB {
 			stm.setString(9, abteilung);
 			stm.setString(10, Integer.valueOf(gehalt).toString());
 			stm.setString(11, geburtstag);
+			stm.setString(12, status);
+
 			stm.executeUpdate();
 			
 			c.close();

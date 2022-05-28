@@ -15,7 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import de.fourHighSpeedHR.database.MitarbeiterDB;
+import de.fourHighSpeedHR.objects.Abteilungen;
+import de.fourHighSpeedHR.objects.Gehaltsgruppe;
 import de.fourHighSpeedHR.objects.Mitarbeiter;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 
 public class MitarbeiterAendern extends JPanel {
 
@@ -29,21 +33,22 @@ public class MitarbeiterAendern extends JPanel {
 	private static JTextField mitarbeiterAEndernOrt;
 	private static JTextField mitarbeiterAEndernPLZ;
 	private static JTextField mitarbeiterAEndernTel;
-	private static JTextField mitarbeiterAEndernAbteilung;
-	private static JTextField mitarbeiterAEndernGehalt;
 	private static JTextField mitarbeiterSuchenName;
 	private static JTextField mitarbeiterSuchenNachname;
 	private static JTextField mitarbeiterSuchenNummer;
+	private static JCheckBox cbKuendigen;
+	private static JComboBox cbGehalt, cbAbteilung;
 
+	
 	/**
 	 * Create the panel.
 	 */
 	public MitarbeiterAendern() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 60, 112, 144, 236, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
@@ -360,6 +365,15 @@ public class MitarbeiterAendern extends JPanel {
 		gbc_mitarbeiterAEndernTel.gridy = 12;
 		add(mitarbeiterAEndernTel, gbc_mitarbeiterAEndernTel);
 		mitarbeiterAEndernTel.setColumns(10);
+		
+		cbKuendigen = new JCheckBox("kuendigen");
+		cbKuendigen.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_cbKuendigen = new GridBagConstraints();
+		gbc_cbKuendigen.anchor = GridBagConstraints.WEST;
+		gbc_cbKuendigen.insets = new Insets(0, 0, 5, 0);
+		gbc_cbKuendigen.gridx = 4;
+		gbc_cbKuendigen.gridy = 12;
+		add(cbKuendigen, gbc_cbKuendigen);
 
 		JLabel lblMitarbeiterAEndernAbteilung = new JLabel("Abteilung");
 		lblMitarbeiterAEndernAbteilung.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -378,45 +392,24 @@ public class MitarbeiterAendern extends JPanel {
 		gbc_lblMitarbeiterAEndernGehalt.gridx = 4;
 		gbc_lblMitarbeiterAEndernGehalt.gridy = 13;
 		add(lblMitarbeiterAEndernGehalt, gbc_lblMitarbeiterAEndernGehalt);
-
-		mitarbeiterAEndernAbteilung = new JTextField();
-		mitarbeiterAEndernAbteilung.setFont(new Font("Arial", Font.PLAIN, 12));
-		mitarbeiterAEndernAbteilung.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
-		GridBagConstraints gbc_mitarbeiterAEndernAbteilung = new GridBagConstraints();
-		gbc_mitarbeiterAEndernAbteilung.anchor = GridBagConstraints.NORTH;
-		gbc_mitarbeiterAEndernAbteilung.insets = new Insets(0, 0, 5, 5);
-		gbc_mitarbeiterAEndernAbteilung.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAEndernAbteilung.gridx = 3;
-		gbc_mitarbeiterAEndernAbteilung.gridy = 14;
-		add(mitarbeiterAEndernAbteilung, gbc_mitarbeiterAEndernAbteilung);
-		mitarbeiterAEndernAbteilung.setColumns(10);
-
-		mitarbeiterAEndernGehalt = new JTextField();
-		mitarbeiterAEndernGehalt.setFont(new Font("Arial", Font.PLAIN, 12));
-		mitarbeiterAEndernGehalt.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-			}
-		});
-		GridBagConstraints gbc_mitarbeiterAEndernGehalt = new GridBagConstraints();
-		gbc_mitarbeiterAEndernGehalt.insets = new Insets(0, 0, 5, 0);
-		gbc_mitarbeiterAEndernGehalt.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAEndernGehalt.gridx = 4;
-		gbc_mitarbeiterAEndernGehalt.gridy = 14;
-		add(mitarbeiterAEndernGehalt, gbc_mitarbeiterAEndernGehalt);
-		mitarbeiterAEndernGehalt.setColumns(10);
+		
+		Abteilungen[] abteilungen = Abteilungen.values();
+		cbAbteilung = new JComboBox(abteilungen);
+		GridBagConstraints gbc_cbAbteilung = new GridBagConstraints();
+		gbc_cbAbteilung.insets = new Insets(0, 0, 5, 5);
+		gbc_cbAbteilung.fill = GridBagConstraints.HORIZONTAL;
+		gbc_cbAbteilung.gridx = 3;
+		gbc_cbAbteilung.gridy = 14;
+		add(cbAbteilung, gbc_cbAbteilung);
+		
+		Gehaltsgruppe[] gehaltsgruppe = Gehaltsgruppe.values();
+		cbGehalt = new JComboBox(gehaltsgruppe);		
+		GridBagConstraints gbc_cbGehalt = new GridBagConstraints();
+		gbc_cbGehalt.insets = new Insets(0, 0, 5, 0);
+		gbc_cbGehalt.fill = GridBagConstraints.HORIZONTAL;
+		gbc_cbGehalt.gridx = 4;
+		gbc_cbGehalt.gridy = 14;
+		add(cbGehalt, gbc_cbGehalt);
 
 		JButton mitarbeiterAEndernSpeichern = new JButton("Speichern");
 		mitarbeiterAEndernSpeichern.setFont(new Font("Arial", Font.BOLD, 12));
@@ -425,7 +418,7 @@ public class MitarbeiterAendern extends JPanel {
 		gbc_mitarbeiterAEndernSpeichern.gridwidth = 2;
 		gbc_mitarbeiterAEndernSpeichern.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mitarbeiterAEndernSpeichern.gridx = 3;
-		gbc_mitarbeiterAEndernSpeichern.gridy = 15;
+		gbc_mitarbeiterAEndernSpeichern.gridy = 16;
 		add(mitarbeiterAEndernSpeichern, gbc_mitarbeiterAEndernSpeichern);
 
 	}
@@ -452,13 +445,64 @@ public class MitarbeiterAendern extends JPanel {
 
 					mitarbeiterAEndernName.setText(m.getName());
 					mitarbeiterAEndernNachname.setText(m.getNachname());
-					mitarbeiterAEndernAbteilung.setText(m.getAbteilung());
-					mitarbeiterAEndernGehalt.setText(String.valueOf(m.getGehalt()));
+					
+					String abteilung = m.getAbteilung();
+					switch (abteilung) {
+					case "GESCHAEFTSLEITUNG":
+						cbAbteilung.setSelectedItem(Abteilungen.GESCHAEFTSLEITUNG);
+						break;
+					case "VERKAUF":
+						cbAbteilung.setSelectedItem(Abteilungen.VERKAUF);
+						break;
+					case "MONTAGE":
+						cbAbteilung.setSelectedItem(Abteilungen.MONTAGE);
+						break;
+					case "LAGERVERWALTUNG":
+						cbAbteilung.setSelectedItem(Abteilungen.LAGERVERWALTUNG);
+						break;
+					case "EINKAUF":
+						cbAbteilung.setSelectedItem(Abteilungen.EINKAUF);
+						break;
+					case "BUCHHALTUNG":
+						cbAbteilung.setSelectedItem(Abteilungen.BUCHHALTUNG);
+						break;
+					case "PERSONALABTEILUNG":
+						cbAbteilung.setSelectedItem(Abteilungen.PERSONALABTEILUNG);
+						break;
+					}
+					int gehalt = m.getGehalt();
+					switch(gehalt) {
+					case 1500:
+						cbGehalt.setSelectedItem(Gehaltsgruppe.GEHALTSGRUPPE_1);
+						System.out.println(1500);
+						break;
+					case 3000:
+						cbGehalt.setSelectedItem(Gehaltsgruppe.GEHALTSGRUPPE_2);
+						System.out.println(3000);
+						break;
+					case 5000:
+						cbGehalt.setSelectedItem(Gehaltsgruppe.GEHALTSGRUPPE_3);
+						System.out.println(5000);
+						break;
+					case 8000:
+						cbGehalt.setSelectedItem(Gehaltsgruppe.GEHALTSGRUPPE_4);
+						break;
+					case 10000:
+						cbGehalt.setSelectedItem(Gehaltsgruppe.GEHALTSGRUPPE_5);
+						break;
+					}
 					mitarbeiterAEndernOrt.setText(m.getOrt());
 					mitarbeiterAEndernStrasse.setText(m.getStrasse());
 					mitarbeiterAEndernHNR.setText(String.valueOf(m.getHnr()));
 					mitarbeiterAEndernTel.setText(String.valueOf(m.getTel()));
 					mitarbeiterAEndernPLZ.setText(String.valueOf(m.getPlz()));
+					
+					boolean eingestellt = true;
+					if(m.getStatus().equals("gekuendigt")) {
+						eingestellt = false;
+					}
+					
+					cbKuendigen.setSelected(eingestellt);
 
 					mitarbeiterSuchenName.setText("");
 					mitarbeiterSuchenNachname.setText("");
@@ -485,13 +529,14 @@ public class MitarbeiterAendern extends JPanel {
 		String geburtstag = "";
 		int hnr = 0, plz = 0, gehalt = 0;
 		long tel = 0;
+		String status = "eingestellt";
 
 		/**
 		 * Erst Nummern ueberpruefen da sonst NumberFormatException
 		 */
 
 		if (mitarbeiterAEndernHNR.getText().equals("") || mitarbeiterAEndernPLZ.getText().equals("")
-				|| mitarbeiterAEndernTel.getText().equals("") || mitarbeiterAEndernGehalt.getText().equals("")) {
+				|| mitarbeiterAEndernTel.getText().equals("")) {
 
 		} else {
 
@@ -502,10 +547,18 @@ public class MitarbeiterAendern extends JPanel {
 			ort = mitarbeiterAEndernOrt.getText();
 			plz = Integer.valueOf(mitarbeiterAEndernPLZ.getText());
 			tel = Long.valueOf(mitarbeiterAEndernTel.getText());
-			abteilung = mitarbeiterAEndernAbteilung.getText();
-			gehalt = Integer.valueOf(mitarbeiterAEndernGehalt.getText());
+			
+			Abteilungen ab = (Abteilungen) cbAbteilung.getSelectedItem();
+			abteilung = ab.toString();
+			
+			Gehaltsgruppe gg = (Gehaltsgruppe) cbGehalt.getSelectedItem();
+			gehalt = gg.gehalt;		
+			
 			geburtstag = gebMA;
 
+			if(cbKuendigen.isSelected()) {
+				status = "gekuendigt";
+			}
 		}
 
 		/**
@@ -522,7 +575,7 @@ public class MitarbeiterAendern extends JPanel {
 			MitarbeiterDB.loeschenMitarbeiter(idMA);
 			
 			MitarbeiterDB.hinzufuegenMitarbeiter(
-					new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung, gehalt, geburtstag));
+					new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung, gehalt, geburtstag, status));
 		
 			mitarbeiterAEndernName.setText("");
 			mitarbeiterAEndernNachname.setText("");
@@ -531,8 +584,6 @@ public class MitarbeiterAendern extends JPanel {
 			mitarbeiterAEndernOrt.setText("");
 			mitarbeiterAEndernPLZ.setText("");
 			mitarbeiterAEndernTel.setText("");
-			mitarbeiterAEndernAbteilung.setText("");
-			mitarbeiterAEndernGehalt.setText("");
 		}
 
 	}
@@ -550,8 +601,9 @@ public class MitarbeiterAendern extends JPanel {
 		mitarbeiterAEndernOrt.setText("");
 		mitarbeiterAEndernPLZ.setText("");
 		mitarbeiterAEndernTel.setText("");
-		mitarbeiterAEndernAbteilung.setText("");
-		mitarbeiterAEndernGehalt.setText("");
+		
+		cbGehalt.setSelectedItem(Gehaltsgruppe.GEHALTSGRUPPE_1);
+		cbAbteilung.setSelectedItem(Abteilungen.EINKAUF);
 	}
 
 }
