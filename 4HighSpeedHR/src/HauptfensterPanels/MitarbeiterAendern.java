@@ -45,9 +45,9 @@ public class MitarbeiterAendern extends JPanel {
 	 */
 	public MitarbeiterAendern() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 60, 112, 144, 236, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 60, 112, 236, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE };
+		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
@@ -75,7 +75,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lbl2MitarbeiterAEndern = new GridBagConstraints();
 		gbc_lbl2MitarbeiterAEndern.anchor = GridBagConstraints.WEST;
 		gbc_lbl2MitarbeiterAEndern.insets = new Insets(0, 0, 5, 5);
-		gbc_lbl2MitarbeiterAEndern.gridx = 3;
+		gbc_lbl2MitarbeiterAEndern.gridx = 2;
 		gbc_lbl2MitarbeiterAEndern.gridy = 1;
 		add(lbl2MitarbeiterAEndern, gbc_lbl2MitarbeiterAEndern);
 
@@ -93,7 +93,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lblMitarbeiterAEndernName = new GridBagConstraints();
 		gbc_lblMitarbeiterAEndernName.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMitarbeiterAEndernName.anchor = GridBagConstraints.WEST;
-		gbc_lblMitarbeiterAEndernName.gridx = 3;
+		gbc_lblMitarbeiterAEndernName.gridx = 2;
 		gbc_lblMitarbeiterAEndernName.gridy = 2;
 		add(lblMitarbeiterAEndernName, gbc_lblMitarbeiterAEndernName);
 
@@ -128,7 +128,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_mitarbeiterAEndernName = new GridBagConstraints();
 		gbc_mitarbeiterAEndernName.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAEndernName.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAEndernName.gridx = 3;
+		gbc_mitarbeiterAEndernName.gridx = 2;
 		gbc_mitarbeiterAEndernName.gridy = 3;
 		add(mitarbeiterAEndernName, gbc_mitarbeiterAEndernName);
 		mitarbeiterAEndernName.setColumns(10);
@@ -147,7 +147,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lblMitarbeiterAEndernNachname = new GridBagConstraints();
 		gbc_lblMitarbeiterAEndernNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMitarbeiterAEndernNachname.anchor = GridBagConstraints.WEST;
-		gbc_lblMitarbeiterAEndernNachname.gridx = 3;
+		gbc_lblMitarbeiterAEndernNachname.gridx = 2;
 		gbc_lblMitarbeiterAEndernNachname.gridy = 4;
 		add(lblMitarbeiterAEndernNachname, gbc_lblMitarbeiterAEndernNachname);
 
@@ -182,7 +182,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_mitarbeiterAEndernNachname = new GridBagConstraints();
 		gbc_mitarbeiterAEndernNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAEndernNachname.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAEndernNachname.gridx = 3;
+		gbc_mitarbeiterAEndernNachname.gridx = 2;
 		gbc_mitarbeiterAEndernNachname.gridy = 5;
 		add(mitarbeiterAEndernNachname, gbc_mitarbeiterAEndernNachname);
 		mitarbeiterAEndernNachname.setColumns(10);
@@ -201,7 +201,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lblMitarbeiterAEndernAdresse = new GridBagConstraints();
 		gbc_lblMitarbeiterAEndernAdresse.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMitarbeiterAEndernAdresse.anchor = GridBagConstraints.WEST;
-		gbc_lblMitarbeiterAEndernAdresse.gridx = 3;
+		gbc_lblMitarbeiterAEndernAdresse.gridx = 2;
 		gbc_lblMitarbeiterAEndernAdresse.gridy = 6;
 		add(lblMitarbeiterAEndernAdresse, gbc_lblMitarbeiterAEndernAdresse);
 
@@ -220,7 +220,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lblMitarbeiterAEndernStraße = new GridBagConstraints();
 		gbc_lblMitarbeiterAEndernStraße.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMitarbeiterAEndernStraße.anchor = GridBagConstraints.WEST;
-		gbc_lblMitarbeiterAEndernStraße.gridx = 3;
+		gbc_lblMitarbeiterAEndernStraße.gridx = 2;
 		gbc_lblMitarbeiterAEndernStraße.gridy = 7;
 		add(lblMitarbeiterAEndernStraße, gbc_lblMitarbeiterAEndernStraße);
 
@@ -229,7 +229,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lblMitarbeiterAEndernHNR = new GridBagConstraints();
 		gbc_lblMitarbeiterAEndernHNR.anchor = GridBagConstraints.WEST;
 		gbc_lblMitarbeiterAEndernHNR.insets = new Insets(0, 0, 5, 0);
-		gbc_lblMitarbeiterAEndernHNR.gridx = 4;
+		gbc_lblMitarbeiterAEndernHNR.gridx = 3;
 		gbc_lblMitarbeiterAEndernHNR.gridy = 7;
 		add(lblMitarbeiterAEndernHNR, gbc_lblMitarbeiterAEndernHNR);
 
@@ -256,7 +256,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_mitarbeiterAEndernStrasse = new GridBagConstraints();
 		gbc_mitarbeiterAEndernStrasse.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAEndernStrasse.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAEndernStrasse.gridx = 3;
+		gbc_mitarbeiterAEndernStrasse.gridx = 2;
 		gbc_mitarbeiterAEndernStrasse.gridy = 8;
 		add(mitarbeiterAEndernStrasse, gbc_mitarbeiterAEndernStrasse);
 		mitarbeiterAEndernStrasse.setColumns(10);
@@ -276,7 +276,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_mitarbeiterAEndernHNR = new GridBagConstraints();
 		gbc_mitarbeiterAEndernHNR.insets = new Insets(0, 0, 5, 0);
 		gbc_mitarbeiterAEndernHNR.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAEndernHNR.gridx = 4;
+		gbc_mitarbeiterAEndernHNR.gridx = 3;
 		gbc_mitarbeiterAEndernHNR.gridy = 8;
 		add(mitarbeiterAEndernHNR, gbc_mitarbeiterAEndernHNR);
 		mitarbeiterAEndernHNR.setColumns(10);
@@ -286,7 +286,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lblMitarbeiterAEndernOrt = new GridBagConstraints();
 		gbc_lblMitarbeiterAEndernOrt.anchor = GridBagConstraints.WEST;
 		gbc_lblMitarbeiterAEndernOrt.insets = new Insets(0, 0, 5, 5);
-		gbc_lblMitarbeiterAEndernOrt.gridx = 3;
+		gbc_lblMitarbeiterAEndernOrt.gridx = 2;
 		gbc_lblMitarbeiterAEndernOrt.gridy = 9;
 		add(lblMitarbeiterAEndernOrt, gbc_lblMitarbeiterAEndernOrt);
 
@@ -295,7 +295,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lblMitarbeiterAEndernPLZ = new GridBagConstraints();
 		gbc_lblMitarbeiterAEndernPLZ.insets = new Insets(0, 0, 5, 0);
 		gbc_lblMitarbeiterAEndernPLZ.anchor = GridBagConstraints.WEST;
-		gbc_lblMitarbeiterAEndernPLZ.gridx = 4;
+		gbc_lblMitarbeiterAEndernPLZ.gridx = 3;
 		gbc_lblMitarbeiterAEndernPLZ.gridy = 9;
 		add(lblMitarbeiterAEndernPLZ, gbc_lblMitarbeiterAEndernPLZ);
 
@@ -312,7 +312,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_mitarbeiterAEndernOrt = new GridBagConstraints();
 		gbc_mitarbeiterAEndernOrt.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAEndernOrt.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAEndernOrt.gridx = 3;
+		gbc_mitarbeiterAEndernOrt.gridx = 2;
 		gbc_mitarbeiterAEndernOrt.gridy = 10;
 		add(mitarbeiterAEndernOrt, gbc_mitarbeiterAEndernOrt);
 		mitarbeiterAEndernOrt.setColumns(10);
@@ -332,7 +332,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_mitarbeiterAEndernPLZ = new GridBagConstraints();
 		gbc_mitarbeiterAEndernPLZ.insets = new Insets(0, 0, 5, 0);
 		gbc_mitarbeiterAEndernPLZ.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAEndernPLZ.gridx = 4;
+		gbc_mitarbeiterAEndernPLZ.gridx = 3;
 		gbc_mitarbeiterAEndernPLZ.gridy = 10;
 		add(mitarbeiterAEndernPLZ, gbc_mitarbeiterAEndernPLZ);
 		mitarbeiterAEndernPLZ.setColumns(10);
@@ -342,7 +342,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lblMitarbeiterAEndernTel = new GridBagConstraints();
 		gbc_lblMitarbeiterAEndernTel.anchor = GridBagConstraints.WEST;
 		gbc_lblMitarbeiterAEndernTel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblMitarbeiterAEndernTel.gridx = 3;
+		gbc_lblMitarbeiterAEndernTel.gridx = 2;
 		gbc_lblMitarbeiterAEndernTel.gridy = 11;
 		add(lblMitarbeiterAEndernTel, gbc_lblMitarbeiterAEndernTel);
 
@@ -361,7 +361,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_mitarbeiterAEndernTel = new GridBagConstraints();
 		gbc_mitarbeiterAEndernTel.insets = new Insets(0, 0, 5, 5);
 		gbc_mitarbeiterAEndernTel.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAEndernTel.gridx = 3;
+		gbc_mitarbeiterAEndernTel.gridx = 2;
 		gbc_mitarbeiterAEndernTel.gridy = 12;
 		add(mitarbeiterAEndernTel, gbc_mitarbeiterAEndernTel);
 		mitarbeiterAEndernTel.setColumns(10);
@@ -371,7 +371,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_cbKuendigen = new GridBagConstraints();
 		gbc_cbKuendigen.anchor = GridBagConstraints.WEST;
 		gbc_cbKuendigen.insets = new Insets(0, 0, 5, 0);
-		gbc_cbKuendigen.gridx = 4;
+		gbc_cbKuendigen.gridx = 3;
 		gbc_cbKuendigen.gridy = 12;
 		add(cbKuendigen, gbc_cbKuendigen);
 
@@ -380,7 +380,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lblMitarbeiterAEndernAbteilung = new GridBagConstraints();
 		gbc_lblMitarbeiterAEndernAbteilung.anchor = GridBagConstraints.WEST;
 		gbc_lblMitarbeiterAEndernAbteilung.insets = new Insets(0, 0, 5, 5);
-		gbc_lblMitarbeiterAEndernAbteilung.gridx = 3;
+		gbc_lblMitarbeiterAEndernAbteilung.gridx = 2;
 		gbc_lblMitarbeiterAEndernAbteilung.gridy = 13;
 		add(lblMitarbeiterAEndernAbteilung, gbc_lblMitarbeiterAEndernAbteilung);
 
@@ -389,7 +389,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_lblMitarbeiterAEndernGehalt = new GridBagConstraints();
 		gbc_lblMitarbeiterAEndernGehalt.anchor = GridBagConstraints.WEST;
 		gbc_lblMitarbeiterAEndernGehalt.insets = new Insets(0, 0, 5, 0);
-		gbc_lblMitarbeiterAEndernGehalt.gridx = 4;
+		gbc_lblMitarbeiterAEndernGehalt.gridx = 3;
 		gbc_lblMitarbeiterAEndernGehalt.gridy = 13;
 		add(lblMitarbeiterAEndernGehalt, gbc_lblMitarbeiterAEndernGehalt);
 		
@@ -398,7 +398,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_cbAbteilung = new GridBagConstraints();
 		gbc_cbAbteilung.insets = new Insets(0, 0, 5, 5);
 		gbc_cbAbteilung.fill = GridBagConstraints.HORIZONTAL;
-		gbc_cbAbteilung.gridx = 3;
+		gbc_cbAbteilung.gridx = 2;
 		gbc_cbAbteilung.gridy = 14;
 		add(cbAbteilung, gbc_cbAbteilung);
 		
@@ -407,7 +407,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_cbGehalt = new GridBagConstraints();
 		gbc_cbGehalt.insets = new Insets(0, 0, 5, 0);
 		gbc_cbGehalt.fill = GridBagConstraints.HORIZONTAL;
-		gbc_cbGehalt.gridx = 4;
+		gbc_cbGehalt.gridx = 3;
 		gbc_cbGehalt.gridy = 14;
 		add(cbGehalt, gbc_cbGehalt);
 
@@ -417,7 +417,7 @@ public class MitarbeiterAendern extends JPanel {
 		GridBagConstraints gbc_mitarbeiterAEndernSpeichern = new GridBagConstraints();
 		gbc_mitarbeiterAEndernSpeichern.gridwidth = 2;
 		gbc_mitarbeiterAEndernSpeichern.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterAEndernSpeichern.gridx = 3;
+		gbc_mitarbeiterAEndernSpeichern.gridx = 2;
 		gbc_mitarbeiterAEndernSpeichern.gridy = 16;
 		add(mitarbeiterAEndernSpeichern, gbc_mitarbeiterAEndernSpeichern);
 
