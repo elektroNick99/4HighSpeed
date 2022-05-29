@@ -216,7 +216,7 @@ public class MitarbieterNeuerBenuter extends JPanel {
 				String id = "" + m.getName().charAt(0) + m.getNachname().charAt(0) + m.getGeb();
 
 				if (m.getName().equals(name) && m.getNachname().equals(nachname) && id.equals(idInput)
-						&& m.getAbteilung().equals("Personalabteilung")) {
+						&& m.getAbteilung().equals("PERSONALABTEILUNG")) {
 
 					tfName.setText("");
 					tfNachname.setText("");
