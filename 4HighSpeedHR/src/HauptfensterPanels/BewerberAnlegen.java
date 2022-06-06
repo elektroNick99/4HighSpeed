@@ -121,15 +121,18 @@ public class BewerberAnlegen extends JPanel {
 		add(bewerberAnlegenNachname, gbc_bewerberAnlegenNachname);
 		bewerberAnlegenNachname.setColumns(25);
 		
-//		JLabel lblNewLabel = new JLabel("New label");
-//		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-//		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-//		gbc_lblNewLabel.gridx = 2;
-//		gbc_lblNewLabel.gridy = 4;
-//		add(lblNewLabel, gbc_lblNewLabel);
-		
 		dateChooser = new JDateChooser();
 		dateChooser.setDateFormatString("dd.MM.yyyy");
+		dateChooser.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
 		GridBagConstraints gbc_dateChooser = new GridBagConstraints();
 		gbc_dateChooser.insets = new Insets(0, 0, 5, 5);
 		gbc_dateChooser.fill = GridBagConstraints.HORIZONTAL;
