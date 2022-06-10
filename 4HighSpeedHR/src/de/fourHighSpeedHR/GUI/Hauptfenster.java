@@ -26,7 +26,10 @@ import HauptfensterPanels.MitarbeiterLoeschen;
 import HauptfensterPanels.MitarbieterNeuerBenuter;
 import HauptfensterPanels.Start;
 
-
+/**
+ * Diese Klasse dient als Grundgerüst des gesamten Programms.
+ *
+ */
 public class Hauptfenster {
 	
 	private static JFrame frame;
@@ -351,6 +354,11 @@ public class Hauptfenster {
 		
 	}
 	
+	/**
+	 * Die folgenden Methoden werden nach einem ButtonClick aufgerufen und machen jeweils das
+	 * für den zeitpunkt gewünschte Panel sichtbar.
+	 */
+	
 	public static void bAnlegenShow() {
 		
 		bAnlegen.setVisible(true);
@@ -517,6 +525,7 @@ public class Hauptfenster {
 		mAusgeben.setVisible(true);
 		start.setVisible(false);
 		mNeuerBenutzer.setVisible(false);
+		MitarbeiterAusgeben.clear();
 		MitarbeiterAusgeben.ausgebenMitarbeiterListe();
 	
 	}
@@ -538,6 +547,10 @@ public class Hauptfenster {
 		MitarbieterNeuerBenuter.clearAll();
 		MitarbieterNeuerBenuter.disableTextField();
 	}
+	
+	/**
+	 * Mit dieser Methode wird das Programm ausgeloggt und man kommt wieder zum Login
+	 */
 	
 	public static void abmeldenProgramm(){
 		

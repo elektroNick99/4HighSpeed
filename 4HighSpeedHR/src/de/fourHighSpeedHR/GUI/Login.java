@@ -117,9 +117,9 @@ public class Login {
 	 * abgezogen bis man bei 0 ist und wenn man bei 0 ist das Programm auch beendet. Zwischen din werden dabei immer die
 	 * Felder auf null gesetzt.
 	 * 
-	 * @param passwort
-	 * @param username
-	 * @param stimmt
+	 * @param passwort	ist das eingegebene Passwort
+	 * @param username	ist der eingegebene Benutzername
+	 * @param stimmt	boolean die ausgibt ob das PW und der BN richtig sind
 	 */
 
 	public void loginCheck() {
@@ -147,11 +147,6 @@ public class Login {
 				Hauptfenster hauptfenster = new Hauptfenster();
 				
 			} else {
-
-
-				JOptionPane.showMessageDialog(null,
-						"Das Passwort und der Benutzername stimmen nicht ueberein. Du hast noch " + anzahlVersuche
-								+ " Versuche uebrig");
 
 				if(anzahlVersuche == 0) {
 					JOptionPane.showMessageDialog(null,

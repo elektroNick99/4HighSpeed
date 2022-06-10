@@ -5,10 +5,17 @@ import java.util.HashMap;
 
 import de.fourHighSpeedHR.GUI.Main;
 
+/**
+ * Die Klasse enthält alle zugriffe auf die Passworttabelle in der Datenbank
+ */
 public class PasswortDB {
 	
 	static String [] args = Main.args2;
 
+	/**
+	 * Methode um alles aus der Tabelle auszulesen
+	 * @return HashMap aller Passworte und Benutzernamen
+	 */
 	public static HashMap<String, String> connectToDataBasePW() {
 
 		HashMap<String, String> benutzerPasswort = new HashMap<>();
@@ -32,6 +39,11 @@ public class PasswortDB {
 		return benutzerPasswort;
 	}
 	
+	/**
+	 * Methode um ein neues Passwort und einen neuen Benutzername zu speichern
+	 * @param bn	neuer Benutzername
+	 * @param pw	neuse Passwort
+	 */
 	public static void hinzufuegenBenutzer(String bn, String pw) {
 		
 		try {

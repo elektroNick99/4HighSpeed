@@ -18,12 +18,14 @@ import de.fourHighSpeedHR.objects.Mitarbeiter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JComboBox;
 import com.toedter.calendar.JDateChooser;
 
+/**
+ * Panel zum anlegen von Mitarbeitern
+ */
 public class MitarbeiterAnlegen extends JPanel {
 
 	private static JTextField mitarbeiterAnlegenName;
@@ -35,10 +37,6 @@ public class MitarbeiterAnlegen extends JPanel {
 	private static JTextField mitarbeiterAnlegenTel;
 	private static JComboBox cbGehalt, cbAbteilung;
 	private static JDateChooser dateChooser;
-
-	/**
-	 * Create the panel.
-	 */
 
 	public MitarbeiterAnlegen() {
 
@@ -342,6 +340,9 @@ public class MitarbeiterAnlegen extends JPanel {
 
 	}
 
+	/**
+	 * Methode um ein neues Mitarbeiterobject zu bauen und dann mit der {@link #MitarbeiterDB.hinzufuegenMitarbeiter(Mitarbeiter)}
+	 */
 	public static void speichern() {
 
 		String name = "";
@@ -353,7 +354,7 @@ public class MitarbeiterAnlegen extends JPanel {
 		int hnr = 0, plz = 0, gehalt = 0;
 		long tel = 0;
 
-		/**
+		/*
 		 * Erst Nummern ueberpruefen da sonst NumberFormatException
 		 */
 
@@ -380,7 +381,7 @@ public class MitarbeiterAnlegen extends JPanel {
 			geburtstag = sdf.format(dateChooser.getDate());
 		}
 
-		/**
+		/*
 		 * Test ob alle Felder ausgefüllt sind
 		 */
 

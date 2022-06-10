@@ -1,6 +1,5 @@
 package HauptfensterPanels;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,8 +15,6 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
@@ -38,7 +35,12 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import javax.swing.JScrollPane;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
+/**
+ * Panel das die Gehaltsausgabe handelt
+ */
 public class Gehaltsausgabe extends JPanel {
 
 	private static JTextField mitarbeiterGehaltName;
@@ -46,23 +48,21 @@ public class Gehaltsausgabe extends JPanel {
 	private static JTextField mitarbeiterGehaltNummer;
 	private static JTextField mitarbeiterGehaltMonate;
 	private static JLabel lblMitarbeiter;
-	private static Integer gehalt;
-	private static String mitarbeiterDaten;
 	private static JLabel lblListeAusgabe;
+	private static JRadioButton rbEingestellt, rbNichtEingestellt;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
-	/**
-	 * Create the panel.
-	 */
+
 	public Gehaltsausgabe() {
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 112, 31, 269 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0 };
 		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 1.0 };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-
+		
 		JLabel lblMitarbeiterGehalt = new JLabel("Mitarbeiter Gehalt");
 		lblMitarbeiterGehalt.setFont(new Font("Arial", Font.BOLD, 15));
 		GridBagConstraints gbc_lblMitarbeiterGehalt = new GridBagConstraints();
@@ -97,7 +97,7 @@ public class Gehaltsausgabe extends JPanel {
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
-		gbc_scrollPane.gridheight = 15;
+		gbc_scrollPane.gridheight = 17;
 		gbc_scrollPane.insets = new Insets(0, 0, 5, 0);
 		gbc_scrollPane.gridx = 2;
 		gbc_scrollPane.gridy = 3;
@@ -177,32 +177,54 @@ public class Gehaltsausgabe extends JPanel {
 		gbc_lblMitarbeiterGehaltMonate.gridx = 0;
 		gbc_lblMitarbeiterGehaltMonate.gridy = 8;
 		add(lblMitarbeiterGehaltMonate, gbc_lblMitarbeiterGehaltMonate);
-
-		mitarbeiterGehaltMonate = new JTextField();
-		mitarbeiterGehaltMonate.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-			}
-		});
-		mitarbeiterGehaltMonate.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_mitarbeiterGehaltMonate = new GridBagConstraints();
-		gbc_mitarbeiterGehaltMonate.insets = new Insets(0, 0, 5, 5);
-		gbc_mitarbeiterGehaltMonate.fill = GridBagConstraints.HORIZONTAL;
-		gbc_mitarbeiterGehaltMonate.gridx = 0;
-		gbc_mitarbeiterGehaltMonate.gridy = 9;
-		add(mitarbeiterGehaltMonate, gbc_mitarbeiterGehaltMonate);
-		mitarbeiterGehaltMonate.setColumns(10);
+		
+				mitarbeiterGehaltMonate = new JTextField();
+				mitarbeiterGehaltMonate.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyTyped(KeyEvent e) {
+						char c = e.getKeyChar();
+						if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+							getToolkit().beep();
+							e.consume();
+						}
+					}
+				});
+				mitarbeiterGehaltMonate.setFont(new Font("Arial", Font.PLAIN, 12));
+				GridBagConstraints gbc_mitarbeiterGehaltMonate = new GridBagConstraints();
+				gbc_mitarbeiterGehaltMonate.insets = new Insets(0, 0, 5, 5);
+				gbc_mitarbeiterGehaltMonate.fill = GridBagConstraints.HORIZONTAL;
+				gbc_mitarbeiterGehaltMonate.gridx = 0;
+				gbc_mitarbeiterGehaltMonate.gridy = 9;
+				add(mitarbeiterGehaltMonate, gbc_mitarbeiterGehaltMonate);
+				mitarbeiterGehaltMonate.setColumns(10);
+		
+		rbEingestellt = new JRadioButton("Eingestellt");
+		buttonGroup.add(rbEingestellt);
+		rbEingestellt.setSelected(true);		
+		rbEingestellt.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_rbEingestellt = new GridBagConstraints();
+		gbc_rbEingestellt.anchor = GridBagConstraints.WEST;
+		gbc_rbEingestellt.insets = new Insets(0, 0, 5, 5);
+		gbc_rbEingestellt.gridx = 0;
+		gbc_rbEingestellt.gridy = 10;
+		add(rbEingestellt, gbc_rbEingestellt);
+		
+		rbNichtEingestellt = new JRadioButton("Nicht eingestellt");
+		buttonGroup.add(rbNichtEingestellt);
+		rbNichtEingestellt.setHorizontalAlignment(SwingConstants.LEFT);
+		rbNichtEingestellt.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_rbNichtEingestellt = new GridBagConstraints();
+		gbc_rbNichtEingestellt.anchor = GridBagConstraints.WEST;
+		gbc_rbNichtEingestellt.insets = new Insets(0, 0, 5, 5);
+		gbc_rbNichtEingestellt.gridx = 0;
+		gbc_rbNichtEingestellt.gridy = 11;
+		add(rbNichtEingestellt, gbc_rbNichtEingestellt);
 
 		lblMitarbeiter = new JLabel("");
 		GridBagConstraints gbc_lblMitarbeiter = new GridBagConstraints();
 		gbc_lblMitarbeiter.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMitarbeiter.gridx = 1;
-		gbc_lblMitarbeiter.gridy = 10;
+		gbc_lblMitarbeiter.gridy = 12;
 		add(lblMitarbeiter, gbc_lblMitarbeiter);
 
 		JButton gehaltAusgebenPDF = new JButton("Gehalt ausgeben PDF");
@@ -212,7 +234,7 @@ public class Gehaltsausgabe extends JPanel {
 		gbc_gehaltAusgebenPDF.fill = GridBagConstraints.HORIZONTAL;
 		gbc_gehaltAusgebenPDF.insets = new Insets(0, 0, 5, 5);
 		gbc_gehaltAusgebenPDF.gridx = 0;
-		gbc_gehaltAusgebenPDF.gridy = 11;
+		gbc_gehaltAusgebenPDF.gridy = 13;
 		add(gehaltAusgebenPDF, gbc_gehaltAusgebenPDF);
 
 		JButton gehaltAusgeben = new JButton("Gehalt ausgeben");
@@ -222,7 +244,7 @@ public class Gehaltsausgabe extends JPanel {
 		gbc_gehaltAusgeben.fill = GridBagConstraints.HORIZONTAL;
 		gbc_gehaltAusgeben.insets = new Insets(0, 0, 5, 5);
 		gbc_gehaltAusgeben.gridx = 0;
-		gbc_gehaltAusgeben.gridy = 12;
+		gbc_gehaltAusgeben.gridy = 14;
 		add(gehaltAusgeben, gbc_gehaltAusgeben);
 
 		JButton btnGesamtGehalt = new JButton("Gesamt Gehalt");
@@ -232,11 +254,14 @@ public class Gehaltsausgabe extends JPanel {
 		gbc_btnGesamtGehalt.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnGesamtGehalt.insets = new Insets(0, 0, 5, 5);
 		gbc_btnGesamtGehalt.gridx = 0;
-		gbc_btnGesamtGehalt.gridy = 13;
+		gbc_btnGesamtGehalt.gridy = 15;
 		add(btnGesamtGehalt, gbc_btnGesamtGehalt);
 
 	}
 
+	/**
+	 * Methode die das Gehalt eines bestimmten ausgewählten Mitarbeiters ausgibt
+	 */
 	public static void gehaltRechnen() {
 
 		String nameInput = mitarbeiterGehaltName.getText();
@@ -276,9 +301,20 @@ public class Gehaltsausgabe extends JPanel {
 		}
 	}
 
+	/**
+	 * Methode die das Gehalt aller Mitarbeiter ausgibt. Es kann gewählt werden ob es nur die aktuellen oder auch die gekündigten
+	 * Mitarbeiter berücksihtigen soll.
+	 */
 	public static void rechnenGehaltGesamt() {
 
 		int monate = 0;
+		boolean eingestellt;
+		
+		if(rbEingestellt.isSelected()) {
+			eingestellt = true;
+		}else {
+			eingestellt = false;
+		}
 
 		if (!mitarbeiterGehaltMonate.getText().toString().equals("")) {
 
@@ -297,11 +333,20 @@ public class Gehaltsausgabe extends JPanel {
 
 				Mitarbeiter ma = mitarbeiter.get(i);
 
-				if (ma.getStatus().equals("eingestellt")) {
+				if(eingestellt) {
+					if (ma.getStatus().equals("eingestellt")) {
 
-					result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " €\n\n");
-					gehaltsumme += ma.getGehalt();
+						result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " €\n\n");
+						gehaltsumme += ma.getGehalt();
+					}
+				}else {
+					if (ma.getStatus().equals("gekuendigt")) {
+
+						result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " €\n\n");
+						gehaltsumme += ma.getGehalt();
+					}
 				}
+
 			}
 			result.append("Der gesamt Gehaltaufwand der Firma betraegt " + gehaltsumme + " € fuer " + "" + " Monate.");
 			lblListeAusgabe.setText(zeilenFormattieren(result.toString()));
@@ -313,10 +358,18 @@ public class Gehaltsausgabe extends JPanel {
 
 	}
 
+	/**
+	 * Methode zum formattieren der ausgabe
+	 * @param s Eingabe String
+	 * @return formattierter Ausgabestring
+	 */
 	public static String zeilenFormattieren(String s) {
 		return "<html>" + s.replaceAll("\n", "<br>");
 	}
 
+	/**
+	 * Methode die die Gehaltsliste als PDF auf dem Computer des Benutzers speichert
+	 */
 	public static void ausgebenGehaltPDF() {
 
 		ArrayList<Mitarbeiter> mitarbeiterListe = MitarbeiterDB.ausgebenMitarbeiterAlle();

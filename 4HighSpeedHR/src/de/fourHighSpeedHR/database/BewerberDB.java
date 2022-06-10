@@ -10,10 +10,18 @@ import java.util.ArrayList;
 import de.fourHighSpeedHR.GUI.Main;
 import de.fourHighSpeedHR.objects.Bewerber;
 
+/**
+ * Die Klasse enthält alle zugriffe auf die Bewerbertabelle in der Datenbank
+ */
 public class BewerberDB {
 
 	static String[] args = Main.args2;
 
+	/**
+	 * Methode um alles aus der Tabelle auszulesen
+	 * @return Liste aller Bewerber
+	 */
+	
 	public static ArrayList<Bewerber> ausgebenBewerberAlle() {
 
 		ArrayList<Bewerber> bewerberliste = new ArrayList<>();
@@ -30,15 +38,19 @@ public class BewerberDB {
 						Integer.valueOf(rs.getString("Postleitzahl")), Long.valueOf(rs.getString("Telefonnummer")),
 						rs.getString("Notizen"), rs.getString("Geburtstag"), rs.getString("Status")));
 			}
-			
+
 			c.close();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return bewerberliste;
 	}
 
+	/**
+	 * Methode um einen Bewerber in die Tabelle zu speichern
+	 * @param b	ist der Bewerber der in die Tabelle gespeichert werden soll
+	 */
 	public static void hinzufuegenBewerber(Bewerber b) {
 
 		try {
@@ -74,17 +86,21 @@ public class BewerberDB {
 			stm.executeUpdate();
 
 			c.close();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
-	
+
+	/**
+	 * Methode um einen Bewerber aus der Tabelle zu löschen
+	 * @param id ist der PrimaryKey des Bewerbers mit dem er/sie eindeutig in der Tabelle aufzufinden ist
+	 */
 	public static void loeschenBewerber(String id) {
-		
+
 		try {
-			
+
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection c = DriverManager.getConnection("jdbc:mysql://3.69.96.96:3306/db5", "db5", args[0]);
 
@@ -92,21 +108,25 @@ public class BewerberDB {
 			PreparedStatement stm = c.prepareStatement(sql);
 			stm.setString(1, id);
 			stm.executeUpdate();
-			
+
 			c.close();
 
-			
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
-			
+
 		}
 	}
-	
+
+	/**
+	 * Methode um die notizen von einem Bewerber in der Tabelle zu speichern
+	 * @param notizen 		sind die neunen Notizen die gespeichert werden sollen
+	 * @param idBewerber	ist die eindeutige Id mit der der Bewerber in der Tabelle aufzufinden ist
+	 */
 	public static void aendernNotizen(String notizen, String idBewerber) {
-		
+
 		try {
-			
+
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection c = DriverManager.getConnection("jdbc:mysql://3.69.96.96:3306/db5", "db5", args[0]);
 
@@ -115,21 +135,25 @@ public class BewerberDB {
 			stm.setString(1, notizen);
 			stm.setString(2, idBewerber);
 			stm.executeUpdate();
-			
+
 			c.close();
 
-			
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
-			
+
 		}
 	}
-	
+
+	/**
+	 * Methode um den Status eines Bewerbers zu ändern
+	 * @param status		der Status der geändert werden soll
+	 * @param idBewerber	ist die eindeutige Id mit der der Bewerber in der Tabelle aufzufinden ist
+	 */
 	public static void aendernStatus(String status, String idBewerber) {
-		
+
 		try {
-			
+
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection c = DriverManager.getConnection("jdbc:mysql://3.69.96.96:3306/db5", "db5", args[0]);
 
@@ -138,13 +162,13 @@ public class BewerberDB {
 			stm.setString(1, status);
 			stm.setString(2, idBewerber);
 			stm.executeUpdate();
-			
+
 			c.close();
-			
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
-			
+
 		}
 	}
 }

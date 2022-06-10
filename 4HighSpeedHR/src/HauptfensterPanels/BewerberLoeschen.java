@@ -20,14 +20,16 @@ import de.fourHighSpeedHR.objects.Mitarbeiter;
 
 import javax.swing.JButton;
 
+
+/**
+ * Panel das alles enthält um Bewerber zu löschen
+ */
 public class BewerberLoeschen extends JPanel {
+	
 	private static JTextField bewerberLoeschenName;
 	private static JTextField bewerberLoeschenNachname;
 	private static JTextField bewerberLoeschenNummer;
 
-	/**
-	 * Create the panel.
-	 */
 	public BewerberLoeschen() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{60, 276, 0};
@@ -129,6 +131,9 @@ public class BewerberLoeschen extends JPanel {
 
 	}
 	
+	/**
+	 * Methode um Bewerber zu löschen
+	 */
 	public static void bwLoeschen() {
 		
 		String name = bewerberLoeschenName.getText();

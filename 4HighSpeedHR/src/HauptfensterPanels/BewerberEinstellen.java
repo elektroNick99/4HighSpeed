@@ -22,6 +22,9 @@ import de.fourHighSpeedHR.objects.Gehaltsgruppe;
 import de.fourHighSpeedHR.objects.Mitarbeiter;
 import javax.swing.JComboBox;
 
+/**
+ * Panel das alles enthält um Bewerber einstelen zu können
+ */
 public class BewerberEinstellen extends JPanel {
 
 	private static String idB;
@@ -40,16 +43,13 @@ public class BewerberEinstellen extends JPanel {
 	private static JComboBox cbGehalt, cbAbteilung;
 	private static Bewerber b;
 
-	
-	/**
-	 * Create the panel.
-	 */
+
 	public BewerberEinstellen() {
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 60, 112, 144, 236, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 60, 112, 236, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE };
+		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
@@ -77,7 +77,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblDatenAendern = new GridBagConstraints();
 		gbc_lblDatenAendern.anchor = GridBagConstraints.WEST;
 		gbc_lblDatenAendern.insets = new Insets(0, 0, 5, 5);
-		gbc_lblDatenAendern.gridx = 3;
+		gbc_lblDatenAendern.gridx = 2;
 		gbc_lblDatenAendern.gridy = 1;
 		add(lblDatenAendern, gbc_lblDatenAendern);
 
@@ -95,7 +95,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblName = new GridBagConstraints();
 		gbc_lblName.insets = new Insets(0, 0, 5, 5);
 		gbc_lblName.anchor = GridBagConstraints.WEST;
-		gbc_lblName.gridx = 3;
+		gbc_lblName.gridx = 2;
 		gbc_lblName.gridy = 2;
 		add(lblName, gbc_lblName);
 
@@ -130,7 +130,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_tfName = new GridBagConstraints();
 		gbc_tfName.insets = new Insets(0, 0, 5, 5);
 		gbc_tfName.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfName.gridx = 3;
+		gbc_tfName.gridx = 2;
 		gbc_tfName.gridy = 3;
 		add(tfName, gbc_tfName);
 		tfName.setColumns(10);
@@ -149,7 +149,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblNachname = new GridBagConstraints();
 		gbc_lblNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNachname.anchor = GridBagConstraints.WEST;
-		gbc_lblNachname.gridx = 3;
+		gbc_lblNachname.gridx = 2;
 		gbc_lblNachname.gridy = 4;
 		add(lblNachname, gbc_lblNachname);
 
@@ -184,7 +184,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_tfNachname = new GridBagConstraints();
 		gbc_tfNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_tfNachname.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfNachname.gridx = 3;
+		gbc_tfNachname.gridx = 2;
 		gbc_tfNachname.gridy = 5;
 		add(tfNachname, gbc_tfNachname);
 		tfNachname.setColumns(10);
@@ -203,7 +203,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblAdresse = new GridBagConstraints();
 		gbc_lblAdresse.insets = new Insets(0, 0, 5, 5);
 		gbc_lblAdresse.anchor = GridBagConstraints.WEST;
-		gbc_lblAdresse.gridx = 3;
+		gbc_lblAdresse.gridx = 2;
 		gbc_lblAdresse.gridy = 6;
 		add(lblAdresse, gbc_lblAdresse);
 
@@ -222,7 +222,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblStrasse = new GridBagConstraints();
 		gbc_lblStrasse.insets = new Insets(0, 0, 5, 5);
 		gbc_lblStrasse.anchor = GridBagConstraints.WEST;
-		gbc_lblStrasse.gridx = 3;
+		gbc_lblStrasse.gridx = 2;
 		gbc_lblStrasse.gridy = 7;
 		add(lblStrasse, gbc_lblStrasse);
 
@@ -231,7 +231,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblHNR = new GridBagConstraints();
 		gbc_lblHNR.anchor = GridBagConstraints.WEST;
 		gbc_lblHNR.insets = new Insets(0, 0, 5, 0);
-		gbc_lblHNR.gridx = 4;
+		gbc_lblHNR.gridx = 3;
 		gbc_lblHNR.gridy = 7;
 		add(lblHNR, gbc_lblHNR);
 
@@ -258,7 +258,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_tfStrasse = new GridBagConstraints();
 		gbc_tfStrasse.insets = new Insets(0, 0, 5, 5);
 		gbc_tfStrasse.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfStrasse.gridx = 3;
+		gbc_tfStrasse.gridx = 2;
 		gbc_tfStrasse.gridy = 8;
 		add(tfStrasse, gbc_tfStrasse);
 		tfStrasse.setColumns(10);
@@ -278,7 +278,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_tfHNR = new GridBagConstraints();
 		gbc_tfHNR.insets = new Insets(0, 0, 5, 0);
 		gbc_tfHNR.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfHNR.gridx = 4;
+		gbc_tfHNR.gridx = 3;
 		gbc_tfHNR.gridy = 8;
 		add(tfHNR, gbc_tfHNR);
 		tfHNR.setColumns(10);
@@ -288,7 +288,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblOrt = new GridBagConstraints();
 		gbc_lblOrt.anchor = GridBagConstraints.WEST;
 		gbc_lblOrt.insets = new Insets(0, 0, 5, 5);
-		gbc_lblOrt.gridx = 3;
+		gbc_lblOrt.gridx = 2;
 		gbc_lblOrt.gridy = 9;
 		add(lblOrt, gbc_lblOrt);
 
@@ -297,7 +297,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblPLZ = new GridBagConstraints();
 		gbc_lblPLZ.insets = new Insets(0, 0, 5, 0);
 		gbc_lblPLZ.anchor = GridBagConstraints.WEST;
-		gbc_lblPLZ.gridx = 4;
+		gbc_lblPLZ.gridx = 3;
 		gbc_lblPLZ.gridy = 9;
 		add(lblPLZ, gbc_lblPLZ);
 
@@ -314,7 +314,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_tfOrt = new GridBagConstraints();
 		gbc_tfOrt.insets = new Insets(0, 0, 5, 5);
 		gbc_tfOrt.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfOrt.gridx = 3;
+		gbc_tfOrt.gridx = 2;
 		gbc_tfOrt.gridy = 10;
 		add(tfOrt, gbc_tfOrt);
 		tfOrt.setColumns(10);
@@ -334,7 +334,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_tfPLZ = new GridBagConstraints();
 		gbc_tfPLZ.insets = new Insets(0, 0, 5, 0);
 		gbc_tfPLZ.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfPLZ.gridx = 4;
+		gbc_tfPLZ.gridx = 3;
 		gbc_tfPLZ.gridy = 10;
 		add(tfPLZ, gbc_tfPLZ);
 		tfPLZ.setColumns(10);
@@ -344,7 +344,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblTel = new GridBagConstraints();
 		gbc_lblTel.anchor = GridBagConstraints.WEST;
 		gbc_lblTel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblTel.gridx = 3;
+		gbc_lblTel.gridx = 2;
 		gbc_lblTel.gridy = 11;
 		add(lblTel, gbc_lblTel);
 
@@ -363,7 +363,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_tfTel = new GridBagConstraints();
 		gbc_tfTel.insets = new Insets(0, 0, 5, 5);
 		gbc_tfTel.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfTel.gridx = 3;
+		gbc_tfTel.gridx = 2;
 		gbc_tfTel.gridy = 12;
 		add(tfTel, gbc_tfTel);
 		tfTel.setColumns(10);
@@ -373,7 +373,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblAbteilung = new GridBagConstraints();
 		gbc_lblAbteilung.anchor = GridBagConstraints.WEST;
 		gbc_lblAbteilung.insets = new Insets(0, 0, 5, 5);
-		gbc_lblAbteilung.gridx = 3;
+		gbc_lblAbteilung.gridx = 2;
 		gbc_lblAbteilung.gridy = 13;
 		add(lblAbteilung, gbc_lblAbteilung);
 
@@ -382,7 +382,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_lblGehlat = new GridBagConstraints();
 		gbc_lblGehlat.anchor = GridBagConstraints.WEST;
 		gbc_lblGehlat.insets = new Insets(0, 0, 5, 0);
-		gbc_lblGehlat.gridx = 4;
+		gbc_lblGehlat.gridx = 3;
 		gbc_lblGehlat.gridy = 13;
 		add(lblGehlat, gbc_lblGehlat);
 		
@@ -391,7 +391,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_cbAbteilung = new GridBagConstraints();
 		gbc_cbAbteilung.insets = new Insets(0, 0, 5, 5);
 		gbc_cbAbteilung.fill = GridBagConstraints.HORIZONTAL;
-		gbc_cbAbteilung.gridx = 3;
+		gbc_cbAbteilung.gridx = 2;
 		gbc_cbAbteilung.gridy = 14;
 		add(cbAbteilung, gbc_cbAbteilung);
 		
@@ -400,7 +400,7 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_cbGehalt = new GridBagConstraints();
 		gbc_cbGehalt.insets = new Insets(0, 0, 5, 0);
 		gbc_cbGehalt.fill = GridBagConstraints.HORIZONTAL;
-		gbc_cbGehalt.gridx = 4;
+		gbc_cbGehalt.gridx = 3;
 		gbc_cbGehalt.gridy = 14;
 		add(cbGehalt, gbc_cbGehalt);
 
@@ -410,12 +410,16 @@ public class BewerberEinstellen extends JPanel {
 		GridBagConstraints gbc_btnSpeichern = new GridBagConstraints();
 		gbc_btnSpeichern.gridwidth = 2;
 		gbc_btnSpeichern.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnSpeichern.gridx = 3;
+		gbc_btnSpeichern.gridx = 2;
 		gbc_btnSpeichern.gridy = 16;
 		add(btnSpeichern, gbc_btnSpeichern);
 
 	}
 
+	/**
+	 * Methode um den Bewerber zu suchen der eingestellt werden soll
+	 * ausserdem werden schon alle Felder ausgefuellt die benoetigt werden um ihn/sie als Mitarbeiter zu speichern
+	 */
 	public static void suchen() {
 
 		String nameInput = tfNameSuchen.getText();
@@ -459,6 +463,9 @@ public class BewerberEinstellen extends JPanel {
 
 	}
 
+	/**
+	 * Methode um den Bewerber als Mitarbeiter zu speichern
+	 */
 	public static void speichern() {
 
 		String name = "";
@@ -469,7 +476,7 @@ public class BewerberEinstellen extends JPanel {
 		int hnr = 0, plz = 0, gehalt = 0;
 		long tel = 0;
 
-		/**
+		/*
 		 * Erst Nummern ueberpruefen da sonst NumberFormatException
 		 */
 
@@ -494,7 +501,7 @@ public class BewerberEinstellen extends JPanel {
 
 		}
 
-		/**
+		/*
 		 * Test ob alle Felder ausgefüllt sind
 		 */
 

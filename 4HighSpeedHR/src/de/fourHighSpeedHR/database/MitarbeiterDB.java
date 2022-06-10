@@ -11,10 +11,17 @@ import java.util.ArrayList;
 import de.fourHighSpeedHR.GUI.Main;
 import de.fourHighSpeedHR.objects.Mitarbeiter;
 
+/**
+ * Die Klasse enthält alle zugriffe auf die Mitarbeitertabelle in der Datenbank
+ */
 public class MitarbeiterDB {
 	
 	static String[] args = Main.args2;
 
+	/**
+	 * Methode um alles aus der Tabelle auszulesen
+	 * @return Liste aller Mitarbeiter
+	 */
 	public static ArrayList<Mitarbeiter> ausgebenMitarbeiterAlle() {
 
 		ArrayList<Mitarbeiter> mitarbeiterliste = new ArrayList<>();
@@ -42,6 +49,10 @@ public class MitarbeiterDB {
 		return mitarbeiterliste;
 	}
 
+	/**
+	 * Methode um einen Mitarbeiter in die Tabelle zu speichern
+	 * @param ma	ist der Mitarbeiter der in die Tabelle gespeichert werden soll
+	 */
 	public static void hinzufuegenMitarbeiter(Mitarbeiter ma) {
 
 		try {
@@ -90,6 +101,10 @@ public class MitarbeiterDB {
 
 	}
 	
+	/**
+	 * Methode um einen Mitarbeiter aus der Tabelle zu löschen
+	 * @param id ist der PrimaryKey des Mitarbeiters mit dem er/sie eindeutig in der Tabelle aufzufinden ist
+	 */
 	public static void loeschenMitarbeiter(String id) {
 		
 		try {

@@ -18,13 +18,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+/**
+ * Panel zum löschen von Mitarbeitern
+ */
 public class MitarbeiterLoeschen extends JPanel {
 
 	private static JTextField tfName, tfNachname, tfID;
 
-	/**
-	 * Create the panel.
-	 */
+	
 	public MitarbeiterLoeschen() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 60, 276, 0 };
@@ -126,6 +127,9 @@ public class MitarbeiterLoeschen extends JPanel {
 
 	}
 
+	/**
+	 * Methode die einen Mitarbeiter aus der Tabelle Mitarbeiter löscht
+	 */
 	public static void maLoeschen() {
 
 		String name = tfName.getText();

@@ -1,5 +1,10 @@
 package de.fourHighSpeedHR.objects;
 
+
+/**
+ * Die Klasse der Bewerberobjekte
+ *
+ */
 public class Bewerber {
 
 	private String name;

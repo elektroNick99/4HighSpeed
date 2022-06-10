@@ -25,6 +25,9 @@ import de.fourHighSpeedHR.objects.Mitarbeiter;
 import javax.swing.JFormattedTextField;
 import javax.swing.JEditorPane;
 
+/**
+ * Panel das alles enthält um Mitarbeiter anzulegen
+ */
 public class BewerberAnlegen extends JPanel {
 
 	private static JTextField bewerberAnlegenName;
@@ -38,9 +41,7 @@ public class BewerberAnlegen extends JPanel {
 	private static JDateChooser dateChooser;
 	private static final SimpleDateFormat SDF = new SimpleDateFormat("dd.MM.yyyy");
 
-	/**
-	 * Create the panel.
-	 */
+
 	public BewerberAnlegen() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{60, 236, 0, 0, 0, 0};
@@ -321,6 +322,9 @@ public class BewerberAnlegen extends JPanel {
 
 	}
 	
+	/**
+	 * Methode die neue Bewerber speichert indem sie {@link #BewerberDB.hinzufuegenBewerber(Bewerber b)} aufruft
+	 */
 	public static void speichenBewerber() {
 		
 		String name = "";
@@ -333,7 +337,7 @@ public class BewerberAnlegen extends JPanel {
 		long tel = 0;
 		String status = "nicht eingestellt";
 
-		/**
+		/*
 		 * Erst Nummern ueberpruefen da sonst NumberFormatException
 		 */
 		
@@ -355,7 +359,7 @@ public class BewerberAnlegen extends JPanel {
 			
 		}
 
-		/**
+		/*
 		 * Test ob alle Felder ausgefüllt sind
 		 */
 		
@@ -372,6 +376,9 @@ public class BewerberAnlegen extends JPanel {
 		}
 	}
 	
+	/**
+	 * Methode um alles Felder auf keinen Inhalt zu setzen
+	 */
 	public static void clearAll() {
 
 		bewerberAnlegenName.setText("");

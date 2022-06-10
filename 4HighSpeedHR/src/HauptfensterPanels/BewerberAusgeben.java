@@ -36,14 +36,13 @@ import de.fourHighSpeedHR.objects.Mitarbeiter;
 import javax.swing.JButton;
 import java.awt.Font;
 
+/**
+ * Panel das alles enthält um Mitarbeiter auszugeben
+ */
 public class BewerberAusgeben extends JPanel {
 
 	private static JLabel lblListeAusgabe;
 
-	
-	/**
-	 * Create the panel.
-	 */
 	public BewerberAusgeben() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{60, 500, 0, 0};
@@ -86,6 +85,9 @@ public class BewerberAusgeben extends JPanel {
 		
 	}
 	
+	/**
+	 *  Methode um die Bewerberliste auszugeben
+	 */
 	public static void ausgebenBewerberListe() {
 		
 		
@@ -111,10 +113,18 @@ public class BewerberAusgeben extends JPanel {
 
 	}
 
+	/**
+	 * Methode um einen String so zu fromattieren, dass er in einem HTML format ist
+	 * @param s	String der formattiert werden soll
+	 * @return den formattierten String
+	 */
 	public static String zeilenFormattieren(String s) {
 		return "<html>" + s.replaceAll("\n", "<br>");
 	}
 	
+	/**
+	 * Methode um die Bewerberliste als PDF im privaten Verzeichnis des Benutzers zu speichern
+	 */
 	public static void ausgebenBewerberListePDF() {
 		
 		ArrayList<Bewerber> bewerberListe = BewerberDB.ausgebenBewerberAlle();

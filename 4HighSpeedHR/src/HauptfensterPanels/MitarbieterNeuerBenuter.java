@@ -19,6 +19,9 @@ import de.fourHighSpeedHR.database.MitarbeiterDB;
 import de.fourHighSpeedHR.database.PasswortDB;
 import de.fourHighSpeedHR.objects.Mitarbeiter;
 
+/**
+ * Panel für das anlegen eines neuen Benutzers
+ */
 public class MitarbieterNeuerBenuter extends JPanel {
 
 	private static JTextField tfName, tfNachname, tfID;
@@ -26,9 +29,6 @@ public class MitarbieterNeuerBenuter extends JPanel {
 	private static JPasswordField tfPasswort;
 	private static JPasswordField tfPasswortWhd;
 
-	/**
-	 * Create the panel.
-	 */
 	public MitarbieterNeuerBenuter() {
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -197,6 +197,9 @@ public class MitarbieterNeuerBenuter extends JPanel {
 
 	}
 
+	/**
+	 * Metode sucht den Mitarbeiter der den neuen Benutzer anlgen kann
+	 */
 	public static void waehlenMitarbeiter() {
 
 		String name = tfName.getText();
@@ -228,6 +231,9 @@ public class MitarbieterNeuerBenuter extends JPanel {
 		}
 	}
 
+	/**
+	 * Methode zum anlegen eines neuen Benutzers
+	 */
 	public static void anlegenBenutzer() {
 
 		String benutzer = tfBenutzername.getText();

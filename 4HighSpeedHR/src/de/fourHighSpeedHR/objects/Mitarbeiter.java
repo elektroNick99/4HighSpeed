@@ -1,5 +1,9 @@
 package de.fourHighSpeedHR.objects;
 
+
+/**
+ * Klasse der Mitarbeiterobjekte
+ */
 public class Mitarbeiter {
 	
 	private String name;

@@ -21,6 +21,9 @@ import de.fourHighSpeedHR.objects.Mitarbeiter;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
+/**
+ * Panel um Mitarbeiterdaten zu ändern
+ */
 public class MitarbeiterAendern extends JPanel {
 
 	private static String idMA;
@@ -39,10 +42,7 @@ public class MitarbeiterAendern extends JPanel {
 	private static JCheckBox cbKuendigen;
 	private static JComboBox cbGehalt, cbAbteilung;
 
-	
-	/**
-	 * Create the panel.
-	 */
+
 	public MitarbeiterAendern() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 60, 112, 236, 0, 0 };
@@ -423,6 +423,9 @@ public class MitarbeiterAendern extends JPanel {
 
 	}
 
+	/**
+	 * Methode zum suchen des Mitarbeiters der geändert werden soll
+	 */
 	public static void maSuchen() {
 
 		String nameInput = mitarbeiterSuchenName.getText();
@@ -519,6 +522,9 @@ public class MitarbeiterAendern extends JPanel {
 
 	}
 
+	/**
+	 * Methode um den geänderten Mitarbeiter abzuspeichern
+	 */
 	public static void maAendern() {
 
 		String name = "";
@@ -531,7 +537,7 @@ public class MitarbeiterAendern extends JPanel {
 		long tel = 0;
 		String status = "eingestellt";
 
-		/**
+		/*
 		 * Erst Nummern ueberpruefen da sonst NumberFormatException
 		 */
 
@@ -561,7 +567,7 @@ public class MitarbeiterAendern extends JPanel {
 			}
 		}
 
-		/**
+		/*
 		 * Test ob alle Felder ausgefüllt sind
 		 */
 

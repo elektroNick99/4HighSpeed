@@ -19,6 +19,9 @@ import javax.swing.SwingConstants;
 import de.fourHighSpeedHR.database.BewerberDB;
 import de.fourHighSpeedHR.objects.Bewerber;
 
+/**
+ * Panel das alles enthält um während dem Bewerbungsgespräch mit schreiben zu können
+ */
 public class Bewerbungsgespraech extends JPanel {
 
 	private static JTextField bewerbungsgespraechName;
@@ -30,10 +33,6 @@ public class Bewerbungsgespraech extends JPanel {
 	private static String idBewerber;
 
 
-
-	/**
-	 * Create the panel.
-	 */
 	public Bewerbungsgespraech() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{60, 276, 138, 0};
@@ -191,6 +190,9 @@ public class Bewerbungsgespraech extends JPanel {
 
 	}
 	
+	/**
+	 * Mehtode Bewerber zu scuhen und die bereits eingefügten Notizen zu laden
+	 */
 	public static void suchenBewerber() {
 		
 		String name = bewerbungsgespraechName.getText();
@@ -220,6 +222,9 @@ public class Bewerbungsgespraech extends JPanel {
 		}
 	}
 	
+	/**
+	 * Methode um die geänderten Notizen zu speichern
+	 */
 	public static void aendernNotizen() {
 		
 		String notizen = epBewerberNotizen.getText();
