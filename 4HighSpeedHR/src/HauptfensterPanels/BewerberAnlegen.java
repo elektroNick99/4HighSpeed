@@ -26,7 +26,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JEditorPane;
 
 /**
- * Panel das alles enthält um Mitarbeiter anzulegen
+ * Panel das alles enthaelt um Mitarbeiter anzulegen
  */
 public class BewerberAnlegen extends JPanel {
 
@@ -41,15 +41,15 @@ public class BewerberAnlegen extends JPanel {
 	private static JDateChooser dateChooser;
 	private static final SimpleDateFormat SDF = new SimpleDateFormat("dd.MM.yyyy");
 
-
 	public BewerberAnlegen() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{60, 236, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[] { 60, 236, 0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0,
+				0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-		
+
 		JLabel lblNeuerBewerberAnlegen = new JLabel("Neuer Bewerber anlegen");
 		lblNeuerBewerberAnlegen.setFont(new Font("Arial", Font.BOLD, 15));
 		GridBagConstraints gbc_lblNeuerBewerberAnlegen = new GridBagConstraints();
@@ -58,7 +58,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblNeuerBewerberAnlegen.gridx = 1;
 		gbc_lblNeuerBewerberAnlegen.gridy = 0;
 		add(lblNeuerBewerberAnlegen, gbc_lblNeuerBewerberAnlegen);
-		
+
 		JLabel lblBewerberAnlegenName = new JLabel("Name");
 		lblBewerberAnlegenName.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenName = new GridBagConstraints();
@@ -67,17 +67,18 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenName.gridx = 1;
 		gbc_lblBewerberAnlegenName.gridy = 1;
 		add(lblBewerberAnlegenName, gbc_lblBewerberAnlegenName);
-		
-	    bewerberAnlegenName = new JTextField();
-	    bewerberAnlegenName.setFont(new Font("Arial", Font.PLAIN, 12));
-	    bewerberAnlegenName.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+
+		bewerberAnlegenName = new JTextField();
+		bewerberAnlegenName.setFont(new Font("Arial", Font.PLAIN, 12));
+		bewerberAnlegenName.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_bewerberAnlegenName = new GridBagConstraints();
 		gbc_bewerberAnlegenName.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenName.fill = GridBagConstraints.HORIZONTAL;
@@ -85,7 +86,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenName.gridy = 2;
 		add(bewerberAnlegenName, gbc_bewerberAnlegenName);
 		bewerberAnlegenName.setColumns(10);
-		
+
 		JLabel lblBewerberAnlegenNachname = new JLabel("Nachname");
 		lblBewerberAnlegenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenNachname = new GridBagConstraints();
@@ -94,7 +95,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenNachname.gridx = 1;
 		gbc_lblBewerberAnlegenNachname.gridy = 3;
 		add(lblBewerberAnlegenNachname, gbc_lblBewerberAnlegenNachname);
-		
+
 		JLabel lblGeburtstag = new JLabel("Geburtstag ");
 		lblGeburtstag.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblGeburtstag = new GridBagConstraints();
@@ -103,17 +104,18 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblGeburtstag.gridx = 2;
 		gbc_lblGeburtstag.gridy = 3;
 		add(lblGeburtstag, gbc_lblGeburtstag);
-		
+
 		bewerberAnlegenNachname = new JTextField();
 		bewerberAnlegenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
 		bewerberAnlegenNachname.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_bewerberAnlegenNachname = new GridBagConstraints();
 		gbc_bewerberAnlegenNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenNachname.fill = GridBagConstraints.HORIZONTAL;
@@ -121,7 +123,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenNachname.gridy = 4;
 		add(bewerberAnlegenNachname, gbc_bewerberAnlegenNachname);
 		bewerberAnlegenNachname.setColumns(25);
-		
+
 		dateChooser = new JDateChooser();
 		dateChooser.setDateFormatString("dd.MM.yyyy");
 		dateChooser.addKeyListener(new KeyAdapter() {
@@ -140,7 +142,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_dateChooser.gridx = 2;
 		gbc_dateChooser.gridy = 4;
 		add(dateChooser, gbc_dateChooser);
-		
+
 		JLabel lblBewerberAnlegenAdresse = new JLabel("Adresse");
 		lblBewerberAnlegenAdresse.setFont(new Font("Arial", Font.BOLD, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenAdresse = new GridBagConstraints();
@@ -149,7 +151,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenAdresse.gridx = 1;
 		gbc_lblBewerberAnlegenAdresse.gridy = 5;
 		add(lblBewerberAnlegenAdresse, gbc_lblBewerberAnlegenAdresse);
-		
+
 		JLabel lblBewerberAnlegenStrasse = new JLabel("Strasse");
 		lblBewerberAnlegenStrasse.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenStrasse = new GridBagConstraints();
@@ -158,7 +160,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenStrasse.gridx = 1;
 		gbc_lblBewerberAnlegenStrasse.gridy = 6;
 		add(lblBewerberAnlegenStrasse, gbc_lblBewerberAnlegenStrasse);
-		
+
 		JLabel lblBewerberAnlegenHNR = new JLabel("HNR");
 		lblBewerberAnlegenHNR.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenHNR = new GridBagConstraints();
@@ -167,17 +169,18 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenHNR.gridx = 2;
 		gbc_lblBewerberAnlegenHNR.gridy = 6;
 		add(lblBewerberAnlegenHNR, gbc_lblBewerberAnlegenHNR);
-		
+
 		bewerberAnlegenStraße = new JTextField();
 		bewerberAnlegenStraße.setFont(new Font("Arial", Font.PLAIN, 12));
 		bewerberAnlegenStraße.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_bewerberAnlegenStraße = new GridBagConstraints();
 		gbc_bewerberAnlegenStraße.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenStraße.fill = GridBagConstraints.HORIZONTAL;
@@ -185,7 +188,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenStraße.gridy = 7;
 		add(bewerberAnlegenStraße, gbc_bewerberAnlegenStraße);
 		bewerberAnlegenStraße.setColumns(25);
-		
+
 		bewerberAnlegenHNR = new JTextField();
 		bewerberAnlegenHNR.setFont(new Font("Arial", Font.PLAIN, 12));
 		bewerberAnlegenHNR.addKeyListener(new KeyAdapter() {
@@ -205,7 +208,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenHNR.gridy = 7;
 		add(bewerberAnlegenHNR, gbc_bewerberAnlegenHNR);
 		bewerberAnlegenHNR.setColumns(4);
-		
+
 		JLabel lblBewerberAnlegenOrt = new JLabel("Ort");
 		lblBewerberAnlegenOrt.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenOrt = new GridBagConstraints();
@@ -214,7 +217,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenOrt.gridx = 1;
 		gbc_lblBewerberAnlegenOrt.gridy = 8;
 		add(lblBewerberAnlegenOrt, gbc_lblBewerberAnlegenOrt);
-		
+
 		JLabel lblBewerberAnlegenPLZ = new JLabel("PLZ");
 		lblBewerberAnlegenPLZ.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenPLZ = new GridBagConstraints();
@@ -223,17 +226,18 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenPLZ.gridx = 2;
 		gbc_lblBewerberAnlegenPLZ.gridy = 8;
 		add(lblBewerberAnlegenPLZ, gbc_lblBewerberAnlegenPLZ);
-		
+
 		bewerberAnlegenOrt = new JTextField();
 		bewerberAnlegenOrt.setFont(new Font("Arial", Font.PLAIN, 12));
 		bewerberAnlegenOrt.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_bewerberAnlegenOrt = new GridBagConstraints();
 		gbc_bewerberAnlegenOrt.insets = new Insets(0, 0, 5, 5);
 		gbc_bewerberAnlegenOrt.fill = GridBagConstraints.HORIZONTAL;
@@ -241,7 +245,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenOrt.gridy = 9;
 		add(bewerberAnlegenOrt, gbc_bewerberAnlegenOrt);
 		bewerberAnlegenOrt.setColumns(25);
-		
+
 		bewerberAnlegenPLZ = new JTextField();
 		bewerberAnlegenPLZ.setFont(new Font("Arial", Font.PLAIN, 12));
 		bewerberAnlegenPLZ.addKeyListener(new KeyAdapter() {
@@ -261,7 +265,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenPLZ.gridy = 9;
 		add(bewerberAnlegenPLZ, gbc_bewerberAnlegenPLZ);
 		bewerberAnlegenPLZ.setColumns(5);
-		
+
 		JLabel lblBewerberAnlegenTel = new JLabel("Tel.:");
 		lblBewerberAnlegenTel.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenTel = new GridBagConstraints();
@@ -270,7 +274,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenTel.gridx = 1;
 		gbc_lblBewerberAnlegenTel.gridy = 10;
 		add(lblBewerberAnlegenTel, gbc_lblBewerberAnlegenTel);
-		
+
 		bewerberAnlegenTel = new JTextField();
 		bewerberAnlegenTel.setFont(new Font("Arial", Font.PLAIN, 12));
 		bewerberAnlegenTel.addKeyListener(new KeyAdapter() {
@@ -290,7 +294,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_bewerberAnlegenTel.gridy = 11;
 		add(bewerberAnlegenTel, gbc_bewerberAnlegenTel);
 		bewerberAnlegenTel.setColumns(11);
-		
+
 		JLabel lblBewerberAnlegenNotizen = new JLabel("Notizen");
 		lblBewerberAnlegenNotizen.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberAnlegenNotizen = new GridBagConstraints();
@@ -299,7 +303,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_lblBewerberAnlegenNotizen.gridx = 1;
 		gbc_lblBewerberAnlegenNotizen.gridy = 12;
 		add(lblBewerberAnlegenNotizen, gbc_lblBewerberAnlegenNotizen);
-		
+
 		epBewerberNotizen = new JEditorPane();
 		epBewerberNotizen.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_epBewerberNotizen = new GridBagConstraints();
@@ -309,7 +313,7 @@ public class BewerberAnlegen extends JPanel {
 		gbc_epBewerberNotizen.gridx = 1;
 		gbc_epBewerberNotizen.gridy = 13;
 		add(epBewerberNotizen, gbc_epBewerberNotizen);
-		
+
 		JButton bewerberAnlegenSpeichern = new JButton("Speichern");
 		bewerberAnlegenSpeichern.setFont(new Font("Arial", Font.BOLD, 12));
 		bewerberAnlegenSpeichern.addActionListener(e -> speichenBewerber());
@@ -321,12 +325,14 @@ public class BewerberAnlegen extends JPanel {
 		add(bewerberAnlegenSpeichern, gbc_bewerberAnlegenSpeichern);
 
 	}
-	
+
 	/**
-	 * Methode die neue Bewerber speichert indem sie {@link #BewerberDB.hinzufuegenBewerber(Bewerber b)} aufruft
+	 * Methode die neue Bewerber speichert. Zuerst wird ein Bewerberobject erstellt
+	 * und dann an die Methode der BewerberDB weitergegeben die es dann in der
+	 * Datenbank speichert
 	 */
 	public static void speichenBewerber() {
-		
+
 		String name = "";
 		String nachname = "";
 		String strasse = "";
@@ -340,12 +346,12 @@ public class BewerberAnlegen extends JPanel {
 		/*
 		 * Erst Nummern ueberpruefen da sonst NumberFormatException
 		 */
-		
+
 		if (bewerberAnlegenHNR.getText().equals("") || bewerberAnlegenPLZ.getText().equals("")
 				|| bewerberAnlegenTel.getText().equals("")) {
 
 		} else {
-			
+
 			name = bewerberAnlegenName.getText();
 			nachname = bewerberAnlegenNachname.getText();
 			strasse = bewerberAnlegenStraße.getText();
@@ -354,30 +360,31 @@ public class BewerberAnlegen extends JPanel {
 			plz = Integer.valueOf(bewerberAnlegenPLZ.getText());
 			tel = Long.valueOf(bewerberAnlegenTel.getText());
 			notizen = epBewerberNotizen.getText();
-			
+
 			geburtstag = SDF.format(dateChooser.getDate());
-			
+
 		}
 
 		/*
-		 * Test ob alle Felder ausgefüllt sind
+		 * Test ob alle Felder ausgefuellt sind
 		 */
-		
-		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("")|| hnr == 0 || plz == 0 || tel == 0) {
-			
+
+		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("") || hnr == 0 || plz == 0
+				|| tel == 0) {
+
 			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
-			
+
 		} else {
-			
+
 			BewerberDB.hinzufuegenBewerber(
 					new Bewerber(name, nachname, strasse, hnr, ort, plz, tel, notizen, geburtstag, status));
 
 			clearAll();
 		}
 	}
-	
+
 	/**
-	 * Methode um alles Felder auf keinen Inhalt zu setzen
+	 * Methode um alle Felder auf keinen Inhalt zu setzen
 	 */
 	public static void clearAll() {
 
@@ -389,7 +396,7 @@ public class BewerberAnlegen extends JPanel {
 		bewerberAnlegenPLZ.setText("");
 		bewerberAnlegenTel.setText("");
 		epBewerberNotizen.setText("");
-		
+
 		Date date = new Date();
 		dateChooser.setDate(date);
 	}

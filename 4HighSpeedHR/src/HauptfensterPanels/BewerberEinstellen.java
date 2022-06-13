@@ -23,7 +23,7 @@ import de.fourHighSpeedHR.objects.Mitarbeiter;
 import javax.swing.JComboBox;
 
 /**
- * Panel das alles enthält um Bewerber einstelen zu können
+ * Panel das alles enthaelt um Bewerber einstellen zu koennen
  */
 public class BewerberEinstellen extends JPanel {
 
@@ -41,8 +41,6 @@ public class BewerberEinstellen extends JPanel {
 	private static JTextField tfNachnameSuchen;
 	private static JTextField tfNummer;
 	private static JComboBox cbGehalt, cbAbteilung;
-	private static Bewerber b;
-
 
 	public BewerberEinstellen() {
 
@@ -50,8 +48,8 @@ public class BewerberEinstellen extends JPanel {
 		gridBagLayout.columnWidths = new int[] { 60, 112, 236, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-				0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
 		JLabel lblBewerberEinstellen = new JLabel("Bewerber einstellen");
@@ -102,13 +100,14 @@ public class BewerberEinstellen extends JPanel {
 		tfNameSuchen = new JTextField();
 		tfNameSuchen.setFont(new Font("Arial", Font.PLAIN, 12));
 		tfNameSuchen.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_tfNameSuchen = new GridBagConstraints();
 		gbc_tfNameSuchen.insets = new Insets(0, 0, 5, 5);
 		gbc_tfNameSuchen.fill = GridBagConstraints.HORIZONTAL;
@@ -120,13 +119,14 @@ public class BewerberEinstellen extends JPanel {
 		tfName = new JTextField();
 		tfName.setFont(new Font("Arial", Font.PLAIN, 12));
 		tfName.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_tfName = new GridBagConstraints();
 		gbc_tfName.insets = new Insets(0, 0, 5, 5);
 		gbc_tfName.fill = GridBagConstraints.HORIZONTAL;
@@ -156,13 +156,14 @@ public class BewerberEinstellen extends JPanel {
 		tfNachnameSuchen = new JTextField();
 		tfNachnameSuchen.setFont(new Font("Arial", Font.PLAIN, 12));
 		tfNachnameSuchen.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_tfNachnameSuchen = new GridBagConstraints();
 		gbc_tfNachnameSuchen.insets = new Insets(0, 0, 5, 5);
 		gbc_tfNachnameSuchen.fill = GridBagConstraints.HORIZONTAL;
@@ -174,13 +175,14 @@ public class BewerberEinstellen extends JPanel {
 		tfNachname = new JTextField();
 		tfNachname.setFont(new Font("Arial", Font.PLAIN, 12));
 		tfNachname.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_tfNachname = new GridBagConstraints();
 		gbc_tfNachname.insets = new Insets(0, 0, 5, 5);
 		gbc_tfNachname.fill = GridBagConstraints.HORIZONTAL;
@@ -248,13 +250,14 @@ public class BewerberEinstellen extends JPanel {
 		tfStrasse = new JTextField();
 		tfStrasse.setFont(new Font("Arial", Font.PLAIN, 12));
 		tfStrasse.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_tfStrasse = new GridBagConstraints();
 		gbc_tfStrasse.insets = new Insets(0, 0, 5, 5);
 		gbc_tfStrasse.fill = GridBagConstraints.HORIZONTAL;
@@ -304,13 +307,14 @@ public class BewerberEinstellen extends JPanel {
 		tfOrt = new JTextField();
 		tfOrt.setFont(new Font("Arial", Font.PLAIN, 12));
 		tfOrt.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_tfOrt = new GridBagConstraints();
 		gbc_tfOrt.insets = new Insets(0, 0, 5, 5);
 		gbc_tfOrt.fill = GridBagConstraints.HORIZONTAL;
@@ -385,16 +389,16 @@ public class BewerberEinstellen extends JPanel {
 		gbc_lblGehlat.gridx = 3;
 		gbc_lblGehlat.gridy = 13;
 		add(lblGehlat, gbc_lblGehlat);
-		
+
 		Abteilungen[] abteilungen = Abteilungen.values();
-		cbAbteilung = new JComboBox(abteilungen);		
+		cbAbteilung = new JComboBox(abteilungen);
 		GridBagConstraints gbc_cbAbteilung = new GridBagConstraints();
 		gbc_cbAbteilung.insets = new Insets(0, 0, 5, 5);
 		gbc_cbAbteilung.fill = GridBagConstraints.HORIZONTAL;
 		gbc_cbAbteilung.gridx = 2;
 		gbc_cbAbteilung.gridy = 14;
 		add(cbAbteilung, gbc_cbAbteilung);
-		
+
 		Gehaltsgruppe[] gehaltsgruppe = Gehaltsgruppe.values();
 		cbGehalt = new JComboBox(gehaltsgruppe);
 		GridBagConstraints gbc_cbGehalt = new GridBagConstraints();
@@ -417,8 +421,9 @@ public class BewerberEinstellen extends JPanel {
 	}
 
 	/**
-	 * Methode um den Bewerber zu suchen der eingestellt werden soll
-	 * ausserdem werden schon alle Felder ausgefuellt die benoetigt werden um ihn/sie als Mitarbeiter zu speichern
+	 * Methode um den Bewerber zu suchen der eingestellt werden soll Ausserdem
+	 * werden schon alle Felder ausgefuellt die benoetigt werden um ihn/sie als
+	 * Mitarbeiter zu speichern
 	 */
 	public static void suchen() {
 
@@ -435,7 +440,7 @@ public class BewerberEinstellen extends JPanel {
 
 			for (int i = 0; i < bewerber.size(); i++) {
 
-				b = bewerber.get(i);
+				Bewerber b = bewerber.get(i);
 				String id = "" + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb();
 
 				if (b.getName().equals(nameInput) && b.getNachname().equals(nachnameInput) && id.equals(idInput)) {
@@ -480,8 +485,7 @@ public class BewerberEinstellen extends JPanel {
 		 * Erst Nummern ueberpruefen da sonst NumberFormatException
 		 */
 
-		if (tfHNR.getText().equals("") || tfPLZ.getText().equals("")
-				|| tfTel.getText().equals("")) {
+		if (tfHNR.getText().equals("") || tfPLZ.getText().equals("") || tfTel.getText().equals("")) {
 
 		} else {
 
@@ -492,31 +496,31 @@ public class BewerberEinstellen extends JPanel {
 			ort = tfOrt.getText();
 			plz = Integer.valueOf(tfPLZ.getText());
 			tel = Long.valueOf(tfTel.getText());
-			
+
 			Abteilungen ab = (Abteilungen) cbAbteilung.getSelectedItem();
 			abteilung = ab.toString();
-			
+
 			Gehaltsgruppe gg = (Gehaltsgruppe) cbGehalt.getSelectedItem();
 			gehalt = gg.gehalt;
 
 		}
 
 		/*
-		 * Test ob alle Felder ausgefüllt sind
+		 * Test ob alle Felder ausgefuellt sind
 		 */
 
-		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("")
-				|| hnr == 0 || plz == 0 || tel == 0) {
+		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("") || hnr == 0 || plz == 0
+				|| tel == 0) {
 
 			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
 
 		} else {
-						
-			MitarbeiterDB.hinzufuegenMitarbeiter(
-					new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung, gehalt, gebB, "eingestellt"));
-		
+
+			MitarbeiterDB.hinzufuegenMitarbeiter(new Mitarbeiter(name, nachname, strasse, hnr, ort, plz, tel, abteilung,
+					gehalt, gebB, "eingestellt"));
+
 			BewerberDB.aendernStatus("eingestellt", idB);
-			
+
 			tfName.setText("");
 			tfNachname.setText("");
 			tfStrasse.setText("");
@@ -525,9 +529,9 @@ public class BewerberEinstellen extends JPanel {
 			tfPLZ.setText("");
 			tfTel.setText("");
 		}
-		
+
 	}
-	
+
 	public static void clearAll() {
 
 		tfName.setText("");
@@ -540,7 +544,7 @@ public class BewerberEinstellen extends JPanel {
 
 		cbGehalt.setSelectedItem(Gehaltsgruppe.GEHALTSGRUPPE_1);
 		cbAbteilung.setSelectedItem(Abteilungen.EINKAUF);
-		
+
 		tfNameSuchen.setText("");
 		tfNachnameSuchen.setText("");
 		tfNummer.setText("");

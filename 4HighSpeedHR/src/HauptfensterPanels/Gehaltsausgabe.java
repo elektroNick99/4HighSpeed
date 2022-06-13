@@ -52,17 +52,16 @@ public class Gehaltsausgabe extends JPanel {
 	private static JRadioButton rbEingestellt, rbNichtEingestellt;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
-
 	public Gehaltsausgabe() {
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 112, 31, 269 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0 };
 		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 1.0 };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-				0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-		
+
 		JLabel lblMitarbeiterGehalt = new JLabel("Mitarbeiter Gehalt");
 		lblMitarbeiterGehalt.setFont(new Font("Arial", Font.BOLD, 15));
 		GridBagConstraints gbc_lblMitarbeiterGehalt = new GridBagConstraints();
@@ -177,30 +176,30 @@ public class Gehaltsausgabe extends JPanel {
 		gbc_lblMitarbeiterGehaltMonate.gridx = 0;
 		gbc_lblMitarbeiterGehaltMonate.gridy = 8;
 		add(lblMitarbeiterGehaltMonate, gbc_lblMitarbeiterGehaltMonate);
-		
-				mitarbeiterGehaltMonate = new JTextField();
-				mitarbeiterGehaltMonate.addKeyListener(new KeyAdapter() {
-					@Override
-					public void keyTyped(KeyEvent e) {
-						char c = e.getKeyChar();
-						if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-							getToolkit().beep();
-							e.consume();
-						}
-					}
-				});
-				mitarbeiterGehaltMonate.setFont(new Font("Arial", Font.PLAIN, 12));
-				GridBagConstraints gbc_mitarbeiterGehaltMonate = new GridBagConstraints();
-				gbc_mitarbeiterGehaltMonate.insets = new Insets(0, 0, 5, 5);
-				gbc_mitarbeiterGehaltMonate.fill = GridBagConstraints.HORIZONTAL;
-				gbc_mitarbeiterGehaltMonate.gridx = 0;
-				gbc_mitarbeiterGehaltMonate.gridy = 9;
-				add(mitarbeiterGehaltMonate, gbc_mitarbeiterGehaltMonate);
-				mitarbeiterGehaltMonate.setColumns(10);
-		
+
+		mitarbeiterGehaltMonate = new JTextField();
+		mitarbeiterGehaltMonate.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
+		mitarbeiterGehaltMonate.setFont(new Font("Arial", Font.PLAIN, 12));
+		GridBagConstraints gbc_mitarbeiterGehaltMonate = new GridBagConstraints();
+		gbc_mitarbeiterGehaltMonate.insets = new Insets(0, 0, 5, 5);
+		gbc_mitarbeiterGehaltMonate.fill = GridBagConstraints.HORIZONTAL;
+		gbc_mitarbeiterGehaltMonate.gridx = 0;
+		gbc_mitarbeiterGehaltMonate.gridy = 9;
+		add(mitarbeiterGehaltMonate, gbc_mitarbeiterGehaltMonate);
+		mitarbeiterGehaltMonate.setColumns(10);
+
 		rbEingestellt = new JRadioButton("Eingestellt");
 		buttonGroup.add(rbEingestellt);
-		rbEingestellt.setSelected(true);		
+		rbEingestellt.setSelected(true);
 		rbEingestellt.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_rbEingestellt = new GridBagConstraints();
 		gbc_rbEingestellt.anchor = GridBagConstraints.WEST;
@@ -208,7 +207,7 @@ public class Gehaltsausgabe extends JPanel {
 		gbc_rbEingestellt.gridx = 0;
 		gbc_rbEingestellt.gridy = 10;
 		add(rbEingestellt, gbc_rbEingestellt);
-		
+
 		rbNichtEingestellt = new JRadioButton("Nicht eingestellt");
 		buttonGroup.add(rbNichtEingestellt);
 		rbNichtEingestellt.setHorizontalAlignment(SwingConstants.LEFT);
@@ -260,7 +259,7 @@ public class Gehaltsausgabe extends JPanel {
 	}
 
 	/**
-	 * Methode die das Gehalt eines bestimmten ausgewählten Mitarbeiters ausgibt
+	 * Methode die das Gehalt eines bestimmten ausgewaehlten Mitarbeiters ausgibt
 	 */
 	public static void gehaltRechnen() {
 
@@ -302,17 +301,18 @@ public class Gehaltsausgabe extends JPanel {
 	}
 
 	/**
-	 * Methode die das Gehalt aller Mitarbeiter ausgibt. Es kann gewählt werden ob es nur die aktuellen oder auch die gekündigten
-	 * Mitarbeiter berücksihtigen soll.
+	 * Methode die das Gehalt aller Mitarbeiter ausgibt. Es kann gewaehlt werden ob
+	 * es nur die aktuellen oder auch die gekuendigten Mitarbeiter beruecksihtigen
+	 * soll.
 	 */
 	public static void rechnenGehaltGesamt() {
 
 		int monate = 0;
 		boolean eingestellt;
-		
-		if(rbEingestellt.isSelected()) {
+
+		if (rbEingestellt.isSelected()) {
 			eingestellt = true;
-		}else {
+		} else {
 			eingestellt = false;
 		}
 
@@ -333,13 +333,13 @@ public class Gehaltsausgabe extends JPanel {
 
 				Mitarbeiter ma = mitarbeiter.get(i);
 
-				if(eingestellt) {
+				if (eingestellt) {
 					if (ma.getStatus().equals("eingestellt")) {
 
 						result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " €\n\n");
 						gehaltsumme += ma.getGehalt();
 					}
-				}else {
+				} else {
 					if (ma.getStatus().equals("gekuendigt")) {
 
 						result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " €\n\n");
@@ -360,6 +360,7 @@ public class Gehaltsausgabe extends JPanel {
 
 	/**
 	 * Methode zum formattieren der ausgabe
+	 * 
 	 * @param s Eingabe String
 	 * @return formattierter Ausgabestring
 	 */

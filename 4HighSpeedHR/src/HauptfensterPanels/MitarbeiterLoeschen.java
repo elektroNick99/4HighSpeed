@@ -19,13 +19,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
- * Panel zum löschen von Mitarbeitern
+ * Panel zum loeschen von Mitarbeitern
  */
 public class MitarbeiterLoeschen extends JPanel {
 
 	private static JTextField tfName, tfNachname, tfID;
 
-	
 	public MitarbeiterLoeschen() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 60, 276, 0 };
@@ -55,13 +54,14 @@ public class MitarbeiterLoeschen extends JPanel {
 		tfName = new JTextField();
 		tfName.setFont(new Font("Arial", Font.PLAIN, 12));
 		tfName.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_tfName = new GridBagConstraints();
 		gbc_tfName.insets = new Insets(0, 0, 5, 0);
 		gbc_tfName.fill = GridBagConstraints.HORIZONTAL;
@@ -82,13 +82,14 @@ public class MitarbeiterLoeschen extends JPanel {
 		tfNachname = new JTextField();
 		tfNachname.setFont(new Font("Arial", Font.PLAIN, 12));
 		tfNachname.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_tfNachname = new GridBagConstraints();
 		gbc_tfNachname.insets = new Insets(0, 0, 5, 0);
 		gbc_tfNachname.fill = GridBagConstraints.HORIZONTAL;
@@ -128,7 +129,7 @@ public class MitarbeiterLoeschen extends JPanel {
 	}
 
 	/**
-	 * Methode die einen Mitarbeiter aus der Tabelle Mitarbeiter löscht
+	 * Methode die einen Mitarbeiter aus der Tabelle Mitarbeiter loescht
 	 */
 	public static void maLoeschen() {
 
@@ -139,7 +140,7 @@ public class MitarbeiterLoeschen extends JPanel {
 		if (name.equals("") || nachname.equals("") || idInput.equals("")) {
 
 			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
-			
+
 		} else {
 			ArrayList<Mitarbeiter> mitarbeiter = MitarbeiterDB.ausgebenMitarbeiterAlle();
 
@@ -151,21 +152,22 @@ public class MitarbeiterLoeschen extends JPanel {
 				if (m.getName().equals(name) && m.getNachname().equals(nachname) && id.equals(idInput)) {
 
 					MitarbeiterDB.loeschenMitarbeiter(idInput);
-					
+
 					tfName.setText("");
 					tfNachname.setText("");
 					tfID.setText("");
-					
-					JOptionPane.showMessageDialog(null, "Der Mitarbieter "+name+" "+ nachname+" wurde geloescht!");
+
+					JOptionPane.showMessageDialog(null,
+							"Der Mitarbieter " + name + " " + nachname + " wurde geloescht!");
 
 				}
 			}
 		}
 
 	}
-	
+
 	public static void clearAll() {
-		
+
 		tfName.setText("");
 		tfNachname.setText("");
 		tfID.setText("");

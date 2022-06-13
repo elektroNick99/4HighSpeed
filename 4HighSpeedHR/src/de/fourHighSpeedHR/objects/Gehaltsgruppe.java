@@ -1,8 +1,7 @@
 package de.fourHighSpeedHR.objects;
 
 /**
- * Enums der Gehaltsgruppen, die die jeweiligen Gehälter enthalten
- *
+ * Enums der Gehaltsgruppen, die die jeweiligen Gehaelter enthalten
  */
 public enum Gehaltsgruppe {
 

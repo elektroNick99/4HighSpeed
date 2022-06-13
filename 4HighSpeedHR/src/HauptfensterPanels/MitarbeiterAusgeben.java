@@ -114,13 +114,14 @@ public class MitarbeiterAusgeben extends JPanel {
 		add(btnListeAktualisieren, gbc_btnListeAktualisieren);
 
 	}
-	
+
 	public static void clear() {
 		buttonGroup.clearSelection();
 	}
 
 	/**
-	 * Methode die eine Liste aller eingestellen, gekündigten oder eingestellten und gekündigten Mitarbeiter ausgibt
+	 * Methode die eine Liste aller eingestellen, gekuendigten oder eingestellten
+	 * und gekuendigten Mitarbeiter ausgibt
 	 */
 	public static void ausgebenMitarbeiterListe() {
 
@@ -189,7 +190,8 @@ public class MitarbeiterAusgeben extends JPanel {
 	}
 
 	/**
-	 * Methode zum speichern der Mitarbeiterliste als PDF auf dem Computer des Benutzers
+	 * Methode zum Speichern der Mitarbeiterliste als PDF auf dem Computer des
+	 * Benutzers
 	 */
 	public static void ausgebenMitarbeiterListePDF() {
 

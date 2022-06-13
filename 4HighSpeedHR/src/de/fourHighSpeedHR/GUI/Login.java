@@ -19,6 +19,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.util.HashMap;
 
+/**
+ * Die Klasse enthaelt das Login in das Programm
+ */
 public class Login {
 
 	private JTextField tfUsername;
@@ -27,9 +30,9 @@ public class Login {
 	public static int anzahlVersuche;
 
 	Login() {
-		
+
 		anzahlVersuche = 5;
-		
+
 		frame = new JFrame();
 		frame.setTitle("4HighSpeed HR - Login");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -107,19 +110,19 @@ public class Login {
 	}
 
 	/**
-	 * Prueft den Login
+	 * Die Methode Prueft den Login
 	 * 
-	 * 1. Passwort und Name in Variable speichern.
-	 * 2. Schauen ob es den Name auch gibt.
-	 * 3. Wenn es den Namen gibt stimmt = true sodass die nächste Schleife durchlaufen werden kann. So loest
-	 * da sonst mehrmals das JOptionPane kommt, wegen der Schleife.
-	 * 4. wenn PW und Name Uebereinstimmen wird das nächste Fenster geoeffnet, wenn nicht wird von der Anzahl der Versuche einer
-	 * abgezogen bis man bei 0 ist und wenn man bei 0 ist das Programm auch beendet. Zwischen din werden dabei immer die
-	 * Felder auf null gesetzt.
+	 * 1. Passwort und Name in Variable speichern. 2. Schauen ob es den Name auch
+	 * gibt. 3. Wenn es den Namen gibt stimmt = true sodass die naechste Schleife
+	 * durchlaufen werden kann. So loest da sonst mehrmals das JOptionPane kommt,
+	 * wegen der Schleife. 4. wenn PW und Name Uebereinstimmen wird das nächste
+	 * Fenster geoeffnet, wenn nicht wird von der Anzahl der Versuche einer
+	 * abgezogen bis man bei 0 ist und wenn man bei 0 ist das Programm auch beendet.
+	 * Zwischen din werden dabei immer die Felder auf null gesetzt.
 	 * 
-	 * @param passwort	ist das eingegebene Passwort
-	 * @param username	ist der eingegebene Benutzername
-	 * @param stimmt	boolean die ausgibt ob das PW und der BN richtig sind
+	 * @param passwort ist das eingegebene Passwort
+	 * @param username ist der eingegebene Benutzername
+	 * @param stimmt   boolean die ausgibt ob das PW und der BN richtig sind
 	 */
 
 	public void loginCheck() {
@@ -128,7 +131,7 @@ public class Login {
 		String passwort = String.valueOf(tfPassword.getPassword());
 
 		boolean stimmt = false;
-		
+
 		HashMap<String, String> passworte = PasswortDB.connectToDataBasePW();
 
 		if (passwort.equals("") || username.equals("")) {
@@ -145,13 +148,13 @@ public class Login {
 			if (stimmt && passworte.get(username).equals(passwort)) {
 				frame.dispose();
 				Hauptfenster hauptfenster = new Hauptfenster();
-				
+
 			} else {
 
-				if(anzahlVersuche == 0) {
+				if (anzahlVersuche == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Das Passwort und der Benutzername stimmen nicht Ueberein. Das Programm schließt sich jetzt!");
-				}else {
+				} else {
 					JOptionPane.showMessageDialog(null,
 							"Das Passwort und der Benutzername stimmen nicht Ueberein. Du hast noch " + anzahlVersuche
 									+ " Veruche Uebrig");
@@ -161,11 +164,11 @@ public class Login {
 
 		tfPassword.setText("");
 		tfUsername.setText("");
-		
-		if(anzahlVersuche == 0) {
+
+		if (anzahlVersuche == 0) {
 			System.exit(0);
 		}
-		
+
 		anzahlVersuche--;
 	}
 }

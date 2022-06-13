@@ -20,7 +20,7 @@ import de.fourHighSpeedHR.database.PasswortDB;
 import de.fourHighSpeedHR.objects.Mitarbeiter;
 
 /**
- * Panel für das anlegen eines neuen Benutzers
+ * Panel fuer das anlegen eines neuen Benutzers
  */
 public class MitarbieterNeuerBenuter extends JPanel {
 
@@ -245,8 +245,7 @@ public class MitarbieterNeuerBenuter extends JPanel {
 			PasswortDB.hinzufuegenBenutzer(benutzer, pw1);
 
 		} else {
-			JOptionPane.showMessageDialog(null,
-					"Deine Passworte stimmen nicht ueberein. Bitte aendere deine Eingabe");
+			JOptionPane.showMessageDialog(null, "Deine Passworte stimmen nicht ueberein. Bitte aendere deine Eingabe");
 
 		}
 

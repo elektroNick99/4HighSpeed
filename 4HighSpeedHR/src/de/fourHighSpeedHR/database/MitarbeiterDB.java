@@ -12,14 +12,15 @@ import de.fourHighSpeedHR.GUI.Main;
 import de.fourHighSpeedHR.objects.Mitarbeiter;
 
 /**
- * Die Klasse enthält alle zugriffe auf die Mitarbeitertabelle in der Datenbank
+ * Die Klasse enthaelt alle Zugriffe auf die Mitarbeitertabelle in der Datenbank
  */
 public class MitarbeiterDB {
-	
+
 	static String[] args = Main.args2;
 
 	/**
 	 * Methode um alles aus der Tabelle auszulesen
+	 * 
 	 * @return Liste aller Mitarbeiter
 	 */
 	public static ArrayList<Mitarbeiter> ausgebenMitarbeiterAlle() {
@@ -36,11 +37,11 @@ public class MitarbeiterDB {
 				mitarbeiterliste.add(new Mitarbeiter(rs.getString("Name"), rs.getString("Nachname"),
 						rs.getString("Strasse"), Integer.valueOf(rs.getString("Hausnummer")), rs.getString("Ort"),
 						Integer.valueOf(rs.getString("Postleitzahl")), Long.valueOf(rs.getString("Telefonnummer")),
-						rs.getString("Abteilung"), Integer.valueOf(rs.getString("Gehalt")),
-						rs.getString("Geburtstag"), rs.getString("Status")));
+						rs.getString("Abteilung"), Integer.valueOf(rs.getString("Gehalt")), rs.getString("Geburtstag"),
+						rs.getString("Status")));
 
 			}
-			
+
 			c.close();
 
 		} catch (Exception e) {
@@ -51,7 +52,8 @@ public class MitarbeiterDB {
 
 	/**
 	 * Methode um einen Mitarbeiter in die Tabelle zu speichern
-	 * @param ma	ist der Mitarbeiter der in die Tabelle gespeichert werden soll
+	 * 
+	 * @param ma ist der Mitarbeiter der in die Tabelle gespeichert werden soll
 	 */
 	public static void hinzufuegenMitarbeiter(Mitarbeiter ma) {
 
@@ -89,9 +91,8 @@ public class MitarbeiterDB {
 			stm.setString(12, status);
 
 			stm.executeUpdate();
-			
-			c.close();
 
+			c.close();
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -100,15 +101,17 @@ public class MitarbeiterDB {
 		}
 
 	}
-	
+
 	/**
-	 * Methode um einen Mitarbeiter aus der Tabelle zu löschen
-	 * @param id ist der PrimaryKey des Mitarbeiters mit dem er/sie eindeutig in der Tabelle aufzufinden ist
+	 * Methode um einen Mitarbeiter aus der Tabelle zu loeschen
+	 * 
+	 * @param id ist der PrimaryKey des Mitarbeiters mit dem er/sie eindeutig in der
+	 *           Tabelle aufzufinden ist
 	 */
 	public static void loeschenMitarbeiter(String id) {
-		
+
 		try {
-			
+
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection c = DriverManager.getConnection("jdbc:mysql://3.69.96.96:3306/db5", "db5", args[0]);
 
@@ -116,14 +119,13 @@ public class MitarbeiterDB {
 			PreparedStatement stm = c.prepareStatement(sql);
 			stm.setString(1, id);
 			stm.executeUpdate();
-			
+
 			c.close();
 
-			
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
-			
+
 		}
 	}
 }

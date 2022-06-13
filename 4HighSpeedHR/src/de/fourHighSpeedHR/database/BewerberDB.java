@@ -11,7 +11,7 @@ import de.fourHighSpeedHR.GUI.Main;
 import de.fourHighSpeedHR.objects.Bewerber;
 
 /**
- * Die Klasse enthält alle zugriffe auf die Bewerbertabelle in der Datenbank
+ * Die Klasse enthaelt alle Zugriffe auf die Bewerbertabelle in der Datenbank
  */
 public class BewerberDB {
 
@@ -19,9 +19,10 @@ public class BewerberDB {
 
 	/**
 	 * Methode um alles aus der Tabelle auszulesen
+	 * 
 	 * @return Liste aller Bewerber
 	 */
-	
+
 	public static ArrayList<Bewerber> ausgebenBewerberAlle() {
 
 		ArrayList<Bewerber> bewerberliste = new ArrayList<>();
@@ -49,7 +50,8 @@ public class BewerberDB {
 
 	/**
 	 * Methode um einen Bewerber in die Tabelle zu speichern
-	 * @param b	ist der Bewerber der in die Tabelle gespeichert werden soll
+	 * 
+	 * @param b ist der Bewerber der in die Tabelle gespeichert werden soll
 	 */
 	public static void hinzufuegenBewerber(Bewerber b) {
 
@@ -94,8 +96,10 @@ public class BewerberDB {
 	}
 
 	/**
-	 * Methode um einen Bewerber aus der Tabelle zu löschen
-	 * @param id ist der PrimaryKey des Bewerbers mit dem er/sie eindeutig in der Tabelle aufzufinden ist
+	 * Methode um einen Bewerber aus der Tabelle zu loeschen
+	 * 
+	 * @param id ist der PrimaryKey des Bewerbers mit dem er/sie eindeutig in der
+	 *           Tabelle aufzufinden ist
 	 */
 	public static void loeschenBewerber(String id) {
 
@@ -120,8 +124,10 @@ public class BewerberDB {
 
 	/**
 	 * Methode um die notizen von einem Bewerber in der Tabelle zu speichern
-	 * @param notizen 		sind die neunen Notizen die gespeichert werden sollen
-	 * @param idBewerber	ist die eindeutige Id mit der der Bewerber in der Tabelle aufzufinden ist
+	 * 
+	 * @param notizen    sind die neunen Notizen die gespeichert werden sollen
+	 * @param idBewerber ist die eindeutige Id mit der der Bewerber in der Tabelle
+	 *                   aufzufinden ist
 	 */
 	public static void aendernNotizen(String notizen, String idBewerber) {
 
@@ -146,9 +152,11 @@ public class BewerberDB {
 	}
 
 	/**
-	 * Methode um den Status eines Bewerbers zu ändern
-	 * @param status		der Status der geändert werden soll
-	 * @param idBewerber	ist die eindeutige Id mit der der Bewerber in der Tabelle aufzufinden ist
+	 * Methode um den Status eines Bewerbers zu aendern
+	 * 
+	 * @param status     der Status der geändert werden soll
+	 * @param idBewerber ist die eindeutige Id mit der der Bewerber in der Tabelle
+	 *                   aufzufinden ist
 	 */
 	public static void aendernStatus(String status, String idBewerber) {
 

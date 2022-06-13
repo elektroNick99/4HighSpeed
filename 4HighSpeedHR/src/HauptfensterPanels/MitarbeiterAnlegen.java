@@ -341,7 +341,8 @@ public class MitarbeiterAnlegen extends JPanel {
 	}
 
 	/**
-	 * Methode um ein neues Mitarbeiterobject zu bauen und dann mit der {@link #MitarbeiterDB.hinzufuegenMitarbeiter(Mitarbeiter)}
+	 * Methode die ein neues Mitarbeiterobject baut und es dann der Methode aus der
+	 * MitarbeiterDB zuspeichern in der Tabelle weitergibt.
 	 */
 	public static void speichern() {
 
@@ -382,7 +383,7 @@ public class MitarbeiterAnlegen extends JPanel {
 		}
 
 		/*
-		 * Test ob alle Felder ausgefüllt sind
+		 * Test ob alle Felder ausgefuellt sind
 		 */
 
 		if (name.equals("") || nachname.equals("") || strasse.equals("") || ort.equals("") || abteilung.equals("")

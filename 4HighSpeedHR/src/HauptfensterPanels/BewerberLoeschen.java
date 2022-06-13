@@ -20,24 +20,23 @@ import de.fourHighSpeedHR.objects.Mitarbeiter;
 
 import javax.swing.JButton;
 
-
 /**
- * Panel das alles enthält um Bewerber zu löschen
+ * Panel das alles enthaelt um Bewerber zu loeschen
  */
 public class BewerberLoeschen extends JPanel {
-	
+
 	private static JTextField bewerberLoeschenName;
 	private static JTextField bewerberLoeschenNachname;
 	private static JTextField bewerberLoeschenNummer;
 
 	public BewerberLoeschen() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{60, 276, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[] { 60, 276, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-		
+
 		JLabel lblBewerberLoeschen = new JLabel("Bewerber loeschen");
 		lblBewerberLoeschen.setFont(new Font("Arial", Font.BOLD, 15));
 		GridBagConstraints gbc_lblBewerberLoeschen = new GridBagConstraints();
@@ -46,7 +45,7 @@ public class BewerberLoeschen extends JPanel {
 		gbc_lblBewerberLoeschen.gridx = 1;
 		gbc_lblBewerberLoeschen.gridy = 0;
 		add(lblBewerberLoeschen, gbc_lblBewerberLoeschen);
-		
+
 		JLabel lblBewerberLoeschenName = new JLabel("Name*");
 		lblBewerberLoeschenName.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberLoeschenName = new GridBagConstraints();
@@ -55,17 +54,18 @@ public class BewerberLoeschen extends JPanel {
 		gbc_lblBewerberLoeschenName.gridx = 1;
 		gbc_lblBewerberLoeschenName.gridy = 1;
 		add(lblBewerberLoeschenName, gbc_lblBewerberLoeschenName);
-		
+
 		bewerberLoeschenName = new JTextField();
 		bewerberLoeschenName.setFont(new Font("Arial", Font.PLAIN, 12));
 		bewerberLoeschenName.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_bewerberLoeschenName = new GridBagConstraints();
 		gbc_bewerberLoeschenName.insets = new Insets(0, 0, 5, 0);
 		gbc_bewerberLoeschenName.fill = GridBagConstraints.HORIZONTAL;
@@ -73,7 +73,7 @@ public class BewerberLoeschen extends JPanel {
 		gbc_bewerberLoeschenName.gridy = 2;
 		add(bewerberLoeschenName, gbc_bewerberLoeschenName);
 		bewerberLoeschenName.setColumns(10);
-		
+
 		JLabel lblBewerberLoeschenNachname = new JLabel("Nachname*");
 		lblBewerberLoeschenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberLoeschenNachname = new GridBagConstraints();
@@ -82,17 +82,18 @@ public class BewerberLoeschen extends JPanel {
 		gbc_lblBewerberLoeschenNachname.gridx = 1;
 		gbc_lblBewerberLoeschenNachname.gridy = 3;
 		add(lblBewerberLoeschenNachname, gbc_lblBewerberLoeschenNachname);
-		
+
 		bewerberLoeschenNachname = new JTextField();
 		bewerberLoeschenNachname.setFont(new Font("Arial", Font.PLAIN, 12));
 		bewerberLoeschenNachname.addKeyListener(new KeyAdapter() {
-	         public void keyTyped(KeyEvent e) {
-	             char c = e.getKeyChar();
-	             if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_SPACE) || c==KeyEvent.VK_DELETE || c==KeyEvent.VK_MINUS)) {
-	                 e.consume();  // ignore the event if it's not an alphabet
-	             }
-	         }
-	      });
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) || c == KeyEvent.VK_DELETE
+						|| c == KeyEvent.VK_MINUS)) {
+					e.consume(); // ignore the event if it's not an alphabet
+				}
+			}
+		});
 		GridBagConstraints gbc_bewerberLoeschenNachname = new GridBagConstraints();
 		gbc_bewerberLoeschenNachname.insets = new Insets(0, 0, 5, 0);
 		gbc_bewerberLoeschenNachname.fill = GridBagConstraints.HORIZONTAL;
@@ -100,7 +101,7 @@ public class BewerberLoeschen extends JPanel {
 		gbc_bewerberLoeschenNachname.gridy = 4;
 		add(bewerberLoeschenNachname, gbc_bewerberLoeschenNachname);
 		bewerberLoeschenNachname.setColumns(10);
-		
+
 		JLabel lblBewerberLoeschenNummer = new JLabel("Nummer*");
 		lblBewerberLoeschenNummer.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_lblBewerberLoeschenNummer = new GridBagConstraints();
@@ -109,7 +110,7 @@ public class BewerberLoeschen extends JPanel {
 		gbc_lblBewerberLoeschenNummer.gridx = 1;
 		gbc_lblBewerberLoeschenNummer.gridy = 5;
 		add(lblBewerberLoeschenNummer, gbc_lblBewerberLoeschenNummer);
-		
+
 		bewerberLoeschenNummer = new JTextField();
 		bewerberLoeschenNummer.setFont(new Font("Arial", Font.PLAIN, 12));
 		GridBagConstraints gbc_bewerberLoeschenNummer = new GridBagConstraints();
@@ -119,7 +120,7 @@ public class BewerberLoeschen extends JPanel {
 		gbc_bewerberLoeschenNummer.gridy = 6;
 		add(bewerberLoeschenNummer, gbc_bewerberLoeschenNummer);
 		bewerberLoeschenNummer.setColumns(10);
-		
+
 		JButton bewerberLoeschen = new JButton("Loeschen");
 		bewerberLoeschen.setFont(new Font("Arial", Font.BOLD, 12));
 		bewerberLoeschen.addActionListener(e -> bwLoeschen());
@@ -130,12 +131,12 @@ public class BewerberLoeschen extends JPanel {
 		add(bewerberLoeschen, gbc_bewerberLoeschen);
 
 	}
-	
+
 	/**
-	 * Methode um Bewerber zu löschen
+	 * Methode um Bewerber zu loeschen
 	 */
 	public static void bwLoeschen() {
-		
+
 		String name = bewerberLoeschenName.getText();
 		String nachname = bewerberLoeschenNachname.getText();
 		String idInput = bewerberLoeschenNummer.getText();
@@ -143,7 +144,7 @@ public class BewerberLoeschen extends JPanel {
 		if (name.equals("") || nachname.equals("") || idInput.equals("")) {
 
 			JOptionPane.showMessageDialog(null, "Deine Eingabe ist nicht vollstaendig. Bitte aendere deine Eingabe");
-			
+
 		} else {
 			ArrayList<Bewerber> bewerber = BewerberDB.ausgebenBewerberAlle();
 
@@ -151,24 +152,25 @@ public class BewerberLoeschen extends JPanel {
 
 				Bewerber b = bewerber.get(i);
 				String id = "" + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb();
-				
+
 				if (b.getName().equals(name) && b.getNachname().equals(nachname) && id.equals(idInput)) {
 
-					BewerberDB.loeschenBewerber(idInput);;
-					
+					BewerberDB.loeschenBewerber(idInput);
+					;
+
 					bewerberLoeschenName.setText("");
 					bewerberLoeschenNachname.setText("");
 					bewerberLoeschenNummer.setText("");
-					
-					JOptionPane.showMessageDialog(null, "Der Bewerber "+name+" "+ nachname+" wurde geloescht!");
+
+					JOptionPane.showMessageDialog(null, "Der Bewerber " + name + " " + nachname + " wurde geloescht!");
 
 				}
 			}
 		}
 	}
-	
+
 	public static void clearAll() {
-		
+
 		bewerberLoeschenName.setText("");
 		bewerberLoeschenNachname.setText("");
 		bewerberLoeschenNummer.setText("");
