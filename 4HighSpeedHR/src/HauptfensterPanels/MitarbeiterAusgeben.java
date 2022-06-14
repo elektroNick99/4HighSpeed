@@ -216,7 +216,7 @@ public class MitarbeiterAusgeben extends JPanel {
 			Paragraph par2 = new Paragraph(" ");
 			doc.add(par2);
 
-			PdfPTable tabelle = new PdfPTable(new float[] { 1, 1, 1, 1, 1, 1, 0.8f });
+			PdfPTable tabelle = new PdfPTable(new float[] { 1, 1, 1, 1, 1.3f, 1, 0.8f });
 			tabelle.setWidthPercentage(100);
 			PdfPCell c1 = new PdfPCell(new Phrase("\nID\n\n"));
 			c1.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -250,16 +250,18 @@ public class MitarbeiterAusgeben extends JPanel {
 
 			for (int i = 0; i < mitarbeiterListe.size(); i++) {
 				Mitarbeiter m = mitarbeiterListe.get(i);
-				String id = "" + m.getName().charAt(0) + m.getNachname().charAt(0) + m.getGeb();
-				tabelle.addCell(id);
-				tabelle.addCell(m.getName());
-				tabelle.addCell(m.getNachname());
-				tabelle.addCell(Long.valueOf(m.getTel()).toString());
-				tabelle.addCell(m.getAbteilung());
-				tabelle.addCell(m.getStatus());
-				PdfPCell c2 = new PdfPCell(new Phrase(Integer.valueOf(m.getGehalt()).toString() + ",00 €"));
-				c2.setHorizontalAlignment(Element.ALIGN_RIGHT);
-				tabelle.addCell(c2);
+				if(m.getStatus().equals("eingestellt")) {
+					String id = "" + m.getName().charAt(0) + m.getNachname().charAt(0) + m.getGeb();
+					tabelle.addCell(id);
+					tabelle.addCell(m.getName());
+					tabelle.addCell(m.getNachname());
+					tabelle.addCell(Long.valueOf(m.getTel()).toString());
+					tabelle.addCell(m.getAbteilung());
+					tabelle.addCell(m.getStatus());
+					PdfPCell c2 = new PdfPCell(new Phrase(Integer.valueOf(m.getGehalt()).toString() + ",00 €"));
+					c2.setHorizontalAlignment(Element.ALIGN_RIGHT);
+					tabelle.addCell(c2);
+				}
 			}
 
 			doc.add(tabelle);

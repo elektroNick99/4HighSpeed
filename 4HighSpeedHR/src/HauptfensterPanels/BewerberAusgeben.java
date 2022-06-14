@@ -96,7 +96,7 @@ public class BewerberAusgeben extends JPanel {
 
 		for (int i = 0; i < bewerberListe.size(); i++) {
 			Bewerber b = bewerberListe.get(i);
-			result.append(i + 1 + ". Mitarbeiter: " + b.getName() + " " + b.getNachname() + ":\n");
+			result.append(i + 1 + ". Bewerber: " + b.getName() + " " + b.getNachname() + ":\n");
 			result.append("Bewerber ID: " + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb() + "\n");
 			result.append("Anschrift:" + "\n");
 			result.append(b.getStrasse() + " " + b.getHnr() + "\n");
@@ -179,13 +179,16 @@ public class BewerberAusgeben extends JPanel {
 
 			for (int i = 0; i < bewerberListe.size(); i++) {
 				Bewerber b = bewerberListe.get(i);
-				String id = "" + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb();
-				tabelle.addCell(id);
-				tabelle.addCell(b.getName());
-				tabelle.addCell(b.getNachname());
-				tabelle.addCell(Long.valueOf(b.getTel()).toString());
-				tabelle.addCell(b.getNotizen());
-				tabelle.addCell(b.getStatus());
+				if(b.getStatus().equals("nicht eingestellt")) {
+					String id = "" + b.getName().charAt(0) + b.getNachname().charAt(0) + b.getGeb();
+					tabelle.addCell(id);
+					tabelle.addCell(b.getName());
+					tabelle.addCell(b.getNachname());
+					tabelle.addCell(Long.valueOf(b.getTel()).toString());
+					tabelle.addCell(b.getNotizen());
+					tabelle.addCell(b.getStatus());
+				}
+
 			}
 
 			doc.add(tabelle);

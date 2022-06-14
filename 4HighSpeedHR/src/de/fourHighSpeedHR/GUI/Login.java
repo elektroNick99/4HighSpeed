@@ -105,6 +105,9 @@ public class Login {
 		gbc_btnLogin.gridx = 1;
 		gbc_btnLogin.gridy = 2;
 		frame.getContentPane().add(btnLogin, gbc_btnLogin);
+		
+		frame.pack();
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
 	}

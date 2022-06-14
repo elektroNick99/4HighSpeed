@@ -342,6 +342,8 @@ public class Hauptfenster {
 		mNeuerBenutzer = new MitarbieterNeuerBenuter();
 		panel_2.add(mNeuerBenutzer);
 
+		frame.pack();
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
 	}
