@@ -22,14 +22,14 @@ import de.fourHighSpeedHR.objects.Mitarbeiter;
 /**
  * Panel fuer das anlegen eines neuen Benutzers
  */
-public class MitarbieterNeuerBenuter extends JPanel {
+public class MitarbeiterNeuerBenutzer extends JPanel {
 
 	private static JTextField tfName, tfNachname, tfID;
 	private static JTextField tfBenutzername;
 	private static JPasswordField tfPasswort;
 	private static JPasswordField tfPasswortWhd;
 
-	public MitarbieterNeuerBenuter() {
+	public MitarbeiterNeuerBenutzer() {
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 60, 276, 0, 0 };

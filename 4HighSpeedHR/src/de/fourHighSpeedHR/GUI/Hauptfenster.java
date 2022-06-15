@@ -22,7 +22,7 @@ import HauptfensterPanels.MitarbeiterAendern;
 import HauptfensterPanels.MitarbeiterAnlegen;
 import HauptfensterPanels.MitarbeiterAusgeben;
 import HauptfensterPanels.MitarbeiterLoeschen;
-import HauptfensterPanels.MitarbieterNeuerBenuter;
+import HauptfensterPanels.MitarbeiterNeuerBenutzer;
 import HauptfensterPanels.Start;
 
 /**
@@ -339,7 +339,7 @@ public class Hauptfenster {
 		panel_2.add(mLoeschen);
 		mAusgeben = new MitarbeiterAusgeben();
 		panel_2.add(mAusgeben);
-		mNeuerBenutzer = new MitarbieterNeuerBenuter();
+		mNeuerBenutzer = new MitarbeiterNeuerBenutzer();
 		panel_2.add(mNeuerBenutzer);
 
 		frame.pack();
@@ -575,8 +575,8 @@ public class Hauptfenster {
 		mAusgeben.setVisible(false);
 		start.setVisible(false);
 		mNeuerBenutzer.setVisible(true);
-		MitarbieterNeuerBenuter.clearAll();
-		MitarbieterNeuerBenuter.disableTextField();
+		MitarbeiterNeuerBenutzer.clearAll();
+		MitarbeiterNeuerBenutzer.disableTextField();
 	}
 
 	/**
