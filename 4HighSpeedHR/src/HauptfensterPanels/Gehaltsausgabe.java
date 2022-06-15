@@ -336,19 +336,19 @@ public class Gehaltsausgabe extends JPanel {
 				if (eingestellt) {
 					if (ma.getStatus().equals("eingestellt")) {
 
-						result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " â‚¬\n\n");
+						result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " €\n\n");
 						gehaltsumme += ma.getGehalt();
 					}
 				} else {
 					if (ma.getStatus().equals("gekuendigt")) {
 
-						result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " â‚¬\n\n");
+						result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " €\n\n");
 						gehaltsumme += ma.getGehalt();
 					}
 				}
 
 			}
-			result.append("Der gesamt Gehaltaufwand der Firma betraegt " + gehaltsumme + " â‚¬ fuer " + "" + " Monate.");
+			result.append("Der gesamt Gehaltaufwand der Firma betraegt " + gehaltsumme + " € fuer " + "" + " Monate.");
 			lblListeAusgabe.setText(zeilenFormattieren(result.toString()));
 		} else {
 			JOptionPane.showMessageDialog(null,
@@ -423,7 +423,7 @@ public class Gehaltsausgabe extends JPanel {
 					tabelle.addCell(m.getName());
 					tabelle.addCell(m.getNachname());
 					tabelle.addCell(m.getAbteilung());
-					PdfPCell c2 = new PdfPCell(new Phrase(Integer.valueOf(m.getGehalt()).toString() + ",00 â‚¬"));
+					PdfPCell c2 = new PdfPCell(new Phrase(Integer.valueOf(m.getGehalt()).toString() + ",00 €"));
 					c2.setHorizontalAlignment(Element.ALIGN_RIGHT);
 					tabelle.addCell(c2);
 					gehaltSumme += m.getGehalt();
@@ -441,7 +441,7 @@ public class Gehaltsausgabe extends JPanel {
 			Paragraph par5 = new Paragraph(" ");
 			doc.add(par5);
 
-			Paragraph par6 = new Paragraph(Integer.valueOf(gehaltSumme).toString() + ",00 â‚¬");
+			Paragraph par6 = new Paragraph(Integer.valueOf(gehaltSumme).toString() + ",00 €");
 			doc.add(par6);
 
 			doc.close();

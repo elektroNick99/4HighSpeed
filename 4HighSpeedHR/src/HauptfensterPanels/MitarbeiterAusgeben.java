@@ -142,7 +142,7 @@ public class MitarbeiterAusgeben extends JPanel {
 					result.append("Tel.: " + m.getTel() + "\n");
 					result.append("Geburtstag: " + m.getGeb() + "\n");
 					result.append("Abteilung: " + m.getAbteilung() + "\n");
-					result.append("Gehalt: " + m.getGehalt() + " â‚¬\n");
+					result.append("Gehalt: " + m.getGehalt() + " €\n");
 					result.append("Status: " + m.getStatus() + " \n" + "\n" + "\n");
 				}
 			}
@@ -159,7 +159,7 @@ public class MitarbeiterAusgeben extends JPanel {
 					result.append("Tel.: " + m.getTel() + "\n");
 					result.append("Geburtstag: " + m.getGeb() + "\n");
 					result.append("Abteilung: " + m.getAbteilung() + "\n");
-					result.append("Gehalt: " + m.getGehalt() + " â‚¬\n");
+					result.append("Gehalt: " + m.getGehalt() + " €\n");
 					result.append("Status: " + m.getStatus() + " \n" + "\n" + "\n");
 				}
 			}
@@ -175,7 +175,7 @@ public class MitarbeiterAusgeben extends JPanel {
 				result.append("Tel.: " + m.getTel() + "\n");
 				result.append("Geburtstag: " + m.getGeb() + "\n");
 				result.append("Abteilung: " + m.getAbteilung() + "\n");
-				result.append("Gehalt: " + m.getGehalt() + " â‚¬\n");
+				result.append("Gehalt: " + m.getGehalt() + " €\n");
 				result.append("Status: " + m.getStatus() + " \n" + "\n" + "\n");
 
 			}
@@ -258,7 +258,7 @@ public class MitarbeiterAusgeben extends JPanel {
 					tabelle.addCell(Long.valueOf(m.getTel()).toString());
 					tabelle.addCell(m.getAbteilung());
 					tabelle.addCell(m.getStatus());
-					PdfPCell c2 = new PdfPCell(new Phrase(Integer.valueOf(m.getGehalt()).toString() + ",00 â‚¬"));
+					PdfPCell c2 = new PdfPCell(new Phrase(Integer.valueOf(m.getGehalt()).toString() + ",00 €"));
 					c2.setHorizontalAlignment(Element.ALIGN_RIGHT);
 					tabelle.addCell(c2);
 				}
