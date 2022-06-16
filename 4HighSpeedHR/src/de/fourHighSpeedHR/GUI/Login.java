@@ -156,11 +156,11 @@ public class Login {
 
 				if (anzahlVersuche == 0) {
 					JOptionPane.showMessageDialog(null,
-							"Das Passwort und der Benutzername stimmen nicht Ueberein. Das Programm schlie√üt sich jetzt!");
+							"Das Passwort und der Benutzername stimmen nicht Ueberein. Das Programm schlieﬂt sich jetzt!");
 				} else {
 					JOptionPane.showMessageDialog(null,
 							"Das Passwort und der Benutzername stimmen nicht Ueberein. Du hast noch " + anzahlVersuche
-									+ " Veruche Uebrig");
+									+ " Versuche Uebrig");
 				}
 			}
 		}
