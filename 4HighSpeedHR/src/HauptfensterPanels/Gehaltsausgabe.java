@@ -49,8 +49,6 @@ public class Gehaltsausgabe extends JPanel {
 	private static JTextField mitarbeiterGehaltMonate;
 	private static JLabel lblMitarbeiter;
 	private static JLabel lblListeAusgabe;
-	private static JRadioButton rbEingestellt, rbNichtEingestellt;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	public Gehaltsausgabe() {
 
@@ -197,28 +195,6 @@ public class Gehaltsausgabe extends JPanel {
 		add(mitarbeiterGehaltMonate, gbc_mitarbeiterGehaltMonate);
 		mitarbeiterGehaltMonate.setColumns(10);
 
-		rbEingestellt = new JRadioButton("Eingestellt");
-		buttonGroup.add(rbEingestellt);
-		rbEingestellt.setSelected(true);
-		rbEingestellt.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_rbEingestellt = new GridBagConstraints();
-		gbc_rbEingestellt.anchor = GridBagConstraints.WEST;
-		gbc_rbEingestellt.insets = new Insets(0, 0, 5, 5);
-		gbc_rbEingestellt.gridx = 0;
-		gbc_rbEingestellt.gridy = 10;
-		add(rbEingestellt, gbc_rbEingestellt);
-
-		rbNichtEingestellt = new JRadioButton("Nicht eingestellt");
-		buttonGroup.add(rbNichtEingestellt);
-		rbNichtEingestellt.setHorizontalAlignment(SwingConstants.LEFT);
-		rbNichtEingestellt.setFont(new Font("Arial", Font.PLAIN, 12));
-		GridBagConstraints gbc_rbNichtEingestellt = new GridBagConstraints();
-		gbc_rbNichtEingestellt.anchor = GridBagConstraints.WEST;
-		gbc_rbNichtEingestellt.insets = new Insets(0, 0, 5, 5);
-		gbc_rbNichtEingestellt.gridx = 0;
-		gbc_rbNichtEingestellt.gridy = 11;
-		add(rbNichtEingestellt, gbc_rbNichtEingestellt);
-
 		lblMitarbeiter = new JLabel("");
 		GridBagConstraints gbc_lblMitarbeiter = new GridBagConstraints();
 		gbc_lblMitarbeiter.insets = new Insets(0, 0, 5, 5);
@@ -308,13 +284,6 @@ public class Gehaltsausgabe extends JPanel {
 	public static void rechnenGehaltGesamt() {
 
 		int monate = 0;
-		boolean eingestellt;
-
-		if (rbEingestellt.isSelected()) {
-			eingestellt = true;
-		} else {
-			eingestellt = false;
-		}
 
 		if (!mitarbeiterGehaltMonate.getText().toString().equals("")) {
 
@@ -333,21 +302,14 @@ public class Gehaltsausgabe extends JPanel {
 
 				Mitarbeiter ma = mitarbeiter.get(i);
 
-				if (eingestellt) {
-					if (ma.getStatus().equals("eingestellt")) {
+				if (ma.getStatus().equals("eingestellt")) {
 
-						result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " €\n\n");
-						gehaltsumme += ma.getGehalt();
-					}
-				} else {
-					if (ma.getStatus().equals("gekuendigt")) {
-
-						result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " €\n\n");
-						gehaltsumme += ma.getGehalt();
-					}
+					result.append(ma.getName() + " " + ma.getNachname() + ":\n " + ma.getGehalt() + " €\n\n");
+					gehaltsumme += ma.getGehalt();
 				}
 
 			}
+
 			result.append("Der gesamt Gehaltaufwand der Firma betraegt " + gehaltsumme + " € fuer " + "" + " Monate.");
 			lblListeAusgabe.setText(zeilenFormattieren(result.toString()));
 		} else {
